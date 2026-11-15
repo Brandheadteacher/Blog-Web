@@ -498,10 +498,12 @@ section{ padding:76px 0; }
 
 /* ============ FOOTER ============ */
 footer{ border-top:3px solid var(--red); padding:54px 0 36px; }
-.foot-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px; }
+.foot-grid{ display:grid; grid-template-columns:1fr 0.8fr 1.6fr; gap:40px; }
 @media (max-width:760px){ .foot-grid{ grid-template-columns:1fr; gap:30px; } }
 footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; }
 .foot-links{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:9px; }
+.foot-fav-cols{ display:grid; grid-template-columns:1fr 1fr; gap:0 24px; }
+@media (max-width:480px){ .foot-fav-cols{ grid-template-columns:1fr; gap:9px 0; } }
 .foot-links a{ color:var(--ink-soft); text-decoration:none; font-size:14px; }
 .foot-links a:hover{ color:var(--ink); text-decoration:underline; }
 .foot-social{ display:flex; gap:12px; margin-top:38px; padding-top:28px; border-top:1px dashed var(--line-strong); }
@@ -842,7 +844,7 @@ footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-
       <div>
         <img class="brand-logo-img lg" src="logo.png" width="1285" height="324" alt="Brandheadteacher">
         <p style="color:var(--ink-soft); font-size:14px; max-width:36ch; margin-top:16px;" data-i18n="foot_tagline">Blog o svijetu reklame i marketing consulting za brendove koji ne žele biti dekoracija.</p>
-        <p style="margin-top:16px; font-size:14px;"><a href="mailto:brand@brandheadteacher.com">brand@brandheadteacher.com</a> · <a href="https://www.linkedin.com/in/brandheadteacher/" target="_blank" rel="noopener">LinkedIn</a></p>
+        <p style="margin-top:16px; font-size:14px;"><a href="mailto:brand@brandheadteacher.com">brand@brandheadteacher.com</a></p>
       </div>
       <div>
         <h4 data-i18n="foot_nav_h4">Navigacija</h4>
@@ -856,13 +858,28 @@ footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-
       </div>
       <div>
         <h4 data-i18n="foot_fav_h4">Favoriti struke</h4>
-        <ul class="foot-links">
-          <li><a href="#">Campaign</a></li>
-          <li><a href="#">Adweek</a></li>
-          <li><a href="#">Creative Review</a></li>
-          <li><a href="#">The Drum</a></li>
-          <li><a href="#">Lürzer's Archive</a></li>
-        </ul>
+        <div class="foot-fav-cols">
+          <ul class="foot-links">
+            <li><a href="https://adage.com/" target="_blank" rel="noopener">Adage</a></li>
+            <li><a href="https://www.adforum.com/" target="_blank" rel="noopener">Adforum</a></li>
+            <li><a href="https://www.adsoftheworld.com/" target="_blank" rel="noopener">Ads of the World</a></li>
+            <li><a href="https://www.adweek.com/" target="_blank" rel="noopener">Adweek</a></li>
+            <li><a href="https://www.brandingmag.com/" target="_blank" rel="noopener">Branding Mag</a></li>
+            <li><a href="https://www.campaignlive.co.uk/?src_site=brandrepublic" target="_blank" rel="noopener">Campaign</a></li>
+            <li><a href="https://www.creativereview.co.uk/" target="_blank" rel="noopener">Creative Review</a></li>
+            <li><a href="https://www.horizont.net/" target="_blank" rel="noopener">Horizont</a></li>
+          </ul>
+          <ul class="foot-links">
+            <li><a href="https://www.luerzersarchive.com/" target="_blank" rel="noopener">Lürzer's Archive</a></li>
+            <li><a href="https://museaward.com/category.php" target="_blank" rel="noopener">Muse</a></li>
+            <li><a href="https://www.packagingeurope.com/" target="_blank" rel="noopener">Packaging Europe</a></li>
+            <li><a href="https://www.thebrandingjournal.com/" target="_blank" rel="noopener">The Branding Journal</a></li>
+            <li><a href="https://www.thedrum.com/" target="_blank" rel="noopener">The Drum</a></li>
+            <li><a href="https://archive.gunnreport.com/?lvl=1" target="_blank" rel="noopener">The Gunn Report</a></li>
+            <li><a href="https://www.trendhunter.com/" target="_blank" rel="noopener">Trend Hunter</a></li>
+            <li><a href="https://worldbranddesign.com/" target="_blank" rel="noopener">World Brand Design</a></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="foot-social">

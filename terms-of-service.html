@@ -46,7 +46,7 @@
   *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
 }
 *{box-sizing:border-box;}
-html{background:var(--paper);}
+html{background:var(--paper); scroll-padding-top:84px;}
 body{
   margin:0; background:var(--paper); color:var(--ink);
   font-family:var(--sans); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
@@ -101,9 +101,20 @@ nav.primary a:hover{ color:var(--ink); }
 }
 .lang-switch button[aria-current="true"]{ color:var(--red); font-weight:700; }
 .lang-switch .sep{ color:var(--line-strong); }
-.burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
-.burger span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
+.burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; flex:none; }
+.burger span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; transition:transform .2s ease, opacity .2s ease; }
+.burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+.mobile-nav{ display:none; flex-direction:column; gap:2px; border-top:1px solid var(--line); background:var(--paper); }
+.mobile-nav a{
+  font-family:var(--mono); font-size:13px; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--ink-soft); text-decoration:none; padding:16px 28px; border-bottom:1px dashed var(--line);
+}
+.mobile-nav a:hover{ color:var(--ink); }
+.mobile-nav.open{ display:flex; }
 @media (max-width:860px){ nav.primary{ display:none; } .burger{ display:block; } }
+@media (min-width:861px){ .mobile-nav{ display:none !important; } }
 
 /* ============ LEGAL PAGE ============ */
 .article-head{ padding:54px 0 36px; }
@@ -171,9 +182,15 @@ html[data-lang="en"] .lang-hr{ display:none; }
       </div>
       <a class="btn btn-primary btn-sm lang-hr" href="index.html#suradnja">Zatraži konzultacije</a>
       <a class="btn btn-primary btn-sm lang-en" href="index.html#suradnja">Request a consultation</a>
-      <button class="burger" aria-label="Meni"><span></span><span></span><span></span></button>
+      <button class="burger" aria-label="Meni" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
     </div>
   </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html#blog" class="lang-hr">Blog</a><a href="index.html#blog" class="lang-en">Blog</a>
+    <a href="index.html#usluge" class="lang-hr">Usluge</a><a href="index.html#usluge" class="lang-en">Services</a>
+    <a href="index.html#suradnja" class="lang-hr">Suradnja</a><a href="index.html#suradnja" class="lang-en">Work With Me</a>
+    <a href="index.html#kontakt" class="lang-hr">Kontakt</a><a href="index.html#kontakt" class="lang-en">Contact</a>
+  </nav>
 </header>
 
 <main>
@@ -339,6 +356,20 @@ document.querySelectorAll('#langSwitch button').forEach(function(btn){
   btn.addEventListener('click', function(){
     if(btn.dataset.lang !== CURRENT_LANG) applyLang(btn.dataset.lang);
   });
+});
+
+// ============ MOBILE NAV ============
+var burgerBtn = document.querySelector('.burger');
+var mobileNav = document.getElementById('mobileNav');
+function setMobileNav(open){
+  mobileNav.classList.toggle('open', open);
+  burgerBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+burgerBtn.addEventListener('click', function(){
+  setMobileNav(!mobileNav.classList.contains('open'));
+});
+mobileNav.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click', function(){ setMobileNav(false); });
 });
 
 applyLang(CURRENT_LANG);

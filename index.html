@@ -1,4 +1,8 @@
+<!doctype html>
+<html lang="hr">
+<head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Svijet Reklame</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,7 +70,7 @@
 }
 
 *{box-sizing:border-box;}
-html{background:var(--paper);}
+html{background:var(--paper); scroll-padding-top:84px;}
 body{
   margin:0;
   background:var(--paper);
@@ -208,11 +212,27 @@ nav.primary a:hover{ color:var(--ink); }
 }
 .lang-switch button[aria-current="true"]{ color:var(--red); font-weight:700; }
 .lang-switch .sep{ color:var(--line-strong); }
-.burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
-.burger span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
+.burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; flex:none; }
+.burger span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; transition:transform .2s ease, opacity .2s ease; }
+.burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+.mobile-nav{
+  display:none; flex-direction:column; gap:2px;
+  border-top:1px solid var(--line); background:var(--paper);
+}
+.mobile-nav a{
+  font-family:var(--mono); font-size:13px; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--ink-soft); text-decoration:none; padding:16px 28px; border-bottom:1px dashed var(--line);
+}
+.mobile-nav a:hover{ color:var(--ink); }
+.mobile-nav.open{ display:flex; }
 @media (max-width:860px){
   nav.primary{ display:none; }
   .burger{ display:block; }
+}
+@media (min-width:861px){
+  .mobile-nav{ display:none !important; }
 }
 
 /* ============ HERO ============ */
@@ -523,6 +543,8 @@ footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-
 
 .visually-hidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
 </style>
+</head>
+<body>
 
 <header>
   <div class="wrap headerbar">
@@ -540,9 +562,15 @@ footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-
         <button type="button" data-lang="en" aria-current="false">ENG</button>
       </div>
       <a class="btn btn-primary btn-sm" href="#suradnja" data-i18n="nav_cta">Zatraži konzultacije</a>
-      <button class="burger" aria-label="Meni" data-i18n-aria="burger_aria"><span></span><span></span><span></span></button>
+      <button class="burger" aria-label="Meni" aria-expanded="false" aria-controls="mobileNav" data-i18n-aria="burger_aria"><span></span><span></span><span></span></button>
     </div>
   </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#blog" data-i18n="nav_blog">Blog</a>
+    <a href="#usluge" data-i18n="nav_usluge">Usluge</a>
+    <a href="#suradnja" data-i18n="nav_suradnja">Suradnja</a>
+    <a href="#kontakt" data-i18n="nav_kontakt">Kontakt</a>
+  </nav>
 </header>
 
 <main id="top">
@@ -1140,6 +1168,20 @@ document.querySelectorAll('#langSwitch button').forEach(function(btn){
   });
 });
 
+// ============ MOBILE NAV ============
+var burgerBtn = document.querySelector('.burger');
+var mobileNav = document.getElementById('mobileNav');
+function setMobileNav(open){
+  mobileNav.classList.toggle('open', open);
+  burgerBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+burgerBtn.addEventListener('click', function(){
+  setMobileNav(!mobileNav.classList.contains('open'));
+});
+mobileNav.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click', function(){ setMobileNav(false); });
+});
+
 applyLang(CURRENT_LANG);
 
 // Newsletter demo
@@ -1336,3 +1378,5 @@ document.getElementById('nlForm').addEventListener('submit', function(e){
   };
 })();
 </script>
+</body>
+</html>

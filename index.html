@@ -489,9 +489,10 @@ section{ padding:76px 0; }
 
 .success{ text-align:center; padding:30px 0; }
 .success .stampbig{
-  width:84px; height:84px; border:2.5px solid var(--red); border-radius:50%; color:var(--red);
-  display:flex; align-items:center; justify-content:center; margin:0 auto 20px; transform:rotate(-6deg);
-  font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-align:center; line-height:1.2;
+  width:auto; height:36px; border:none; border-radius:8px; color:#fff; background:var(--red);
+  display:inline-flex; align-items:center; justify-content:center; margin:0 auto 20px; padding:0 16px;
+  transform:rotate(-6deg); white-space:nowrap; box-shadow:0 10px 20px -8px rgba(0,0,0,0.4);
+  font-family:var(--mono); font-size:12px; letter-spacing:0.1em; text-align:center; text-transform:uppercase;
 }
 .success h3{ font-size:24px; }
 .success p{ color:var(--ink-soft); max-width:40ch; margin:10px auto 0; }
@@ -821,7 +822,7 @@ footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-
               <div class="review-box" id="reviewBox"></div>
             </div>
             <div class="success" id="successBox" style="display:none;">
-              <div class="stampbig" data-i18n-html="success_stamp">PRIMLJE<br>NO</div>
+              <div class="stampbig" data-i18n-html="success_stamp">PRIMLJENO</div>
               <h3 id="succHeading">Hvala, <span id="succName"></span>.</h3>
               <p id="succBody">Upit je zaprimljen. Javljam se na <strong id="succEmail"></strong> u roku od 48 sati.</p>
             </div>
@@ -893,9 +894,9 @@ footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-
     <div class="foot-bottom">
       <span>© <span id="yr"></span> Brandheadteacher &amp; Brandactivist</span>
       <nav class="foot-legal" aria-label="Pravne informacije" data-i18n-aria="foot_legal_aria">
-        <a href="#" data-i18n="foot_legal_cookies">Postavke kolačića</a>
-        <a href="#" data-i18n="foot_legal_privacy">Pravila privatnosti</a>
-        <a href="#" data-i18n="foot_legal_terms">Uvjeti korištenja</a>
+        <a href="cookie-policy.html" data-i18n="foot_legal_cookies">Postavke kolačića</a>
+        <a href="privacy-policy.html" data-i18n="foot_legal_privacy">Pravila privatnosti</a>
+        <a href="terms-of-service.html" data-i18n="foot_legal_terms">Uvjeti korištenja</a>
         <a href="#kontakt" data-i18n="foot_legal_contact">Kontakt</a>
       </nav>
     </div>
@@ -988,7 +989,7 @@ var I18N = {
     step4_eyebrow:'Korak 4 od 4', step4_h3:'Provjerite prije slanja',
     review_k_type:'Tip suradnje', review_k_name:'Ime', review_k_company:'Tvrtka', review_k_email:'Email', review_k_budget:'Proračun', review_k_message:'Poruka',
     review_budget_unset:'Nenaznačeno',
-    success_stamp:'PRIMLJE<br>NO',
+    success_stamp:'PRIMLJENO',
     success_heading_tpl:'Hvala, {name}.',
     success_body_tpl:'Upit je zaprimljen. Javljam se na {email} u roku od 48 sati.',
     btn_back:'← Natrag', btn_next:'Dalje →', btn_submit:'Pošalji upit',
@@ -1079,7 +1080,7 @@ var I18N = {
     step4_eyebrow:'Step 4 of 4', step4_h3:'Review before sending',
     review_k_type:'Collaboration type', review_k_name:'Name', review_k_company:'Company', review_k_email:'Email', review_k_budget:'Budget', review_k_message:'Message',
     review_budget_unset:'Not specified',
-    success_stamp:'RECEI<br>VED',
+    success_stamp:'RECEIVED',
     success_heading_tpl:'Thanks, {name}.',
     success_body_tpl:'Your request has been received. I\'ll get back to you at {email} within 48 hours.',
     btn_back:'← Back', btn_next:'Next →', btn_submit:'Send request',

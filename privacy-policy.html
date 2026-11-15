@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pravila privatnosti — Svijet Reklame</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper: #F6F2E9;
+  --paper-raised: #EFE9DA;
+  --paper-stamp: #E9E1CC;
+  --ink: #1A1714;
+  --ink-soft: #5B5650;
+  --ink-faint: #8C8678;
+  --red: #FF0000;
+  --red-deep: #B30000;
+  --red-soft: #FFE1DE;
+  --line: #D9D0BC;
+  --line-strong: #C6BA9E;
+  --shadow: rgba(32,29,26,0.12);
+  --focus: #1A1714;
+  --serif: "Poppins", "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --sans: "Poppins", "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", "Courier New", monospace;
+  --maxw: 1180px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper: #1B1916; --paper-raised: #252220; --paper-stamp: #2C2824;
+    --ink: #ECE6D8; --ink-soft: #AFA695; --ink-faint: #7A7367;
+    --red: #FF4A3D; --red-deep: #FF6B5E; --red-soft: #45130F;
+    --line: #3A352E; --line-strong: #4A433A; --shadow: rgba(0,0,0,0.45); --focus: #ECE6D8;
+  }
+}
+:root[data-theme="dark"]{
+  --paper: #1B1916; --paper-raised: #252220; --paper-stamp: #2C2824;
+  --ink: #ECE6D8; --ink-soft: #AFA695; --ink-faint: #7A7367;
+  --red: #FF4A3D; --red-deep: #FF6B5E; --red-soft: #45130F;
+  --line: #3A352E; --line-strong: #4A433A; --shadow: rgba(0,0,0,0.45); --focus: #ECE6D8;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+*{box-sizing:border-box;}
+html{background:var(--paper);}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%; display:block;}
+a{color:var(--red);}
+::selection{background:var(--red-soft); color:var(--ink);}
+
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+@media (max-width:640px){ .wrap{padding:0 18px;} }
+
+.eyebrow{
+  font-family:var(--mono); font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--red-deep); font-weight:700; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{ content:none; }
+
+h1,h2,h3{ font-family:var(--serif); font-weight:800; letter-spacing:-0.01em; text-wrap:balance; margin:0; color:var(--ink); }
+
+.btn{
+  font-family:var(--sans); font-weight:800; font-size:14.5px; letter-spacing:0.01em;
+  display:inline-flex; align-items:center; gap:8px; padding:14px 26px; border-radius:999px;
+  border:2px solid var(--ink); background:transparent; color:var(--ink); cursor:pointer; text-decoration:none;
+  transition:transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.btn:hover{ transform:translateY(-2px); box-shadow:0 14px 26px -14px var(--shadow); }
+.btn:focus-visible{ outline:3px solid var(--focus); outline-offset:2px; }
+.btn-primary{ background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 14px 28px -12px rgba(255,0,0,0.45); }
+.btn-primary:hover{ background:var(--red-deep); border-color:var(--red-deep); box-shadow:0 18px 34px -12px rgba(255,0,0,0.55); }
+.btn-ghost{ border-color:transparent; padding-left:0; padding-right:0; }
+.btn-ghost:hover{ box-shadow:none; text-decoration:underline; transform:none; }
+.btn-sm{ padding:9px 16px; font-size:13px; }
+
+header{
+  position:sticky; top:0; z-index:40;
+  background:color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter:blur(6px); border-bottom:1px solid var(--line);
+}
+.headerbar{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; gap:20px; }
+.brand-logo-img{ height:42px; width:auto; display:block; }
+nav.primary{ display:flex; align-items:center; gap:30px; }
+nav.primary a{
+  font-family:var(--mono); font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-soft); text-decoration:none;
+}
+nav.primary a:hover{ color:var(--ink); }
+.nav-cta{ display:flex; align-items:center; gap:18px; }
+.lang-switch{ display:flex; align-items:center; gap:2px; font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em; }
+.lang-switch button{
+  background:none; border:none; cursor:pointer; padding:4px 5px;
+  color:var(--ink-faint); font-family:inherit; font-size:inherit; letter-spacing:inherit;
+}
+.lang-switch button[aria-current="true"]{ color:var(--red); font-weight:700; }
+.lang-switch .sep{ color:var(--line-strong); }
+.burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
+.burger span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
+@media (max-width:860px){ nav.primary{ display:none; } .burger{ display:block; } }
+
+/* ============ LEGAL PAGE ============ */
+.article-head{ padding:54px 0 36px; }
+.back-link{
+  font-family:var(--mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+  text-decoration:none; color:var(--ink-soft); display:inline-flex; gap:8px; margin-bottom:28px;
+}
+.back-link:hover{ color:var(--red); }
+.article-title{ font-size:clamp(30px,4.6vw,48px); line-height:1.08; margin-top:16px; max-width:22ch; }
+.updated{
+  margin-top:20px; font-family:var(--mono); font-size:12.5px; letter-spacing:0.04em;
+  color:var(--ink-faint); text-transform:uppercase;
+}
+
+.article-body{ max-width:680px; margin:0 auto; padding:30px 28px 60px; }
+.article-body p{ font-size:17px; line-height:1.75; color:var(--ink); margin:0 0 20px; }
+.article-body p strong{ font-weight:700; }
+.article-body h2{ font-size:clamp(20px,2.4vw,24px); margin:40px 0 16px; line-height:1.25; }
+.article-body ul{ margin:0 0 20px; padding-left:22px; }
+.article-body li{ font-size:17px; line-height:1.75; color:var(--ink); margin-bottom:8px; }
+
+footer{ border-top:3px solid var(--red); padding:54px 0 36px; margin-top:40px; }
+.foot-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px; }
+@media (max-width:760px){ .foot-grid{ grid-template-columns:1fr; gap:30px; } }
+footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; }
+.foot-links{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:9px; }
+.foot-links a{ color:var(--ink-soft); text-decoration:none; font-size:14px; }
+.foot-links a:hover{ color:var(--ink); text-decoration:underline; }
+.foot-social{ display:flex; gap:12px; margin-top:38px; padding-top:28px; border-top:1px dashed var(--line-strong); }
+.foot-social a{
+  width:38px; height:38px; border-radius:50%; flex:none;
+  display:flex; align-items:center; justify-content:center;
+  border:1.5px solid var(--line-strong); color:var(--ink-soft);
+  transition:border-color .15s ease, color .15s ease, background .15s ease, transform .15s ease;
+}
+.foot-social a:hover{ border-color:var(--red); color:var(--red); background:var(--red-soft); transform:translateY(-2px); }
+.foot-social svg{ width:18px; height:18px; fill:currentColor; display:block; }
+.foot-bottom{ display:flex; justify-content:space-between; align-items:center; margin-top:46px; padding-top:22px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-faint); flex-wrap:wrap; gap:10px; }
+.foot-legal{ display:flex; gap:18px; flex-wrap:wrap; }
+.foot-legal a{ color:var(--ink-faint); text-decoration:none; font-size:12.5px; }
+.foot-legal a:hover{ color:var(--red); text-decoration:underline; }
+.foot-fav-cols{ display:grid; grid-template-columns:1fr 1fr; gap:0 24px; }
+@media (max-width:480px){ .foot-fav-cols{ grid-template-columns:1fr; gap:9px 0; } }
+
+html:not([data-lang="en"]) .lang-en{ display:none; }
+html[data-lang="en"] .lang-hr{ display:none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headerbar">
+    <a href="index.html#top"><img class="brand-logo-img" src="logo.png" width="1285" height="324" alt="Brandheadteacher"></a>
+    <nav class="primary">
+      <a href="index.html#blog" class="lang-hr">Blog</a><a href="index.html#blog" class="lang-en">Blog</a>
+      <a href="index.html#usluge" class="lang-hr">Usluge</a><a href="index.html#usluge" class="lang-en">Services</a>
+      <a href="index.html#suradnja" class="lang-hr">Suradnja</a><a href="index.html#suradnja" class="lang-en">Work With Me</a>
+      <a href="index.html#kontakt" class="lang-hr">Kontakt</a><a href="index.html#kontakt" class="lang-en">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="lang-switch" id="langSwitch">
+        <button type="button" data-lang="hr" aria-current="true">HR</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="en" aria-current="false">ENG</button>
+      </div>
+      <a class="btn btn-primary btn-sm lang-hr" href="index.html#suradnja">Zatraži konzultacije</a>
+      <a class="btn btn-primary btn-sm lang-en" href="index.html#suradnja">Request a consultation</a>
+      <button class="burger" aria-label="Meni"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <article>
+    <div class="wrap article-head">
+      <a class="back-link lang-hr" href="index.html#top">← Natrag na Svijet reklame</a>
+      <a class="back-link lang-en" href="index.html#top">← Back to Svijet Reklame</a>
+
+      <p class="eyebrow lang-hr">Svijet reklame — pravne informacije</p>
+      <p class="eyebrow lang-en">Svijet Reklame — legal information</p>
+
+      <h1 class="article-title lang-hr">Pravila privatnosti</h1>
+      <h1 class="article-title lang-en">Privacy Notice</h1>
+
+      <p class="updated lang-hr">Zadnje ažurirano: 16. studenog 2026.</p>
+      <p class="updated lang-en">Last updated: November 16, 2026</p>
+    </div>
+
+    <div class="article-body">
+
+      <!-- HR -->
+      <div class="lang-hr">
+        <h2>1. Voditelj obrade podataka</h2>
+        <p>Branimir Zoraja, posluje pod nazivom <strong>Brandheadteacher &amp; Brandactivist</strong> ("mi", "nas"). Kontakt: <a href="mailto:brand@brandheadteacher.com">brand@brandheadteacher.com</a>.</p>
+
+        <h2>2. Koje podatke prikupljamo i zašto</h2>
+        <p><strong>a) Prijava na newsletter</strong> — kad se pretplatite putem obrasca na naslovnoj stranici, prikupljamo vašu email adresu. Koristimo je isključivo za slanje mjesečnog emaila s analizama i sadržajem Svijeta reklame. Pravna osnova: vaš pristanak (čl. 6(1)(a) GDPR-a). Pretplatu možete povući u svakom trenutku klikom na link za odjavu u svakom emailu ili slanjem zahtjeva na gornju adresu.</p>
+        <p><strong>b) Upitnik za savjetovanje</strong> (Suradnja → korak "Upitnik") — odgovori koje odaberete na tri pitanja (npr. faza kampanje, vrsta potrebe, oblik suradnje) koriste se isključivo da vam odmah prikažemo preporuku usluge. Ti odgovori sami po sebi ne sadrže osobne podatke i ne povezuju se automatski s vašim identitetom. Tek ako nakon preporuke odlučite ispuniti obrazac za suradnju (vidi (c)), vaši odgovori na upitnik mogu se, zajedno s tim podacima, koristiti da bismo bolje razumjeli vaš upit.</p>
+        <p><strong>c) Obrazac za suradnju</strong> ("Dogovorimo suradnju u četiri koraka") — prikupljamo ime i prezime, naziv tvrtke (ako ga navedete), email adresu, telefon (ako ga navedete), okvirni proračun i opis vašeg upita. Te podatke koristimo isključivo da bismo vam odgovorili na upit i, ako do toga dođe, pripremili ponudu ili dogovorili suradnju. Pravna osnova: poduzimanje koraka na vaš zahtjev prije sklapanja ugovora (čl. 6(1)(b) GDPR-a), odnosno naš legitimni interes da odgovorimo na upite koji nam se upućuju (čl. 6(1)(f) GDPR-a).</p>
+
+        <h2>3. Koliko dugo čuvamo podatke</h2>
+        <p>Podatke iz obrasca za suradnju čuvamo onoliko dugo koliko je potrebno da obradimo vaš upit i eventualnu suradnju, a najdulje 24 mjeseca od zadnjeg kontakta, osim ako zakon ne zahtijeva dulje čuvanje (npr. računovodstveni propisi za sklopljene poslove). Email adresu s liste za newsletter čuvamo dok se ne odjavite.</p>
+
+        <h2>4. Primatelji podataka</h2>
+        <p>Ne prodajemo niti iznajmljujemo vaše podatke trećim stranama. Podatke obrađuje isključivo Branimir Zoraja. Stranica učitava web-fontove s Googleovih servera (vidi <a href="cookie-policy.html">Postavke kolačića</a>) — to je jedini vanjski servis koji prilikom posjeta stranici prima tehničke podatke o vašem pregledniku.</p>
+
+        <h2>5. Vaša prava</h2>
+        <p>Sukladno GDPR-u imate pravo na pristup svojim podacima, njihov ispravak, brisanje, ograničenje obrade, prenosivost te pravo prigovora na obradu. Zahtjev možete poslati na <a href="mailto:brand@brandheadteacher.com">brand@brandheadteacher.com</a>. Ako smatrate da su vaša prava povrijeđena, imate pravo podnijeti pritužbu Agenciji za zaštitu osobnih podataka (AZOP), <a href="https://www.azop.hr" target="_blank" rel="noopener">www.azop.hr</a>.</p>
+
+        <h2>6. Sigurnost</h2>
+        <p>Poduzimamo razumne tehničke i organizacijske mjere da zaštitimo podatke koje nam povjerite, no nijedan prijenos podataka putem interneta nije potpuno siguran.</p>
+
+        <h2>7. Izmjene ovih pravila</h2>
+        <p>Ova pravila povremeno ažuriramo. Datum zadnje izmjene uvijek je naveden na vrhu stranice.</p>
+      </div>
+
+      <!-- EN -->
+      <div class="lang-en">
+        <h2>1. Data controller</h2>
+        <p>Branimir Zoraja, operating as <strong>Brandheadteacher &amp; Brandactivist</strong> ("we," "us"). Contact: <a href="mailto:brand@brandheadteacher.com">brand@brandheadteacher.com</a>.</p>
+
+        <h2>2. What we collect, and why</h2>
+        <p><strong>a) Newsletter sign-up</strong> — when you subscribe through the form on the homepage, we collect your email address. We use it only to send the monthly Svijet Reklame email. Legal basis: your consent (Art. 6(1)(a) GDPR). You can withdraw it at any time via the unsubscribe link in any email, or by writing to the address above.</p>
+        <p><strong>b) Consultation quiz</strong> (Work With Me → "Questionnaire" step) — the answers you pick across three questions (e.g. campaign stage, type of need, preferred way of working) are used only to show you an instant service recommendation. On their own, these answers don't contain personal data and aren't automatically linked to your identity. Only if you go on to submit the collaboration form (see (c)) might your quiz answers be considered alongside that information, to help us understand your inquiry better.</p>
+        <p><strong>c) Collaboration form</strong> ("Let's set up a collaboration in four steps") — we collect your name, company (if provided), email, phone (if provided), approximate budget, and a description of your inquiry. We use this only to respond to you and, if things move forward, to prepare a proposal or agreement. Legal basis: taking steps at your request prior to entering into a contract (Art. 6(1)(b) GDPR), and our legitimate interest in responding to inquiries sent to us (Art. 6(1)(f) GDPR).</p>
+
+        <h2>3. How long we keep it</h2>
+        <p>We keep collaboration-form data for as long as needed to handle your inquiry and any resulting work, and no longer than 24 months after our last contact, unless the law requires us to keep it longer (e.g. accounting rules for completed work). We keep your newsletter email address until you unsubscribe.</p>
+
+        <h2>4. Who else sees it</h2>
+        <p>We don't sell or rent your data to anyone. It's processed solely by Branimir Zoraja. The site loads web fonts from Google's servers (see <a href="cookie-policy.html">Cookie Preferences</a>) — that's the only external service that receives technical data about your browser when you visit.</p>
+
+        <h2>5. Your rights</h2>
+        <p>Under the GDPR you have the right to access, correct, delete, or restrict the use of your data, to data portability, and to object to how we process it. Send requests to <a href="mailto:brand@brandheadteacher.com">brand@brandheadteacher.com</a>. If you believe your rights have been violated, you can lodge a complaint with the Croatian Data Protection Agency (AZOP), <a href="https://www.azop.hr" target="_blank" rel="noopener">www.azop.hr</a>.</p>
+
+        <h2>6. Security</h2>
+        <p>We take reasonable technical and organisational measures to protect the data you share with us, though no method of transmission over the internet is completely secure.</p>
+
+        <h2>7. Changes to this notice</h2>
+        <p>We may update this notice from time to time. The date at the top always reflects the most recent version.</p>
+      </div>
+
+    </div>
+  </article>
+</main>
+
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img class="brand-logo-img" src="logo.png" width="1285" height="324" alt="Brandheadteacher">
+        <p style="color:var(--ink-soft); font-size:14px; max-width:36ch; margin-top:16px;" class="lang-hr">Blog o svijetu reklame i marketing consulting za brendove koji ne žele biti dekoracija.</p>
+        <p style="color:var(--ink-soft); font-size:14px; max-width:36ch; margin-top:16px;" class="lang-en">A blog about the world of advertising, and marketing consulting for brands that don't want to be decoration.</p>
+        <p style="margin-top:16px; font-size:14px;"><a href="mailto:brand@brandheadteacher.com">brand@brandheadteacher.com</a></p>
+      </div>
+      <div>
+        <h4 class="lang-hr">Navigacija</h4><h4 class="lang-en">Navigation</h4>
+        <ul class="foot-links">
+          <li><a href="index.html#blog" class="lang-hr">Svijet reklame — blog</a><a href="index.html#blog" class="lang-en">Svijet Reklame — blog</a></li>
+          <li><a href="index.html#arhiva" class="lang-hr">Arhiva blogova</a><a href="index.html#arhiva" class="lang-en">Blog archive</a></li>
+          <li><a href="index.html#usluge" class="lang-hr">Usluge</a><a href="index.html#usluge" class="lang-en">Services</a></li>
+          <li><a href="index.html#suradnja" class="lang-hr">Suradnja</a><a href="index.html#suradnja" class="lang-en">Work With Me</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="lang-hr">Favoriti struke</h4><h4 class="lang-en">Industry favorites</h4>
+        <div class="foot-fav-cols">
+          <ul class="foot-links">
+            <li><a href="https://adage.com/" target="_blank" rel="noopener">Adage</a></li>
+            <li><a href="https://www.adforum.com/" target="_blank" rel="noopener">Adforum</a></li>
+            <li><a href="https://www.adsoftheworld.com/" target="_blank" rel="noopener">Ads of the World</a></li>
+            <li><a href="https://www.adweek.com/" target="_blank" rel="noopener">Adweek</a></li>
+            <li><a href="https://www.brandingmag.com/" target="_blank" rel="noopener">Branding Mag</a></li>
+            <li><a href="https://www.campaignlive.co.uk/?src_site=brandrepublic" target="_blank" rel="noopener">Campaign</a></li>
+            <li><a href="https://www.creativereview.co.uk/" target="_blank" rel="noopener">Creative Review</a></li>
+            <li><a href="https://www.horizont.net/" target="_blank" rel="noopener">Horizont</a></li>
+          </ul>
+          <ul class="foot-links">
+            <li><a href="https://www.luerzersarchive.com/" target="_blank" rel="noopener">Lürzer's Archive</a></li>
+            <li><a href="https://museaward.com/category.php" target="_blank" rel="noopener">Muse</a></li>
+            <li><a href="https://www.packagingeurope.com/" target="_blank" rel="noopener">Packaging Europe</a></li>
+            <li><a href="https://www.thebrandingjournal.com/" target="_blank" rel="noopener">The Branding Journal</a></li>
+            <li><a href="https://www.thedrum.com/" target="_blank" rel="noopener">The Drum</a></li>
+            <li><a href="https://archive.gunnreport.com/?lvl=1" target="_blank" rel="noopener">The Gunn Report</a></li>
+            <li><a href="https://www.trendhunter.com/" target="_blank" rel="noopener">Trend Hunter</a></li>
+            <li><a href="https://worldbranddesign.com/" target="_blank" rel="noopener">World Brand Design</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot-social">
+      <a href="https://www.linkedin.com/in/brandheadteacher/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12z"/></svg></a>
+      <a href="https://x.com/brandheadteach" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 3H21l-6.3 7.2L21.7 21h-5.4l-4.2-5.5L7 21H3.9l6.9-7.8L3.6 3h5.5l3.8 5.1L18.3 3z"/></svg></a>
+      <a href="https://www.facebook.com/Brandheadteacher/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3H13.5V8.3c0-.9.3-1.5 1.6-1.5h1.7V4.2C16.5 4.1 15.3 4 14 4c-2.6 0-4.4 1.6-4.4 4.5v2h-2.6v3h2.6V21h3.9z"/></svg></a>
+      <a href="https://www.youtube.com/channel/UCnXsDQALeyIfeEevKOP-S5Q" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 8.6s-.2-1.5-.8-2.2c-.8-.8-1.6-.8-2-.9C16.3 5.2 12 5.2 12 5.2s-4.3 0-7.2.3c-.4 0-1.2.1-2 .9-.6.7-.8 2.2-.8 2.2S1.8 10.4 1.8 12.2v1.6c0 1.8.2 3.6.2 3.6s.2 1.5.8 2.2c.8.8 1.8.8 2.3.9 1.6.2 7 .3 7 .3s4.3 0 7.2-.3c.4 0 1.2-.1 2-.9.6-.7.8-2.2.8-2.2s.2-1.8.2-3.6v-1.6c0-1.8-.2-3.6-.2-3.6zM9.9 15.3V9.1l5.4 3.1-5.4 3.1z"/></svg></a>
+      <a href="https://www.tiktok.com/@brandheadteacher" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3h2.6c.2 1.5 1.1 2.9 2.4 3.7.9.6 2 .9 3.1.9v2.7c-1.6 0-3.1-.5-4.4-1.3v6.6c0 3.3-2.7 6-6 6-1.3 0-2.6-.4-3.6-1.2A6 6 0 0 1 6 15.9a6 6 0 0 1 6.5-6v2.8a3.2 3.2 0 0 0-2.9 3.2 3.2 3.2 0 0 0 3.2 3.2 3.2 3.2 0 0 0 3.2-3.2V3z"/></svg></a>
+      <a href="https://www.pinterest.com/brandheadteacher/" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.6 7.85 6.27 9.36-.09-.78-.17-1.98.04-2.84.19-.77 1.23-5.14 1.23-5.14s-.31-.63-.31-1.55c0-1.45.84-2.53 1.89-2.53.89 0 1.32.67 1.32 1.47 0 .89-.57 2.23-.86 3.47-.25 1.04.52 1.89 1.54 1.89 1.85 0 3.1-2.38 3.1-5.19 0-2.14-1.44-3.74-4.06-3.74-2.96 0-4.81 2.21-4.81 4.68 0 .86.25 1.46.64 1.93.1.12.11.23.08.35-.09.37-.28 1.14-.32 1.3-.05.2-.17.25-.39.15-1.39-.57-2.04-2.08-2.04-3.79 0-2.82 2.38-6.2 7.1-6.2 3.79 0 6.29 2.74 6.29 5.69 0 3.89-2.17 6.8-5.37 6.8-1.08 0-2.09-.59-2.44-1.25 0 0-.58 2.32-.7 2.77-.21.8-.62 1.6-1 2.22.86.26 1.77.4 2.72.4 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg></a>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Brandheadteacher &amp; Brandactivist</span>
+      <nav class="foot-legal" aria-label="Legal">
+        <a href="cookie-policy.html" class="lang-hr">Postavke kolačića</a><a href="cookie-policy.html" class="lang-en">Cookie Preferences</a>
+        <a href="privacy-policy.html" class="lang-hr">Pravila privatnosti</a><a href="privacy-policy.html" class="lang-en">Privacy Notice</a>
+        <a href="terms-of-service.html" class="lang-hr">Uvjeti korištenja</a><a href="terms-of-service.html" class="lang-en">Terms of Service</a>
+        <a href="index.html#kontakt" class="lang-hr">Kontakt</a><a href="index.html#kontakt" class="lang-en">Contact</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var CURRENT_LANG = 'hr';
+try{
+  var saved = localStorage.getItem('bht-lang');
+  if(saved === 'hr' || saved === 'en') CURRENT_LANG = saved;
+}catch(e){}
+
+function applyLang(lang){
+  CURRENT_LANG = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('#langSwitch button').forEach(function(b){
+    b.setAttribute('aria-current', b.dataset.lang === lang ? 'true' : 'false');
+  });
+  try{ localStorage.setItem('bht-lang', lang); }catch(e){}
+}
+
+document.querySelectorAll('#langSwitch button').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    if(btn.dataset.lang !== CURRENT_LANG) applyLang(btn.dataset.lang);
+  });
+});
+
+applyLang(CURRENT_LANG);
+</script>
+</body>
+</html>

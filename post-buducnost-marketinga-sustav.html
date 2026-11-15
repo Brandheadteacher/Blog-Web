@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Budućnost marketinga je upravljanje sustavom — Svijet Reklame</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper: #F6F2E9;
+  --paper-raised: #EFE9DA;
+  --paper-stamp: #E9E1CC;
+  --ink: #1A1714;
+  --ink-soft: #5B5650;
+  --ink-faint: #8C8678;
+  --red: #FF0000;
+  --red-deep: #B30000;
+  --red-soft: #FFE1DE;
+  --line: #D9D0BC;
+  --line-strong: #C6BA9E;
+  --shadow: rgba(32,29,26,0.12);
+  --focus: #1A1714;
+  --serif: "Poppins", "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --sans: "Poppins", "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", "Courier New", monospace;
+  --maxw: 1180px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper: #1B1916; --paper-raised: #252220; --paper-stamp: #2C2824;
+    --ink: #ECE6D8; --ink-soft: #AFA695; --ink-faint: #7A7367;
+    --red: #FF4A3D; --red-deep: #FF6B5E; --red-soft: #45130F;
+    --line: #3A352E; --line-strong: #4A433A; --shadow: rgba(0,0,0,0.45); --focus: #ECE6D8;
+  }
+}
+:root[data-theme="dark"]{
+  --paper: #1B1916; --paper-raised: #252220; --paper-stamp: #2C2824;
+  --ink: #ECE6D8; --ink-soft: #AFA695; --ink-faint: #7A7367;
+  --red: #FF4A3D; --red-deep: #FF6B5E; --red-soft: #45130F;
+  --line: #3A352E; --line-strong: #4A433A; --shadow: rgba(0,0,0,0.45); --focus: #ECE6D8;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+*{box-sizing:border-box;}
+html{background:var(--paper);}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%; display:block;}
+a{color:var(--red);}
+::selection{background:var(--red-soft); color:var(--ink);}
+
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+@media (max-width:640px){ .wrap{padding:0 18px;} }
+
+.eyebrow{
+  font-family:var(--mono); font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--red-deep); font-weight:700; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{ content:none; width:7px; height:7px; border-radius:50%; background:var(--red); flex:none; }
+
+h1,h2,h3{ font-family:var(--serif); font-weight:800; letter-spacing:-0.01em; text-wrap:balance; margin:0; color:var(--ink); }
+
+.btn{
+  font-family:var(--sans); font-weight:800; font-size:14.5px; letter-spacing:0.01em;
+  display:inline-flex; align-items:center; gap:8px; padding:14px 26px; border-radius:999px;
+  border:2px solid var(--ink); background:transparent; color:var(--ink); cursor:pointer; text-decoration:none;
+  transition:transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.btn:hover{ transform:translateY(-2px); box-shadow:0 14px 26px -14px var(--shadow); }
+.btn:focus-visible{ outline:3px solid var(--focus); outline-offset:2px; }
+.btn-primary{ background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 14px 28px -12px rgba(255,0,0,0.45); }
+.btn-primary:hover{ background:var(--red-deep); border-color:var(--red-deep); box-shadow:0 18px 34px -12px rgba(255,0,0,0.55); }
+.btn-ghost{ border-color:transparent; padding-left:0; padding-right:0; }
+.btn-ghost:hover{ box-shadow:none; text-decoration:underline; transform:none; }
+.btn-sm{ padding:9px 16px; font-size:13px; }
+
+header{
+  position:sticky; top:0; z-index:40;
+  background:color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter:blur(6px); border-bottom:1px solid var(--line);
+}
+.headerbar{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; gap:20px; }
+.brand-logo-img{ height:42px; width:auto; display:block; }
+nav.primary{ display:flex; align-items:center; gap:30px; }
+nav.primary a{
+  font-family:var(--mono); font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-soft); text-decoration:none;
+}
+nav.primary a:hover{ color:var(--ink); }
+.nav-cta{ display:flex; align-items:center; gap:18px; }
+.lang-switch{ display:flex; align-items:center; gap:2px; font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em; }
+.lang-switch button{
+  background:none; border:none; cursor:pointer; padding:4px 5px;
+  color:var(--ink-faint); font-family:inherit; font-size:inherit; letter-spacing:inherit;
+}
+.lang-switch button[aria-current="true"]{ color:var(--red); font-weight:700; }
+.lang-switch .sep{ color:var(--line-strong); }
+.burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
+.burger span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
+@media (max-width:860px){ nav.primary{ display:none; } .burger{ display:block; } }
+
+/* ============ ARTICLE ============ */
+.article-head{ padding:54px 0 36px; }
+.back-link{
+  font-family:var(--mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+  text-decoration:none; color:var(--ink-soft); display:inline-flex; gap:8px; margin-bottom:28px;
+}
+.back-link:hover{ color:var(--red); }
+.article-title{ font-size:clamp(28px,4.2vw,44px); line-height:1.1; margin-top:16px; max-width:26ch; }
+.article-lede{ font-size:19px; color:var(--ink-soft); max-width:46ch; margin-top:22px; font-weight:600; }
+.byline{
+  display:flex; align-items:center; gap:14px; margin-top:28px;
+  font-family:var(--mono); font-size:12.5px; color:var(--ink-faint); letter-spacing:0.02em;
+}
+.byline strong{ color:var(--ink); font-family:var(--sans); font-weight:700; font-size:14px; letter-spacing:0; }
+.byline .dot{ width:4px; height:4px; border-radius:50%; background:var(--line-strong); flex:none; }
+
+.cover{
+  width:100%; aspect-ratio:16/9; object-fit:cover; border:1px solid var(--line); border-radius:16px;
+  margin:36px 0 0;
+}
+
+.article-body{ max-width:680px; margin:0 auto; padding:48px 28px 20px; }
+.article-body p{ font-size:17.5px; line-height:1.75; color:var(--ink); margin:0 0 22px; }
+.article-body p strong{ font-weight:700; }
+.article-body h2{ font-size:clamp(23px,2.8vw,28px); margin:52px 0 20px; line-height:1.2; }
+.article-body h3{ font-size:clamp(19px,2.2vw,22px); margin:36px 0 16px; line-height:1.25; }
+.article-body .pull{
+  font-family:var(--serif); font-weight:600; font-style:normal; font-size:26px; line-height:1.35;
+  color:var(--ink); border-left:3px solid var(--red); padding-left:24px; margin:40px 0;
+}
+.article-body .q{ font-family:var(--serif); font-weight:600; font-size:21px; color:var(--red-deep); margin:0 0 22px; }
+.article-note{
+  margin-top:50px; padding-top:28px; border-top:1px dashed var(--line-strong);
+  font-style:italic; color:var(--ink-soft); font-size:15px;
+}
+.article-note a{ font-style:normal; }
+.article-share{ display:flex; gap:14px; margin-top:44px; align-items:center; }
+.article-share .lbl{ font-family:var(--mono); font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); }
+
+footer{ border-top:1px solid var(--line); padding:54px 0 36px; margin-top:40px; }
+.foot-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px; }
+@media (max-width:760px){ .foot-grid{ grid-template-columns:1fr; gap:30px; } }
+footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; }
+.foot-links{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:9px; }
+.foot-links a{ color:var(--ink-soft); text-decoration:none; font-size:14px; }
+.foot-links a:hover{ color:var(--ink); text-decoration:underline; }
+.foot-social{ display:flex; gap:12px; margin-top:38px; padding-top:28px; border-top:1px dashed var(--line-strong); }
+.foot-social a{
+  width:38px; height:38px; border-radius:50%; flex:none;
+  display:flex; align-items:center; justify-content:center;
+  border:1.5px solid var(--line-strong); color:var(--ink-soft);
+  transition:border-color .15s ease, color .15s ease, background .15s ease, transform .15s ease;
+}
+.foot-social a:hover{ border-color:var(--red); color:var(--red); background:var(--red-soft); transform:translateY(-2px); }
+.foot-social svg{ width:18px; height:18px; fill:currentColor; display:block; }
+.foot-bottom{ display:flex; justify-content:space-between; align-items:center; margin-top:46px; padding-top:22px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-faint); flex-wrap:wrap; gap:10px; }
+.foot-legal{ display:flex; gap:18px; flex-wrap:wrap; }
+.foot-legal a{ color:var(--ink-faint); text-decoration:none; font-size:12.5px; }
+.foot-legal a:hover{ color:var(--red); text-decoration:underline; }
+
+html:not([data-lang="en"]) .lang-en{ display:none; }
+html[data-lang="en"] .lang-hr{ display:none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headerbar">
+    <a href="index.html#top"><img class="brand-logo-img" src="logo.png" width="1285" height="324" alt="Brandheadteacher"></a>
+    <nav class="primary">
+      <a href="index.html#blog" class="lang-hr">Blog</a><a href="index.html#blog" class="lang-en">Blog</a>
+      <a href="index.html#usluge" class="lang-hr">Usluge</a><a href="index.html#usluge" class="lang-en">Services</a>
+      <a href="index.html#suradnja" class="lang-hr">Suradnja</a><a href="index.html#suradnja" class="lang-en">Work With Me</a>
+      <a href="index.html#kontakt" class="lang-hr">Kontakt</a><a href="index.html#kontakt" class="lang-en">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="lang-switch" id="langSwitch">
+        <button type="button" data-lang="hr" aria-current="true">HR</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="en" aria-current="false">ENG</button>
+      </div>
+      <a class="btn btn-primary btn-sm lang-hr" href="index.html#suradnja">Zatraži konzultacije</a>
+      <a class="btn btn-primary btn-sm lang-en" href="index.html#suradnja">Request a consultation</a>
+      <button class="burger" aria-label="Meni"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <article>
+    <div class="wrap article-head">
+      <a class="back-link lang-hr" href="index.html#blog">← Natrag na Svijet reklame</a>
+      <a class="back-link lang-en" href="index.html#blog">← Back to Svijet Reklame</a>
+
+      <p class="eyebrow">Svijet reklame — AI &amp; marketing consulting</p>
+
+      <h1 class="article-title lang-hr">Budućnost marketinga nije upravljanje promocijom. To je upravljanje sustavom</h1>
+      <h1 class="article-title lang-en">The Future of Marketing Isn't Managing Promotion. It's Managing a System.</h1>
+
+      <p class="article-lede lang-hr">Budućnost marketinga neće biti u tome da uz pomoć umjetne inteligencije proizvodimo više kampanja. Bit će u tome da projektiramo sustave koji neprestano donose male marketinške odluke.</p>
+      <p class="article-lede lang-en">The future of marketing won't be about using artificial intelligence to produce more campaigns. It will be about designing systems that continuously make small marketing decisions.</p>
+
+      <div class="byline">
+        <strong>Branimir Zoraja</strong>
+        <span class="dot"></span>
+        <span class="lang-hr">9. kolovoza 2026.</span><span class="lang-en">August 9, 2026</span>
+        <span class="dot"></span>
+        <span class="lang-hr">8 min čitanja</span><span class="lang-en">8 min read</span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <img class="cover" src="post-sustav-cover.png" alt="Brend menadžer gleda sustav koji povezuje signale tržišta, pravila odlučivanja, kanale i optimizaciju" width="1280" height="719">
+    </div>
+
+    <div class="article-body">
+
+      <!-- HR -->
+      <div class="lang-hr">
+        <p>U prethodnim člancima pokazali smo da brend menadžer pobjeđuje AI jer ima <a href="post-ai-nece-zamijeniti-marketing.html">princip</a>, <a href="post-ai-ima-odgovore.html">kriterij</a> i zna reći <a href="post-sto-moze-ai.html">ne</a>.</p>
+        <p>Ali ne treba zaboraviti da marketing nema ni početak niti kraj.</p>
+        <p>Philip Kotler bi rekao: "Marketing is a race without a finishing line."</p>
+        <p>Doduše, svaka marketinška kampanja ima početak, kraj, budžet i izvještaj. I, ako je bila dovoljno skupa, prezentaciju od 58 slajdova koja dokazuje da je bila uspješna.</p>
+        <p>Ali kad gledamo marketing kao sustav, on kontinuirano promatra, zaključuje, bira, prilagođava i ponovno uči. Radi dok je brend menadžer na sastanku, dok je agencija na ručku i dok kupac u 23.49 razmišlja treba li nešto sutra kupiti.</p>
+        <p><strong>Budućnost marketinga zato neće biti u tome da uz pomoć umjetne inteligencije proizvodimo više kampanja. Bit će u tome da projektiramo sustave koji neprestano donose male marketinške odluke.</strong></p>
+        <p>Marketing se u eri AI-a pomiče jednu razinu više: od pisanja sadržaja prema određivanju pravila, od upravljanja kampanjama prema upravljanju sustavom, od povremenog planiranja prema stalnom prilagođavanju i od kontrole svake izvedbe prema kontroli kriterija prema kojima izvedbe nastaju.</p>
+
+        <h2>Kampanja je događaj. Sustav je ponašanje</h2>
+        <p>AI neće samo pisati oglase.</p>
+        <p>Birat će publiku, ponudu i trenutak. Preraspoređivat će budžet, testirati cijene, prognozirati potražnju i predlagati sljedeću odluku.</p>
+        <p>Brend menadžer neće moći osobno pregledati svaku varijantu, kao što direktor trgovačkog lanca ne može pregledati svaki račun koji prođe kroz blagajnu.</p>
+        <p>Morat će upravljati pravilima "blagajne".</p>
+        <p>AI će pitati: <span class="q" style="display:inline; font-size:inherit;">„Što ćemo komunicirati sljedeća tri mjeseca?“</span></p>
+        <p>Brend menadžer pita: <span class="q" style="display:inline; font-size:inherit;">„Što ćemo učiniti ako se ponašanje kupca promijeni sutra ujutro?“</span></p>
+        <p>Razlika nije samo u brzini. Razlika je u prirodi marketinga.</p>
+        <p>AI polazi od pretpostavke da će tržište neko vrijeme ostati dovoljno mirno da naš plan ima smisla. Brend menadžer polazi od pretpostavke da se tržište mijenja dok plan još spremamo u PowerPoint.</p>
+        <p>Netflix već dugo ne odlučuje samo koji će naslov preporučiti korisniku. Prilagođava i način na koji će ga predstaviti. Različiti korisnici mogu vidjeti različite vizuale istoga filma, ovisno o prethodnom ponašanju. Kod sustava Dynamic Sizzles ljudski urednici biraju i pripremaju dopuštene isječke, a AI ih zatim slaže u velik broj personaliziranih najava prema unaprijed definiranoj strukturi. Netflix navodi da takav pristup može smanjiti vrijeme i trošak proizvodnje do 70 posto.</p>
+        <p>Ovo nije personalizacija, nego unaprijed definirana struktura.</p>
+        <div class="pull">Sustav ne izmišlja Netflix svaki put iznova. Mijenja izvedbu unutar postavljenih granica.</div>
+        <p>Parafrazirajući Theodorea Levitta, mogli bismo reći: kupac ne želi marketinšku kampanju. Želi da mu brend u pravom trenutku riješi pravi problem.</p>
+
+        <h2>Kada je sve automatizirano, cilj postaje opasniji od alata</h2>
+        <p>AI će vrlo uspješno optimizirati sve što mu zadamo.</p>
+        <p>Ako mu zadamo klikove, proizvest će klikove. Ako mu zadamo kratkoročnu prodaju, pronaći će popust, publiku i trenutak koji će je povećati. Ako mu zadamo zadržavanje korisnika, možda će naučiti i kako korisniku otežati odlazak.</p>
+        <p><strong>Algoritam nije neposlušan zaposlenik. Naprotiv, opasan je upravo zato što je tako poslušan.</strong></p>
+        <p>Poznati Targetov sustav prediktivne analitike mogao je na temelju kupovnih obrazaca procijeniti vjerojatnost trudnoće i približan termin poroda te zatim prilagoditi ponude. Tehnički je to bio impresivan rezultat. Marketinški je postao upozorenje nakon slučaja u kojem su kuponi za trudnice poslani tinejdžerici prije nego što je njezina obitelj znala da je trudna.</p>
+        <p>Sustav je pronašao relevantnu publiku.</p>
+        <p>Samo je zaboravio pitati ima li brend pravo pokazati sve što zna o kupcu.</p>
+        <p>To je buduća opasnost marketinga: odluka može biti podatkovno točna, prodajno učinkovita i ljudski pogrešna.</p>
+        <p>Parafrazirajući Goodhartov zakon, mogli bismo također reći: čim pokazatelj pretvorite u cilj, on počinje gubiti vrijednost kao pokazatelj.</p>
+        <p>U marketingu bi to značilo: kad klik postane cilj, klik prestaje biti dokaz.</p>
+        <p>Prije je čovjek mogao napraviti pogrešnu marketinšku odluku nekoliko puta godišnje. Algoritam je može napraviti nekoliko tisuća puta dnevno, na svim tržištima, kanalima i skupinama kupaca.</p>
+        <div class="pull">Loša odluka više neće biti incident. Postat će proizvodni proces.</div>
+
+        <h2>Marketinški stručnjak postaje arhitekt</h2>
+        <p>Za brend menadžere se dosad metaforički govorilo da su „roditelji brendova“, „kičma svake tvrtke“, „odgajatelji brenda“, „čuvari brenda“ i „ljudi s hrabrošću i dušom za brendove“.</p>
+        <p>U eri AI-a dobivaju još jednu ulogu.</p>
+        <h3>Brend arhitekta.</h3>
+        <p>Arhitekt ne postavlja osobno svaku ciglu.</p>
+        <p>Ali odgovara ako se zgrada sruši.</p>
+        <p>Budući posao brend menadžera neće biti da pregleda svaki naslov, svaku ponudu i svaki personalizirani vizual. Njegov će posao biti projektirati marketinški AI sustav: što smije optimizirati, koje podatke smije koristiti, što se može personalizirati, koji se elementi brenda ne smiju mijenjati, kada se odluka mora predati čovjeku i kada rezultat treba odbaciti unatoč dobrim brojkama.</p>
+        <p>L'Oréalovi AI alati za beauty brendove pokazuju kako izgleda takva arhitektura. L'Oréal je, prema vlastitim podacima, stvorio vlastiti „mozak umjetne inteligencije“ (Knowledge Graph) u koji je „upakirano“ 116 godina znanstvenog iskustva svojih stručnjaka. L'Oréalov virtualni savjetnik za njegu kože daje personalizirane preporuke putem WhatsAppa u bilo koje doba dana ili noći. Može vam preporučiti idealnu rutinu na temelju fotografije, prilagoditi savjete ako su se potrebe vaše kože promijenile ili vas podsjetiti kada je vrijeme za nanošenje omiljenog seruma.</p>
+        <p><strong>To više nije chatbot s logotipom. To je sustav s principima, kriterijima i mogućnošću da se kaže ne.</strong></p>
+        <p>Suprotan primjer dao je Air Canada. Njegov chatbot pružio je kupcu pogrešnu informaciju o mogućnosti naknadnog ostvarivanja povoljnije cijene zbog smrtnog slučaja u obitelji. Lokalni kanadski sud zaključio je da je kompanija odgovorna za informacije svojeg chatbota, jednako kao i za ostali sadržaj na svojoj internetskoj stranici.</p>
+        <p>U pravnom smislu, dakle, chatbot neće nikada postati pravni subjekt.</p>
+        <p>Parafrazirajući Deminga, mogli bismo reći da će loš sustav pobijediti dobrog čovjeka gotovo svaki put.</p>
+        <p>Zato nije dovoljno zaposliti odgovorne ljude. Treba projektirati odgovoran sustav.</p>
+        <p>To nije manje marketinga. To je marketing na višoj razini odgovornosti.</p>
+
+        <h2>Marketing se neće smanjiti. Smanjit će broj alibija</h2>
+        <p>Velik dio današnjeg marketinškog rada troši se na pripremu i adaptaciju izvještaja, preformatiranje prezentacija, ponavljanje analiza, pisanje sličnih tekstova i izradu varijanti koje nitko neće zapamtiti.</p>
+        <p>AI će velik dio toga preuzeti.</p>
+        <p>Švedska fintech kompanija Klarna je, prema vlastitim podacima, uz pomoć AI-ja smanjila troškove marketinških agencija za 25 posto i trošak proizvodnje slika za šest milijuna dolara, istodobno proizvodeći više kampanja. To ne znači da je Klarna automatski dobila bolji marketing. Dobila je jeftiniju i bržu proizvodnju marketinga.</p>
+        <p>A to nije ista stvar.</p>
+        <p>Kada priprema materijala prestane biti glavni posao, postat će vidljivo tko zna odlučiti što treba napraviti, a tko je samo znao organizirati ono što su napravili drugi.</p>
+        <p>Nestat će i najčešći marketinški alibi: „Nismo imali dovoljno vremena.“</p>
+        <p>Sustav će imati vremena. Imat će podatke. Imat će varijante. Imat će izvještaj prije nego što ga zatražimo.</p>
+        <div class="pull">Ostat će samo neugodno pitanje: "Jesmo li donijeli dobru odluku?"</div>
+
+        <h2>Što može AI, a što mora brend menadžer?</h2>
+        <p>AI će, dakle, upravljati sve većim brojem marketinških odluka. Brend menadžer morat će upravljati načinom na koji te odluke nastaju.</p>
+        <p><strong>Budućnost marketinga neće pripasti onima koji proizvode najviše kampanja. Pripast će onima koji znaju projektirati sustav koji se ispravno ponaša i onda kada nema kampanje, sastanka ni brend menadžera u sobi.</strong></p>
+        <p>AI, konačno, neće ukinuti marketinške kampanje. Ukinut će mogućnost da lošu strategiju mjesecima skrivamo iza njihove izvedbe.</p>
+
+        <h2>AI može:</h2>
+        <p>neprestano pratiti promjene potražnje i ponašanja; pronalaziti mikrosegmente; predviđati prodaju i odustajanje kupaca; prilagođavati ponude i komunikaciju; raspoređivati budžet unutar dopuštenih granica; provoditi testiranja; otkrivati odstupanja i predlagati sljedeću odluku.</p>
+
+        <h2>Brend menadžer mora:</h2>
+        <p>odrediti hijerarhiju ciljeva; definirati podatke koje sustav smije koristiti; postaviti granice personalizacije; zaštititi ono što se u brendu ne smije mijenjati; propisati kada odlučuje čovjek; odrediti uvjete za zaustavljanje sustava; odbaciti poslovno privlačan rezultat koji ugrožava povjerenje i preuzeti odgovornost za posljedice.</p>
+
+        <p class="article-note">Sljedeći članak: <a href="post-ai-zna-sto-kupac-radi.html">AI zna što kupac radi. Ne zna što ga pokreće →</a></p>
+      </div>
+
+      <!-- EN -->
+      <div class="lang-en">
+        <p>In previous articles, we showed that the brand manager beats AI because they have a <a href="post-ai-nece-zamijeniti-marketing.html">principle</a>, <a href="post-ai-ima-odgovore.html">criteria</a>, and know how to say <a href="post-sto-moze-ai.html">no</a>.</p>
+        <p>But it's worth remembering that marketing has neither a beginning nor an end.</p>
+        <p>Philip Kotler would say: "Marketing is a race without a finishing line."</p>
+        <p>Granted, every marketing campaign has a start, an end, a budget and a report. And, if it was expensive enough, a 58-slide deck proving it was a success.</p>
+        <p>But when we look at marketing as a system, it continuously observes, concludes, chooses, adapts and learns again. It's working while the brand manager is in a meeting, while the agency is at lunch, and while a customer at 11:49pm is wondering whether they need to buy something tomorrow.</p>
+        <p><strong>That's why the future of marketing won't be about using artificial intelligence to produce more campaigns. It will be about designing systems that continuously make small marketing decisions.</strong></p>
+        <p>In the AI era, marketing moves up a level: from writing content to setting rules, from managing campaigns to managing a system, from occasional planning to constant adaptation, and from controlling every execution to controlling the criteria by which executions get made.</p>
+
+        <h2>A campaign is an event. A system is a behaviour</h2>
+        <p>AI won't just write ads.</p>
+        <p>It will choose the audience, the offer and the moment. It will reallocate budget, test prices, forecast demand, and propose the next decision.</p>
+        <p>The brand manager won't be able to personally review every variant, just as the head of a retail chain can't review every receipt that passes through the till.</p>
+        <p>They'll have to manage the rules of the "till" instead.</p>
+        <p>AI will ask: <span class="q" style="display:inline; font-size:inherit;">"What will we communicate over the next three months?"</span></p>
+        <p>The brand manager asks: <span class="q" style="display:inline; font-size:inherit;">"What will we do if customer behaviour changes tomorrow morning?"</span></p>
+        <p>The difference isn't just speed. The difference is in the nature of marketing.</p>
+        <p>AI starts from the assumption that the market will stay calm enough, for long enough, for our plan to make sense. The brand manager starts from the assumption that the market is already changing while we're still formatting the plan in PowerPoint.</p>
+        <p>Netflix hasn't just been deciding which title to recommend to a user for a long time now. It also adapts how that title gets presented. Different users can see different visuals for the same film, depending on their past behaviour. With its Dynamic Sizzles system, human editors select and prepare approved clips, and AI then assembles them into a large number of personalised trailers according to a predefined structure. Netflix states that this approach can cut production time and cost by up to 70 percent.</p>
+        <p>This isn't personalisation. It's a predefined structure.</p>
+        <div class="pull">The system doesn't reinvent Netflix every time. It varies the execution within set boundaries.</div>
+        <p>To paraphrase Theodore Levitt: the customer doesn't want a marketing campaign. They want the brand to solve the right problem at the right moment.</p>
+
+        <h2>When everything is automated, the goal becomes more dangerous than the tool</h2>
+        <p>AI will very successfully optimise whatever goal we give it.</p>
+        <p>If we give it clicks, it will produce clicks. If we give it short-term sales, it will find the discount, the audience and the moment that boosts them. If we give it retention, it might even learn how to make it harder for the user to leave.</p>
+        <p><strong>The algorithm isn't a disobedient employee. On the contrary — it's dangerous precisely because it's so obedient.</strong></p>
+        <p>Target's well-known predictive analytics system could, based on purchasing patterns, estimate the probability of a pregnancy and an approximate due date, and then adjust its offers accordingly. Technically, that was an impressive result. In marketing terms, it became a cautionary tale after a case in which pregnancy coupons were sent to a teenager before her own family knew she was pregnant.</p>
+        <p>The system found the relevant audience.</p>
+        <p>It just forgot to ask whether the brand has the right to show everything it knows about the customer.</p>
+        <p>That's the coming danger in marketing: a decision can be data-accurate, commercially effective, and humanly wrong, all at once.</p>
+        <p>To paraphrase Goodhart's Law: the moment you turn a measure into a target, it starts losing its value as a measure.</p>
+        <p>In marketing, that would mean: once the click becomes the goal, the click stops being evidence.</p>
+        <p>In the past, a human could make a bad marketing decision a few times a year. An algorithm can make it a few thousand times a day, across every market, channel and customer segment.</p>
+        <div class="pull">A bad decision will no longer be an incident. It will become a production process.</div>
+
+        <h2>The marketer becomes an architect</h2>
+        <p>Brand managers have, up to now, metaphorically been called "the parents of brands," "the backbone of every company," "brand nurturers," "brand guardians," and "people with the courage and soul for brands."</p>
+        <p>In the AI era, they get one more role.</p>
+        <h3>Brand architect.</h3>
+        <p>An architect doesn't personally lay every brick.</p>
+        <p>But they're accountable if the building collapses.</p>
+        <p>The future job of the brand manager won't be reviewing every headline, every offer and every personalised visual. Their job will be designing the marketing AI system itself: what it's allowed to optimise, what data it's allowed to use, what can be personalised, which elements of the brand must never change, when a decision has to be handed to a human, and when a result has to be rejected despite good numbers.</p>
+        <p>L'Oréal's AI tools for its beauty brands show what that kind of architecture looks like. According to its own data, L'Oréal built its own "artificial intelligence brain" (a Knowledge Graph) that "packages" 116 years of its experts' scientific experience. L'Oréal's virtual skincare advisor gives personalised recommendations over WhatsApp, any time of day or night. It can recommend an ideal routine based on a photo, adjust advice if your skin's needs have changed, or remind you when it's time to apply your favourite serum.</p>
+        <p><strong>That's no longer a chatbot with a logo stuck on it. It's a system with principles, criteria, and the ability to say no.</strong></p>
+        <p>Air Canada provided the opposite example. Its chatbot gave a customer incorrect information about being able to claim a bereavement fare retroactively after a death in the family. A Canadian court ruled that the company was responsible for its chatbot's statements, just as it would be for any other content on its website.</p>
+        <p>Legally speaking, then, a chatbot will never become its own legal entity.</p>
+        <p>To paraphrase Deming: a bad system will beat a good person almost every time.</p>
+        <p>That's why it's not enough to hire responsible people. You have to design a responsible system.</p>
+        <p>That's not less marketing. That's marketing at a higher level of accountability.</p>
+
+        <h2>Marketing won't shrink. The number of excuses will</h2>
+        <p>A large part of today's marketing work goes into preparing and adapting reports, reformatting presentations, repeating analyses, writing similar copy, and producing variants nobody will remember.</p>
+        <p>AI will take over a large part of that.</p>
+        <p>According to its own figures, the Swedish fintech company Klarna used AI to cut marketing agency costs by 25 percent and image production costs by six million dollars, while producing more campaigns at the same time. That doesn't mean Klarna automatically got better marketing. It got cheaper, faster marketing production.</p>
+        <p>And that's not the same thing.</p>
+        <p>Once preparing materials stops being the main job, it will become obvious who actually knows how to decide what needs doing, and who just knew how to organise what other people made.</p>
+        <p>The most common marketing excuse will also disappear: "We didn't have enough time."</p>
+        <p>The system will have time. It will have the data. It will have the variants. It will have the report before we even ask for it.</p>
+        <div class="pull">All that will be left is the uncomfortable question: "Did we make a good decision?"</div>
+
+        <h2>What can AI do, and what must the brand manager do?</h2>
+        <p>So AI will manage an ever-growing number of marketing decisions. The brand manager will have to manage how those decisions get made.</p>
+        <p><strong>The future of marketing won't belong to whoever produces the most campaigns. It will belong to whoever knows how to design a system that behaves correctly even when there's no campaign, no meeting, and no brand manager in the room.</strong></p>
+        <p>In the end, AI won't abolish marketing campaigns. It will abolish our ability to hide a bad strategy behind their execution for months on end.</p>
+
+        <h2>AI can:</h2>
+        <p>continuously track changes in demand and behaviour; find micro-segments; predict sales and customer churn; adapt offers and communication; allocate budget within permitted limits; run tests; detect anomalies; and propose the next decision.</p>
+
+        <h2>The brand manager must:</h2>
+        <p>set the hierarchy of goals; define what data the system is allowed to use; set the limits of personalisation; protect what must never change in the brand; specify when a human makes the call; define the conditions for shutting the system down; reject a commercially attractive result that undermines trust; and take responsibility for the consequences.</p>
+
+        <p class="article-note">Next article: <a href="post-ai-zna-sto-kupac-radi.html">AI Knows What the Customer Does. It Doesn't Know What Drives Them →</a></p>
+      </div>
+
+      <div class="article-share">
+        <span class="lbl lang-hr">Izvorno objavljeno na</span><span class="lbl lang-en">Originally published on</span>
+        <a href="https://www.linkedin.com/pulse/budu%C4%87nost-marketinga-nije-upravljanje-promocijom-je-sustavom-zoraja-x2olf" target="_blank" rel="noopener">LinkedIn →</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img class="brand-logo-img" src="logo.png" width="1285" height="324" alt="Brandheadteacher">
+        <p style="color:var(--ink-soft); font-size:14px; max-width:36ch; margin-top:16px;" class="lang-hr">Blog o svijetu reklame i marketing consulting za brendove koji ne žele biti dekoracija.</p>
+        <p style="color:var(--ink-soft); font-size:14px; max-width:36ch; margin-top:16px;" class="lang-en">A blog about the world of advertising, and marketing consulting for brands that don't want to be decoration.</p>
+        <p style="margin-top:16px; font-size:14px;"><a href="mailto:brand@brandheadteacher.com">brand@brandheadteacher.com</a> · <a href="https://www.linkedin.com/in/brandheadteacher/" target="_blank" rel="noopener">LinkedIn</a></p>
+      </div>
+      <div>
+        <h4 class="lang-hr">Navigacija</h4><h4 class="lang-en">Navigation</h4>
+        <ul class="foot-links">
+          <li><a href="index.html#blog" class="lang-hr">Svijet reklame — blog</a><a href="index.html#blog" class="lang-en">Svijet Reklame — blog</a></li>
+          <li><a href="index.html#arhiva" class="lang-hr">Arhiva blogova</a><a href="index.html#arhiva" class="lang-en">Blog archive</a></li>
+          <li><a href="index.html#usluge" class="lang-hr">Usluge</a><a href="index.html#usluge" class="lang-en">Services</a></li>
+          <li><a href="index.html#suradnja" class="lang-hr">Suradnja</a><a href="index.html#suradnja" class="lang-en">Work With Me</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="lang-hr">Favoriti struke</h4><h4 class="lang-en">Industry favorites</h4>
+        <ul class="foot-links">
+          <li><a href="#">Campaign</a></li>
+          <li><a href="#">Adweek</a></li>
+          <li><a href="#">Creative Review</a></li>
+          <li><a href="#">The Drum</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-social">
+      <a href="https://www.linkedin.com/in/brandheadteacher/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12z"/></svg></a>
+      <a href="https://x.com/brandheadteach" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 3H21l-6.3 7.2L21.7 21h-5.4l-4.2-5.5L7 21H3.9l6.9-7.8L3.6 3h5.5l3.8 5.1L18.3 3z"/></svg></a>
+      <a href="https://www.facebook.com/Brandheadteacher/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3H13.5V8.3c0-.9.3-1.5 1.6-1.5h1.7V4.2C16.5 4.1 15.3 4 14 4c-2.6 0-4.4 1.6-4.4 4.5v2h-2.6v3h2.6V21h3.9z"/></svg></a>
+      <a href="https://www.youtube.com/channel/UCnXsDQALeyIfeEevKOP-S5Q" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 8.6s-.2-1.5-.8-2.2c-.8-.8-1.6-.8-2-.9C16.3 5.2 12 5.2 12 5.2s-4.3 0-7.2.3c-.4 0-1.2.1-2 .9-.6.7-.8 2.2-.8 2.2S1.8 10.4 1.8 12.2v1.6c0 1.8.2 3.6.2 3.6s.2 1.5.8 2.2c.8.8 1.8.8 2.3.9 1.6.2 7 .3 7 .3s4.3 0 7.2-.3c.4 0 1.2-.1 2-.9.6-.7.8-2.2.8-2.2s.2-1.8.2-3.6v-1.6c0-1.8-.2-3.6-.2-3.6zM9.9 15.3V9.1l5.4 3.1-5.4 3.1z"/></svg></a>
+      <a href="https://www.tiktok.com/@brandheadteacher" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3h2.6c.2 1.5 1.1 2.9 2.4 3.7.9.6 2 .9 3.1.9v2.7c-1.6 0-3.1-.5-4.4-1.3v6.6c0 3.3-2.7 6-6 6-1.3 0-2.6-.4-3.6-1.2A6 6 0 0 1 6 15.9a6 6 0 0 1 6.5-6v2.8a3.2 3.2 0 0 0-2.9 3.2 3.2 3.2 0 0 0 3.2 3.2 3.2 3.2 0 0 0 3.2-3.2V3z"/></svg></a>
+      <a href="https://www.pinterest.com/brandheadteacher/" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.6 7.85 6.27 9.36-.09-.78-.17-1.98.04-2.84.19-.77 1.23-5.14 1.23-5.14s-.31-.63-.31-1.55c0-1.45.84-2.53 1.89-2.53.89 0 1.32.67 1.32 1.47 0 .89-.57 2.23-.86 3.47-.25 1.04.52 1.89 1.54 1.89 1.85 0 3.1-2.38 3.1-5.19 0-2.14-1.44-3.74-4.06-3.74-2.96 0-4.81 2.21-4.81 4.68 0 .86.25 1.46.64 1.93.1.12.11.23.08.35-.09.37-.28 1.14-.32 1.3-.05.2-.17.25-.39.15-1.39-.57-2.04-2.08-2.04-3.79 0-2.82 2.38-6.2 7.1-6.2 3.79 0 6.29 2.74 6.29 5.69 0 3.89-2.17 6.8-5.37 6.8-1.08 0-2.09-.59-2.44-1.25 0 0-.58 2.32-.7 2.77-.21.8-.62 1.6-1 2.22.86.26 1.77.4 2.72.4 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg></a>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Brandheadteacher &amp; Brandactivist</span>
+      <nav class="foot-legal" aria-label="Legal">
+        <a href="#" class="lang-hr">Postavke kolačića</a><a href="#" class="lang-en">Cookie Preferences</a>
+        <a href="#" class="lang-hr">Pravila privatnosti</a><a href="#" class="lang-en">Privacy Notice</a>
+        <a href="#" class="lang-hr">Uvjeti korištenja</a><a href="#" class="lang-en">Terms of Service</a>
+        <a href="index.html#kontakt" class="lang-hr">Kontakt</a><a href="index.html#kontakt" class="lang-en">Contact</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var CURRENT_LANG = 'hr';
+try{
+  var saved = localStorage.getItem('bht-lang');
+  if(saved === 'hr' || saved === 'en') CURRENT_LANG = saved;
+}catch(e){}
+
+function applyLang(lang){
+  CURRENT_LANG = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('#langSwitch button').forEach(function(b){
+    b.setAttribute('aria-current', b.dataset.lang === lang ? 'true' : 'false');
+  });
+  try{ localStorage.setItem('bht-lang', lang); }catch(e){}
+}
+
+document.querySelectorAll('#langSwitch button').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    if(btn.dataset.lang !== CURRENT_LANG) applyLang(btn.dataset.lang);
+  });
+});
+
+applyLang(CURRENT_LANG);
+</script>
+</body>
+</html>

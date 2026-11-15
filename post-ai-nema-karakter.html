@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI nema karakter — Svijet Reklame</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper: #F6F2E9;
+  --paper-raised: #EFE9DA;
+  --paper-stamp: #E9E1CC;
+  --ink: #1A1714;
+  --ink-soft: #5B5650;
+  --ink-faint: #8C8678;
+  --red: #FF0000;
+  --red-deep: #B30000;
+  --red-soft: #FFE1DE;
+  --line: #D9D0BC;
+  --line-strong: #C6BA9E;
+  --shadow: rgba(32,29,26,0.12);
+  --focus: #1A1714;
+  --serif: "Poppins", "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --sans: "Poppins", "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", "Courier New", monospace;
+  --maxw: 1180px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper: #1B1916; --paper-raised: #252220; --paper-stamp: #2C2824;
+    --ink: #ECE6D8; --ink-soft: #AFA695; --ink-faint: #7A7367;
+    --red: #FF4A3D; --red-deep: #FF6B5E; --red-soft: #45130F;
+    --line: #3A352E; --line-strong: #4A433A; --shadow: rgba(0,0,0,0.45); --focus: #ECE6D8;
+  }
+}
+:root[data-theme="dark"]{
+  --paper: #1B1916; --paper-raised: #252220; --paper-stamp: #2C2824;
+  --ink: #ECE6D8; --ink-soft: #AFA695; --ink-faint: #7A7367;
+  --red: #FF4A3D; --red-deep: #FF6B5E; --red-soft: #45130F;
+  --line: #3A352E; --line-strong: #4A433A; --shadow: rgba(0,0,0,0.45); --focus: #ECE6D8;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+*{box-sizing:border-box;}
+html{background:var(--paper);}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%; display:block;}
+a{color:var(--red);}
+::selection{background:var(--red-soft); color:var(--ink);}
+
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+@media (max-width:640px){ .wrap{padding:0 18px;} }
+
+.eyebrow{
+  font-family:var(--mono); font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--red-deep); font-weight:700; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{ content:none; width:7px; height:7px; border-radius:50%; background:var(--red); flex:none; }
+
+h1,h2,h3{ font-family:var(--serif); font-weight:800; letter-spacing:-0.01em; text-wrap:balance; margin:0; color:var(--ink); }
+
+.btn{
+  font-family:var(--sans); font-weight:800; font-size:14.5px; letter-spacing:0.01em;
+  display:inline-flex; align-items:center; gap:8px; padding:14px 26px; border-radius:999px;
+  border:2px solid var(--ink); background:transparent; color:var(--ink); cursor:pointer; text-decoration:none;
+  transition:transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.btn:hover{ transform:translateY(-2px); box-shadow:0 14px 26px -14px var(--shadow); }
+.btn:focus-visible{ outline:3px solid var(--focus); outline-offset:2px; }
+.btn-primary{ background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 14px 28px -12px rgba(255,0,0,0.45); }
+.btn-primary:hover{ background:var(--red-deep); border-color:var(--red-deep); box-shadow:0 18px 34px -12px rgba(255,0,0,0.55); }
+.btn-ghost{ border-color:transparent; padding-left:0; padding-right:0; }
+.btn-ghost:hover{ box-shadow:none; text-decoration:underline; transform:none; }
+.btn-sm{ padding:9px 16px; font-size:13px; }
+
+header{
+  position:sticky; top:0; z-index:40;
+  background:color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter:blur(6px); border-bottom:1px solid var(--line);
+}
+.headerbar{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; gap:20px; }
+.brand-logo-img{ height:42px; width:auto; display:block; }
+nav.primary{ display:flex; align-items:center; gap:30px; }
+nav.primary a{
+  font-family:var(--mono); font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-soft); text-decoration:none;
+}
+nav.primary a:hover{ color:var(--ink); }
+.nav-cta{ display:flex; align-items:center; gap:18px; }
+.lang-switch{ display:flex; align-items:center; gap:2px; font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em; }
+.lang-switch button{
+  background:none; border:none; cursor:pointer; padding:4px 5px;
+  color:var(--ink-faint); font-family:inherit; font-size:inherit; letter-spacing:inherit;
+}
+.lang-switch button[aria-current="true"]{ color:var(--red); font-weight:700; }
+.lang-switch .sep{ color:var(--line-strong); }
+.burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
+.burger span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
+@media (max-width:860px){ nav.primary{ display:none; } .burger{ display:block; } }
+
+/* ============ ARTICLE ============ */
+.article-head{ padding:54px 0 36px; }
+.back-link{
+  font-family:var(--mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+  text-decoration:none; color:var(--ink-soft); display:inline-flex; gap:8px; margin-bottom:28px;
+}
+.back-link:hover{ color:var(--red); }
+.article-title{ font-size:clamp(28px,4.2vw,44px); line-height:1.1; margin-top:16px; max-width:26ch; }
+.article-lede{ font-size:19px; color:var(--ink-soft); max-width:46ch; margin-top:22px; font-weight:600; }
+.byline{
+  display:flex; align-items:center; gap:14px; margin-top:28px;
+  font-family:var(--mono); font-size:12.5px; color:var(--ink-faint); letter-spacing:0.02em;
+}
+.byline strong{ color:var(--ink); font-family:var(--sans); font-weight:700; font-size:14px; letter-spacing:0; }
+.byline .dot{ width:4px; height:4px; border-radius:50%; background:var(--line-strong); flex:none; }
+
+.cover{
+  width:100%; aspect-ratio:16/9; object-fit:cover; border:1px solid var(--line); border-radius:16px;
+  margin:36px 0 0;
+}
+
+.article-body{ max-width:680px; margin:0 auto; padding:48px 28px 20px; }
+.article-body p{ font-size:17.5px; line-height:1.75; color:var(--ink); margin:0 0 22px; }
+.article-body p strong{ font-weight:700; }
+.article-body p em{ font-style:italic; }
+.article-body h2{ font-size:clamp(23px,2.8vw,28px); margin:52px 0 20px; line-height:1.2; }
+.article-body h2 em{ font-style:italic; }
+.article-body .pull{
+  font-family:var(--serif); font-weight:600; font-style:normal; font-size:26px; line-height:1.35;
+  color:var(--ink); border-left:3px solid var(--red); padding-left:24px; margin:40px 0;
+}
+.article-body .q{ font-family:var(--serif); font-weight:600; font-size:21px; color:var(--red-deep); margin:0 0 22px; }
+.article-note{
+  margin-top:50px; padding-top:28px; border-top:1px dashed var(--line-strong);
+  font-style:italic; color:var(--ink-soft); font-size:15px;
+}
+.article-note a{ font-style:normal; }
+.article-share{ display:flex; gap:14px; margin-top:44px; align-items:center; }
+.article-share .lbl{ font-family:var(--mono); font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); }
+
+footer{ border-top:1px solid var(--line); padding:54px 0 36px; margin-top:40px; }
+.foot-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px; }
+@media (max-width:760px){ .foot-grid{ grid-template-columns:1fr; gap:30px; } }
+footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; }
+.foot-links{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:9px; }
+.foot-links a{ color:var(--ink-soft); text-decoration:none; font-size:14px; }
+.foot-links a:hover{ color:var(--ink); text-decoration:underline; }
+.foot-social{ display:flex; gap:12px; margin-top:38px; padding-top:28px; border-top:1px dashed var(--line-strong); }
+.foot-social a{
+  width:38px; height:38px; border-radius:50%; flex:none;
+  display:flex; align-items:center; justify-content:center;
+  border:1.5px solid var(--line-strong); color:var(--ink-soft);
+  transition:border-color .15s ease, color .15s ease, background .15s ease, transform .15s ease;
+}
+.foot-social a:hover{ border-color:var(--red); color:var(--red); background:var(--red-soft); transform:translateY(-2px); }
+.foot-social svg{ width:18px; height:18px; fill:currentColor; display:block; }
+.foot-bottom{ display:flex; justify-content:space-between; align-items:center; margin-top:46px; padding-top:22px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-faint); flex-wrap:wrap; gap:10px; }
+.foot-legal{ display:flex; gap:18px; flex-wrap:wrap; }
+.foot-legal a{ color:var(--ink-faint); text-decoration:none; font-size:12.5px; }
+.foot-legal a:hover{ color:var(--red); text-decoration:underline; }
+
+html:not([data-lang="en"]) .lang-en{ display:none; }
+html[data-lang="en"] .lang-hr{ display:none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headerbar">
+    <a href="index.html#top"><img class="brand-logo-img" src="logo.png" width="1285" height="324" alt="Brandheadteacher"></a>
+    <nav class="primary">
+      <a href="index.html#blog" class="lang-hr">Blog</a><a href="index.html#blog" class="lang-en">Blog</a>
+      <a href="index.html#usluge" class="lang-hr">Usluge</a><a href="index.html#usluge" class="lang-en">Services</a>
+      <a href="index.html#suradnja" class="lang-hr">Suradnja</a><a href="index.html#suradnja" class="lang-en">Work With Me</a>
+      <a href="index.html#kontakt" class="lang-hr">Kontakt</a><a href="index.html#kontakt" class="lang-en">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="lang-switch" id="langSwitch">
+        <button type="button" data-lang="hr" aria-current="true">HR</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="en" aria-current="false">ENG</button>
+      </div>
+      <a class="btn btn-primary btn-sm lang-hr" href="index.html#suradnja">Zatraži konzultacije</a>
+      <a class="btn btn-primary btn-sm lang-en" href="index.html#suradnja">Request a consultation</a>
+      <button class="burger" aria-label="Meni"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <article>
+    <div class="wrap article-head">
+      <a class="back-link lang-hr" href="index.html#blog">← Natrag na Svijet reklame</a>
+      <a class="back-link lang-en" href="index.html#blog">← Back to Svijet Reklame</a>
+
+      <p class="eyebrow">Svijet reklame — AI &amp; marketing consulting</p>
+
+      <h1 class="article-title lang-hr">AI nema karakter. Brend bi ga morao imati. Tko će mu objasniti razliku?</h1>
+      <h1 class="article-title lang-en">AI Has No Character. The Brand Should Have One. Who Will Explain the Difference to It?</h1>
+
+      <p class="article-lede lang-hr">AI će znati sve o vašem brendu. Osim što je za njega dobro.</p>
+      <p class="article-lede lang-en">AI will know everything about your brand. Except what's good for it.</p>
+
+      <div class="byline">
+        <strong>Branimir Zoraja</strong>
+        <span class="dot"></span>
+        <span class="lang-hr">13. rujna 2026.</span><span class="lang-en">September 13, 2026</span>
+        <span class="dot"></span>
+        <span class="lang-hr">8 min čitanja</span><span class="lang-en">8 min read</span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <img class="cover" src="post-karakter-cover.png" alt="Brend menadžer u teretani pokazuje robotskom AI asistentu dijagram na ekranu s riječima Purpose, Positioning, Value, Character i Criteria oko centralnog pojma Brand" width="1280" height="719">
+    </div>
+
+    <div class="article-body">
+
+      <!-- HR -->
+      <div class="lang-hr">
+        <p>U seriji članaka u kojima analiziram utjecaj <a href="index.html#blog">AI-a na marketing i brend menadžment</a> provlačim tezu da je AI jako brz, čak i za moje pojmove.</p>
+        <p>Ali uskoro će biti još brži. Moći će u sekundi analizirati tisuće kampanja, cijene konkurencije, prodaju po trgovinama, recenzije, klikove, vremensku prognozu i možda raspoloženje vašeg direktora prodaje prije mjesečnog business reviewa.</p>
+        <p>No, jedno neće znati sam od sebe.</p>
+        <p>Što je dobro za vaš brend.</p>
+        <p>To mu netko mora objasniti.</p>
+        <p>I tu počinje puno zanimljiviji problem upotrebe umjetne inteligencije od pitanja koji ćemo AI alat koristiti, koliko licenci kupiti i hoće li nam IT opet poslati novi pravilnik o upotrebi AI-a od 47 stranica.</p>
+
+        <h2>Tko će AI naučiti što je za naš brend ispravno?</h2>
+        <p>Ako želite algoritam koji razumije što je dobro za brend, netko u organizaciji prvo mora znati odgovoriti na to pitanje.</p>
+
+        <h2>Prodaja?</h2>
+        <p>Čisto sumnjam.</p>
+        <p>Prodaju, sasvim opravdano, zanima je li ostvaren plan. Ako AI pronađe način da posljednjih pet dana u mjesecu spusti cijenu, napravi co-pack, pojača distribuciju i izvuče još nekoliko postotaka prodaje, AI će im vrlo brzo postati omiljeni kolega. Sve dok jednog dana ne predloži da promociju ne napravite. Tada će vjerojatno postati ono sumnjivo lice na Teams sastanku koje stalno nešto komplicira.</p>
+        <p>Prodaja može izvrsno naučiti AI kako prodati više. Ali tko će ga naučiti kada više prodaje danas znači manje vrijednosti brenda sutra?</p>
+
+        <h2>Controlling?</h2>
+        <p>Controlling će ga naučiti da je prihod prihod, marža marža, forecast forecast, a crvena ćelija u Excelu problem koji treba objasniti. To je važno. Ali ista niža bruto marža može značiti tri sasvim različite stvari: svjesno ulažemo u nove kupce, učimo postojeće da čekaju akciju ili polako uništavamo razlog zbog kojeg su za naš brend spremni platiti više.</p>
+        <p>Controlling može fantastično predvidljivo naučiti AI što se dogodilo s brojkama. Teže će ga naučiti što se dogodilo s brendom.</p>
+
+        <h2>Onda valjda uprava?</h2>
+        <p>Ako pronađete člana uprave koji može precizno opisati cijeli proces brend menadžmenta, od consumer insighta preko pozicioniranja, arhitekture portfelja, cjenovne strategije i inovacijskog pipelinea do egzekucije na polici, javite mi.</p>
+        <p>Rado ću ga preporučiti.</p>
+        <p>Uprava mora razumjeti vrijednost brenda i odrediti poslovni smjer. Ali njezina je perspektiva nužno šira. Gleda prihod, EBITDA-u, tržišni udio, investicije, ljude, proizvodnju, rizike i godinu koja je, naravno, ponovno „ključna“. Uprava mora odrediti kamo kompanija ide. Ali teško je očekivati da će predsjednik uprave algoritmu svakoga jutra objašnjavati zašto SKU s manjom rotacijom ipak mora ostati u portfelju, zašto kratkoročno atraktivna ekstenzija nema pravo nositi ime brenda ili zašto određena promocija, iako bi podigla volumen, dugoročno slabi referentnu cijenu brenda.</p>
+        <p>Uprava možda može naučiti AI što kompanija želi postići. Ali netko drugi mora prevesti taj cilj u pravila ponašanja brenda.</p>
+
+        <h2>A agencija?</h2>
+        <p>Agencija može AI naučiti kako brend govori, izgleda i zvuči. Kako komunicira. Može mu dati i stotine primjera dobre egzekucije.</p>
+        <p>Ali ni najbolji tone of voice ne odgovara na pitanje treba li novi proizvod uopće lansirati. Niti može odlučiti hoće li nova kategorija proširiti značenje brenda ili ga razvodniti.</p>
+        <p>AI vrlo brzo u agenciji može naučiti izgledati kao brend. Mnogo ga je teže naučiti razmišljati kao brend.</p>
+        <p>Peter Drucker je učinkovitost sažeo kao „doing the right things well“.</p>
+        <div class="pull">AI će dio well riješiti fantastično. Problem je onaj right.</div>
+
+        <h2>Tko definira što je right?</h2>
+        <p>Ako želimo da AI jednog dana samostalno donosi tisuće marketinških mikroodluka, netko prije toga mora napraviti ono što se danas često smatra najmanje atraktivnim dijelom marketinga: definirati kriterije.</p>
+        <p>Ne samo vizualne. Poslovne. Strateške. Potrošačke. Etičke.</p>
+        <p>AI mora znati: što je svrha brenda i koji problem potrošača rješava; što je njegova pozicija i protiv čega je spreman konkurirati; koje kategorije i inovacije imaju pravo nositi njegovo ime; koje potrošače želimo privući, a koje ne trebamo kupovati pod svaku cijenu; koje elemente proizvoda, cijene, distribucije i komunikacije sustav smije mijenjati i kada poslovno privlačna odluka mora biti odbijena jer dugoročno slabi brend.</p>
+        <p>Zato će kompanijama trebati nešto više od brand booka.</p>
+        <p>Trebat će im brand operating system.</p>
+        <p>Uzmimo primjer Disneya. Njegovi likovi mogu vrijediti milijarde, ali Mickey Mouse ne može prodavati baš sve što bi netko bio spreman platiti da prodaje. Disney je, primjerice, definirao nutritivne kriterije koji određuju s kojim se prehrambenim proizvodima njegovi brendovi i likovi smiju povezivati u promocijama, licenciranju, dječjem oglašavanju i parkovima. Postoje i kategorije oglašivača koje Disney na svojim brendiranim platformama jednostavno ne prihvaća.</p>
+        <p>Za algoritam koji optimizira prihod to bi moglo izgledati iracionalno. Ako jedan partner plaća više, zašto ga odbiti? Ako licenciranje Mickeyja na proizvod povećava prodaju, zašto ga ne licencirati? Zato što prihod nije jedini kriterij. Disney je unaprijed definirao da određene odluke, iako mogu biti komercijalno privlačne, nisu u skladu s onim što brend želi predstavljati.</p>
+        <p>AI može proizvesti stotine kreativnih varijanti, odabrati publiku i optimizirati rezultat. Ali prije svega toga netko mora definirati prostor unutar kojega smije optimizirati.</p>
+        <div class="pull">Brand book kaže Mickeyju kako mora izgledati. Brand operating system određuje što Mickey nikada neće prodavati.</div>
+
+        <h2>Jer algoritam će učiti iz onoga što mu damo</h2>
+        <p>Ako AI treniramo uglavnom na prodajnim rezultatima, naučit će da je dobra odluka ona koja povećava prodaju. Ako ga treniramo na marži, naučit će čuvati maržu. Ako ga treniramo na CTR-u, pronaći će načine da proizvede klik. Ako ga treniramo na povijesnim kampanjama, vrlo će učinkovito reproducirati ono što smo već radili.</p>
+        <p>Možda je najbolji dokaz još iz vremena kad je umjetna inteligencija uglavnom glumila u filmovima. Coca-Cola je prije lansiranja New Coke 1985. testirala novu formulu na gotovo 200.000 potrošača. Brojke su govorile: promijenite proizvod. Potrošači su rekli nešto drugo: ne dirajte našu Coke. Test je izmjerio okus, ali nije izmjerio emocionalnu vezu s brendom. Originalna formula vraćena je nakon 79 dana.</p>
+        <p>Da je tada postojao dovoljno dobar AI treniran samo na rezultatima taste testova, vrlo bi vjerojatno donio istu pogrešnu odluku. Ne zato što je glup. Nego zato što smo mu postavili pogrešno pitanje.</p>
+        <p>Pitanje nije samo:</p>
+        <p class="q">„Na kojim je podacima naš AI treniran?“</p>
+        <p>Puno važnije pitanje glasi:</p>
+        <p class="q">„Na čijoj je definiciji uspjeha treniran?“</p>
+
+        <h2>Organizacija će algoritam trenirati vlastitim interesima</h2>
+        <p>Svaki odjel ima svoju verziju uspjeha. Prodaja želi ostvariti plan. Controlling želi predvidljivost i točne brojke. Trade marketing želi distribuciju i vidljivost. Digital želi engagement i konverziju. R&amp;D želi izvediv proizvod. Uprava želi rast i profitabilnost. Sve su to legitimni ciljevi.</p>
+        <p>Problem nastaje kada jedan od njih postane definicija brenda.</p>
+        <p>Brend postoji upravo zato da te različite interese poveže kroz dugoročnu tržišnu vrijednost.</p>
+        <p>Zato AI governance u marketingu neće biti samo tehnološki problem. Bit će organizacijski problem. I vrlo brzo politički. Jer onaj tko određuje kriterije algoritma zapravo određuje što organizacija smatra dobrom marketinškom odlukom.</p>
+        <p>David Ogilvy je desetljećima prije generativnog AI-a napisao da „every advertisement must contribute to the complex symbol which is the brand image“.</p>
+        <p>Sada zamijenite riječ advertisement riječju odluka. I dobit ćete da svaka cijena, svaka promocija, svaka inovacija, svaka poruka ili svaka od tisuću mikroodluka koje će AI sutra donositi moraju doprinositi istom kompleksnom simbolu koji zovemo brend. A ponekad će dobra odluka za brend izgledati potpuno pogrešno.</p>
+        <p>Patagonia je za Black Friday 2011. objavila legendarni oglas „Don't Buy This Jacket“ i tražila od kupaca da razmisle trebaju li uopće kupiti novu jaknu. Za klasični prodajni algoritam to zvuči kao kvar sustava. Za Patagoniju je bilo logično proširenje njezine filozofije smanjenja nepotrebne potrošnje i izrade dugotrajnijih proizvoda.</p>
+        <p>AI kojem je jedini cilj maksimizirati konverziju takvu odluku nikada neće predložiti. AI koji razumije hijerarhiju vrijednosti brenda možda hoće.</p>
+
+        <h2>Brend menadžer više nije samo čuvar brenda</h2>
+        <p>Godinama govorimo da je brend menadžer čuvar brenda. Ta metafora više neće biti dovoljna.</p>
+        <p>Čuvar reagira kada netko prijeđe granicu. U AI sustavu granica mora biti ugrađena prije nego što odluka nastane.</p>
+        <p>Brend menadžer zato postaje nešto više: trener algoritma.</p>
+        <p>Ne mora znati programirati model. Ali mora znati artikulirati ono što danas često postoji samo u glavama najboljih ljudi u organizaciji: zašto donosimo određene odluke, koja je hijerarhija ciljeva, koji su kompromisi dopušteni, što je strateški važno, što se nikada ne optimizira i kada treba odbiti rezultat koji je brojčano odličan, ali strateški pogrešan.</p>
+        <p>Hasbro je 2026. napravio zanimljiv korak dalje od klasičnog licenciranja svojih likova. Kada nekome licencirate Optimusa Primea, relativno je jednostavno propisati kako mora izgledati, koje boje koristiti i gdje se njegov znak smije pojaviti. Ali što kada Optimus Prime postane AI agent koji razgovara s ljudima? Više ne možete unaprijed odobriti svaku njegovu rečenicu. Zato je Hasbro razvio CharacterOS, svojevrsni „operativni sustav lika“, i na njemu koncept koji naziva Behavioral Licensingom. Klasična licenca propisuje kako Optimus Prime smije izgledati, zvučati i gdje se njegov lik može koristiti. CharacterOS ide korak dalje: AI-u daje pravila po kojima Optimus Prime mora ostati Optimus Prime i kada samostalno razgovara s ljudima. Sustav ne pokušava sačuvati samo izgled i glas lika, nego njegovu osobnost, povijest, način na koji govori i reagira te granice koje ne smije prijeći u AI interakciji.</p>
+        <p>Drugim riječima, netko algoritmu prije razgovora mora objasniti:</p>
+        <p class="q">Što bi Optimus Prime rekao? Kako bi reagirao? A što Optimus Prime nikada ne bi napravio?</p>
+        <p>To više nije klasično čuvanje brenda.</p>
+        <p>Čuvar bi nakon razgovora provjerio je li Optimus Prime rekao nešto pogrešno. Trener algoritma mora prije razgovora definirati što za Optimusa Primea uopće znači pogrešno.</p>
+        <p>Isto će vrijediti za brendove.</p>
+        <p>Kada AI počne sam donositi tisuće odluka o ponudama, promocijama, porukama i reakcijama prema kupcima, brend menadžer ih više neće moći pregledavati jednu po jednu.</p>
+        <div class="pull">Morat će algoritmu prenijeti nešto mnogo teže od brand booka: karakter brenda pretvoriti u kriterije ponašanja.</div>
+
+        <h2>Svaki AI ima učitelja. Pitanje je kakvog</h2>
+        <p>Možda će se za nekoliko godina kompanije hvaliti koliko sofisticirane AI sustave imaju. Mene neće zanimati njihovi parametri, koji model koriste ni koliko su brži od konkurencije.</p>
+        <p>Mene će zanimati jedno jednostavnije pitanje.</p>
+        <p class="q">Tko ih je trenirao?</p>
+        <p>AI može učiti iz tisuća prethodnih odluka, povezivati tržišne podatke, testirati alternative, otkrivati obrasce i predlagati poteze koje čovjek ne bi stigao analizirati.</p>
+        <p>Ali brend menadžer mora odlučiti koje su prethodne odluke vrijedne učenja, koje predstavljaju pogreške, prema kojim se kriterijima rezultat ocjenjuje i što je važnije od onoga što se lako može izmjeriti.</p>
+
+        <p class="article-note">Za kraj serije: <a href="post-ai-moze-pisati.html">AI može pisati kao ja. Ali ne može odlučiti što je moje →</a></p>
+      </div>
+
+      <!-- EN -->
+      <div class="lang-en">
+        <p>Throughout the series of articles in which I analyse the impact of <a href="index.html#blog">AI on marketing and brand management</a>, I keep coming back to one claim: AI is incredibly fast, even by my standards.</p>
+        <p>But soon it'll be even faster. It'll be able to analyse thousands of campaigns, competitor prices, store-level sales, reviews, clicks, the weather forecast, and perhaps even your sales director's mood in a second, before the monthly business review.</p>
+        <p>There's just one thing it won't know on its own.</p>
+        <p>What's good for your brand.</p>
+        <p>Someone has to explain that to it.</p>
+        <p>And that's where a much more interesting problem of using artificial intelligence begins — more interesting than which AI tool we'll use, how many licences to buy, or whether IT will send us yet another 47-page AI usage policy.</p>
+
+        <h2>Who's going to teach AI what's right for our brand?</h2>
+        <p>If you want an algorithm that understands what's good for the brand, someone in the organisation first has to be able to answer that question.</p>
+
+        <h2>Sales?</h2>
+        <p>I seriously doubt it.</p>
+        <p>Sales, quite reasonably, cares whether the plan gets hit. If AI finds a way to drop the price in the last five days of the month, put together a co-pack, boost distribution and squeeze out a few more percentage points of sales, it'll very quickly become their favourite colleague. Right up until the day it suggests you skip the promotion. Then it'll probably become that suspicious face on the Teams call that keeps complicating things.</p>
+        <p>Sales can brilliantly teach AI how to sell more. But who's going to teach it that more sales today can mean less brand value tomorrow?</p>
+
+        <h2>Controlling?</h2>
+        <p>Controlling will teach it that revenue is revenue, margin is margin, forecast is forecast, and a red cell in Excel is a problem that needs explaining. That matters. But that same lower gross margin can mean three completely different things: we're deliberately investing in new customers, we're teaching existing ones to wait for the next promotion, or we're slowly destroying the reason people were willing to pay more for our brand.</p>
+        <p>Controlling can teach AI, with fantastic predictability, what happened to the numbers. It'll have a much harder time teaching it what happened to the brand.</p>
+
+        <h2>Then maybe management?</h2>
+        <p>If you find a board member who can precisely describe the entire brand management process, from consumer insight through positioning, portfolio architecture, pricing strategy and the innovation pipeline, all the way to execution on the shelf, let me know.</p>
+        <p>I'd happily recommend them.</p>
+        <p>Management has to understand brand value and set the business direction. But their perspective is necessarily broader. They look at revenue, EBITDA, market share, investment, people, production, risk, and a year that is, of course, "critical" once again. Management has to decide where the company is going. But it's hard to expect the CEO to explain to an algorithm every morning why a lower-rotation SKU still has to stay in the portfolio, why a short-term attractive line extension has no right to carry the brand's name, or why a particular promotion, even though it would lift volume, erodes the brand's reference price in the long run.</p>
+        <p>Management may be able to teach AI what the company wants to achieve. But someone else has to translate that goal into rules for how the brand behaves.</p>
+
+        <h2>The agency, then?</h2>
+        <p>The agency can teach AI how the brand speaks, looks and sounds. How it communicates. It can give it hundreds of examples of good execution too.</p>
+        <p>But even the best tone of voice doesn't answer the question of whether a new product should be launched at all. Nor can it decide whether a new category will extend the brand's meaning or dilute it.</p>
+        <p>Inside an agency, AI can very quickly learn to look like a brand. It's much harder to teach it to think like a brand.</p>
+        <p>Peter Drucker summed up effectiveness as "doing the right things well."</p>
+        <div class="pull">AI will nail the well part brilliantly. The problem is the right part.</div>
+
+        <h2>Who defines what's right?</h2>
+        <p>If we want AI to one day independently make thousands of marketing micro-decisions, someone first has to do what's today often considered the least attractive part of marketing: define the criteria.</p>
+        <p>Not just visual criteria. Business criteria. Strategic criteria. Consumer criteria. Ethical criteria.</p>
+        <p>AI has to know: what the brand's purpose is and which consumer problem it solves; what its position is and what it's willing to compete against; which categories and innovations have the right to carry its name; which consumers we want to attract, and which ones we shouldn't be chasing at any price; which elements of product, price, distribution and communication the system is allowed to change; and when a commercially attractive decision has to be rejected because it weakens the brand long-term.</p>
+        <p>Which is why companies will need something more than a brand book.</p>
+        <p>They'll need a brand operating system.</p>
+        <p>Take Disney as an example. Its characters may be worth billions, but Mickey Mouse can't sell absolutely everything someone would be willing to pay to sell. Disney, for instance, has defined nutritional criteria that determine which food products its brands and characters are allowed to be associated with in promotions, licensing, advertising to children, and its parks. There are also categories of advertisers that Disney simply won't accept on its branded platforms.</p>
+        <p>To an algorithm optimising for revenue, that could look irrational. If one partner pays more, why turn them down? If licensing Mickey onto a product increases sales, why not license it? Because revenue isn't the only criterion. Disney decided in advance that certain decisions, however commercially attractive, don't fit what the brand wants to represent.</p>
+        <p>AI can produce hundreds of creative variants, select an audience, and optimise the outcome. But before any of that, someone has to define the space within which it's allowed to optimise.</p>
+        <div class="pull">A brand book tells Mickey how he has to look. A brand operating system determines what Mickey will never sell.</div>
+
+        <h2>Because the algorithm will learn from whatever we feed it</h2>
+        <p>If we train AI mainly on sales results, it'll learn that a good decision is one that increases sales. If we train it on margin, it'll learn to protect margin. If we train it on CTR, it'll find ways to produce a click. If we train it on historical campaigns, it'll very efficiently reproduce what we've already done.</p>
+        <p>Perhaps the best proof of this comes from back when artificial intelligence mostly just appeared in movies. Before launching New Coke in 1985, Coca-Cola tested the new formula on nearly 200,000 consumers. The numbers said: change the product. Consumers said something else: don't touch our Coke. The test measured taste, but it didn't measure the emotional bond with the brand. The original formula was brought back after 79 days.</p>
+        <p>If a sufficiently good AI had existed back then, trained only on the results of taste tests, it would very likely have made the same wrong decision. Not because it's stupid. Because we asked it the wrong question.</p>
+        <p>The question isn't just:</p>
+        <p class="q">"What data was our AI trained on?"</p>
+        <p>A much more important question is:</p>
+        <p class="q">"Whose definition of success was it trained on?"</p>
+
+        <h2>The organisation will train the algorithm on its own interests</h2>
+        <p>Every department has its own version of success. Sales wants to hit the plan. Controlling wants predictability and accurate numbers. Trade marketing wants distribution and visibility. Digital wants engagement and conversion. R&amp;D wants a feasible product. Management wants growth and profitability. These are all legitimate goals.</p>
+        <p>The problem arises when one of them becomes the definition of the brand.</p>
+        <p>The brand exists precisely to connect those different interests through long-term market value.</p>
+        <p>That's why AI governance in marketing won't just be a technology problem. It'll be an organisational problem. And very quickly a political one. Because whoever sets the algorithm's criteria is effectively deciding what the organisation considers a good marketing decision.</p>
+        <p>Decades before generative AI, David Ogilvy wrote that "every advertisement must contribute to the complex symbol which is the brand image."</p>
+        <p>Now replace the word advertisement with decision. And you get that every price, every promotion, every innovation, every message, or any of the thousand micro-decisions AI will be making tomorrow, has to contribute to that same complex symbol we call the brand. And sometimes the right decision for the brand will look completely wrong.</p>
+        <p>For Black Friday 2011, Patagonia ran its legendary "Don't Buy This Jacket" ad, asking customers to think twice about whether they needed a new jacket at all. To a classic sales-optimising algorithm, that sounds like a system failure. For Patagonia, it was a logical extension of its philosophy of reducing unnecessary consumption and making more durable products.</p>
+        <p>An AI whose only goal is to maximise conversion will never suggest a decision like that. An AI that understands the brand's hierarchy of values just might.</p>
+
+        <h2>The brand manager is no longer just a guardian of the brand</h2>
+        <p>For years we've said the brand manager is the guardian of the brand. That metaphor won't be enough anymore.</p>
+        <p>A guardian reacts once someone crosses a line. In an AI system, the line has to be built in before the decision is even made.</p>
+        <p>Which is why the brand manager is becoming something more: an algorithm coach.</p>
+        <p>They don't need to know how to code the model. But they do need to be able to articulate what today often exists only in the heads of the best people in the organisation: why we make certain decisions, what the hierarchy of goals is, which trade-offs are acceptable, what's strategically important, what never gets optimised, and when to reject a result that's numerically excellent but strategically wrong.</p>
+        <p>In 2026, Hasbro took an interesting step beyond classic character licensing. When you license Optimus Prime to someone, it's relatively simple to specify how he has to look, which colours to use, and where his logo may appear. But what happens when Optimus Prime becomes an AI agent that talks to people? You can no longer pre-approve every single sentence he says. So Hasbro built CharacterOS, a kind of "operating system for the character," and on top of it a concept it calls Behavioral Licensing. A classic licence specifies how Optimus Prime is allowed to look, sound, and where his likeness can be used. CharacterOS goes a step further: it gives the AI the rules by which Optimus Prime has to remain Optimus Prime even when he's talking to people on his own. The system doesn't just try to preserve the character's look and voice, but his personality, history, the way he speaks and reacts, and the boundaries he must never cross in an AI interaction.</p>
+        <p>In other words, before any conversation happens, someone has to explain to the algorithm:</p>
+        <p class="q">What would Optimus Prime say? How would he react? And what would Optimus Prime never do?</p>
+        <p>That's no longer classic brand guardianship.</p>
+        <p>A guardian would check, after the conversation, whether Optimus Prime had said something wrong. An algorithm coach has to define, before the conversation, what "wrong" even means for Optimus Prime.</p>
+        <p>The same will hold true for brands.</p>
+        <p>Once AI starts independently making thousands of decisions about offers, promotions, messages and responses to customers, the brand manager won't be able to review them one by one anymore.</p>
+        <div class="pull">They'll have to hand the algorithm something far harder than a brand book: translate the brand's character into rules of behaviour.</div>
+
+        <h2>Every AI has a teacher. The question is what kind</h2>
+        <p>In a few years, companies might be boasting about how sophisticated their AI systems are. I won't care about their parameters, which model they use, or how much faster they are than the competition.</p>
+        <p>I'll care about one simpler question.</p>
+        <p class="q">Who trained them?</p>
+        <p>AI can learn from thousands of past decisions, connect market data, test alternatives, discover patterns, and suggest moves no human would have time to analyse.</p>
+        <p>But the brand manager has to decide which past decisions are worth learning from, which ones were mistakes, what criteria the outcome gets judged against, and what matters more than whatever is easy to measure.</p>
+
+        <p class="article-note">Closing out the series: <a href="post-ai-moze-pisati.html">AI Can Write Like Me. But It Can't Decide What's Mine →</a></p>
+      </div>
+
+      <div class="article-share">
+        <span class="lbl lang-hr">Izvorno objavljeno na</span><span class="lbl lang-en">Originally published on</span>
+        <a href="https://www.linkedin.com/pulse/ai-nema-karakter-brend-bi-ga-morao-imati-tko-%C4%87e-mu-objasniti-zoraja-4znce" target="_blank" rel="noopener">LinkedIn →</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img class="brand-logo-img" src="logo.png" width="1285" height="324" alt="Brandheadteacher">
+        <p style="color:var(--ink-soft); font-size:14px; max-width:36ch; margin-top:16px;" class="lang-hr">Blog o svijetu reklame i marketing consulting za brendove koji ne žele biti dekoracija.</p>
+        <p style="color:var(--ink-soft); font-size:14px; max-width:36ch; margin-top:16px;" class="lang-en">A blog about the world of advertising, and marketing consulting for brands that don't want to be decoration.</p>
+        <p style="margin-top:16px; font-size:14px;"><a href="mailto:brand@brandheadteacher.com">brand@brandheadteacher.com</a> · <a href="https://www.linkedin.com/in/brandheadteacher/" target="_blank" rel="noopener">LinkedIn</a></p>
+      </div>
+      <div>
+        <h4 class="lang-hr">Navigacija</h4><h4 class="lang-en">Navigation</h4>
+        <ul class="foot-links">
+          <li><a href="index.html#blog" class="lang-hr">Svijet reklame — blog</a><a href="index.html#blog" class="lang-en">Svijet Reklame — blog</a></li>
+          <li><a href="index.html#arhiva" class="lang-hr">Arhiva blogova</a><a href="index.html#arhiva" class="lang-en">Blog archive</a></li>
+          <li><a href="index.html#usluge" class="lang-hr">Usluge</a><a href="index.html#usluge" class="lang-en">Services</a></li>
+          <li><a href="index.html#suradnja" class="lang-hr">Suradnja</a><a href="index.html#suradnja" class="lang-en">Work With Me</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="lang-hr">Favoriti struke</h4><h4 class="lang-en">Industry favorites</h4>
+        <ul class="foot-links">
+          <li><a href="#">Campaign</a></li>
+          <li><a href="#">Adweek</a></li>
+          <li><a href="#">Creative Review</a></li>
+          <li><a href="#">The Drum</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-social">
+      <a href="https://www.linkedin.com/in/brandheadteacher/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12z"/></svg></a>
+      <a href="https://x.com/brandheadteach" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 3H21l-6.3 7.2L21.7 21h-5.4l-4.2-5.5L7 21H3.9l6.9-7.8L3.6 3h5.5l3.8 5.1L18.3 3z"/></svg></a>
+      <a href="https://www.facebook.com/Brandheadteacher/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3H13.5V8.3c0-.9.3-1.5 1.6-1.5h1.7V4.2C16.5 4.1 15.3 4 14 4c-2.6 0-4.4 1.6-4.4 4.5v2h-2.6v3h2.6V21h3.9z"/></svg></a>
+      <a href="https://www.youtube.com/channel/UCnXsDQALeyIfeEevKOP-S5Q" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 8.6s-.2-1.5-.8-2.2c-.8-.8-1.6-.8-2-.9C16.3 5.2 12 5.2 12 5.2s-4.3 0-7.2.3c-.4 0-1.2.1-2 .9-.6.7-.8 2.2-.8 2.2S1.8 10.4 1.8 12.2v1.6c0 1.8.2 3.6.2 3.6s.2 1.5.8 2.2c.8.8 1.8.8 2.3.9 1.6.2 7 .3 7 .3s4.3 0 7.2-.3c.4 0 1.2-.1 2-.9.6-.7.8-2.2.8-2.2s.2-1.8.2-3.6v-1.6c0-1.8-.2-3.6-.2-3.6zM9.9 15.3V9.1l5.4 3.1-5.4 3.1z"/></svg></a>
+      <a href="https://www.tiktok.com/@brandheadteacher" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3h2.6c.2 1.5 1.1 2.9 2.4 3.7.9.6 2 .9 3.1.9v2.7c-1.6 0-3.1-.5-4.4-1.3v6.6c0 3.3-2.7 6-6 6-1.3 0-2.6-.4-3.6-1.2A6 6 0 0 1 6 15.9a6 6 0 0 1 6.5-6v2.8a3.2 3.2 0 0 0-2.9 3.2 3.2 3.2 0 0 0 3.2 3.2 3.2 3.2 0 0 0 3.2-3.2V3z"/></svg></a>
+      <a href="https://www.pinterest.com/brandheadteacher/" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.6 7.85 6.27 9.36-.09-.78-.17-1.98.04-2.84.19-.77 1.23-5.14 1.23-5.14s-.31-.63-.31-1.55c0-1.45.84-2.53 1.89-2.53.89 0 1.32.67 1.32 1.47 0 .89-.57 2.23-.86 3.47-.25 1.04.52 1.89 1.54 1.89 1.85 0 3.1-2.38 3.1-5.19 0-2.14-1.44-3.74-4.06-3.74-2.96 0-4.81 2.21-4.81 4.68 0 .86.25 1.46.64 1.93.1.12.11.23.08.35-.09.37-.28 1.14-.32 1.3-.05.2-.17.25-.39.15-1.39-.57-2.04-2.08-2.04-3.79 0-2.82 2.38-6.2 7.1-6.2 3.79 0 6.29 2.74 6.29 5.69 0 3.89-2.17 6.8-5.37 6.8-1.08 0-2.09-.59-2.44-1.25 0 0-.58 2.32-.7 2.77-.21.8-.62 1.6-1 2.22.86.26 1.77.4 2.72.4 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg></a>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Brandheadteacher &amp; Brandactivist</span>
+      <nav class="foot-legal" aria-label="Legal">
+        <a href="#" class="lang-hr">Postavke kolačića</a><a href="#" class="lang-en">Cookie Preferences</a>
+        <a href="#" class="lang-hr">Pravila privatnosti</a><a href="#" class="lang-en">Privacy Notice</a>
+        <a href="#" class="lang-hr">Uvjeti korištenja</a><a href="#" class="lang-en">Terms of Service</a>
+        <a href="index.html#kontakt" class="lang-hr">Kontakt</a><a href="index.html#kontakt" class="lang-en">Contact</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var CURRENT_LANG = 'hr';
+try{
+  var saved = localStorage.getItem('bht-lang');
+  if(saved === 'hr' || saved === 'en') CURRENT_LANG = saved;
+}catch(e){}
+
+function applyLang(lang){
+  CURRENT_LANG = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('#langSwitch button').forEach(function(b){
+    b.setAttribute('aria-current', b.dataset.lang === lang ? 'true' : 'false');
+  });
+  try{ localStorage.setItem('bht-lang', lang); }catch(e){}
+}
+
+document.querySelectorAll('#langSwitch button').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    if(btn.dataset.lang !== CURRENT_LANG) applyLang(btn.dataset.lang);
+  });
+});
+
+applyLang(CURRENT_LANG);
+</script>
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Živimo li već danas innovation theatre? — Svijet Reklame</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper: #F6F2E9;
+  --paper-raised: #EFE9DA;
+  --paper-stamp: #E9E1CC;
+  --ink: #1A1714;
+  --ink-soft: #5B5650;
+  --ink-faint: #8C8678;
+  --red: #FF0000;
+  --red-deep: #B30000;
+  --red-soft: #FFE1DE;
+  --line: #D9D0BC;
+  --line-strong: #C6BA9E;
+  --shadow: rgba(32,29,26,0.12);
+  --focus: #1A1714;
+  --serif: "Poppins", "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --sans: "Poppins", "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", "Courier New", monospace;
+  --maxw: 1180px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper: #1B1916; --paper-raised: #252220; --paper-stamp: #2C2824;
+    --ink: #ECE6D8; --ink-soft: #AFA695; --ink-faint: #7A7367;
+    --red: #FF4A3D; --red-deep: #FF6B5E; --red-soft: #45130F;
+    --line: #3A352E; --line-strong: #4A433A; --shadow: rgba(0,0,0,0.45); --focus: #ECE6D8;
+  }
+}
+:root[data-theme="dark"]{
+  --paper: #1B1916; --paper-raised: #252220; --paper-stamp: #2C2824;
+  --ink: #ECE6D8; --ink-soft: #AFA695; --ink-faint: #7A7367;
+  --red: #FF4A3D; --red-deep: #FF6B5E; --red-soft: #45130F;
+  --line: #3A352E; --line-strong: #4A433A; --shadow: rgba(0,0,0,0.45); --focus: #ECE6D8;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+*{box-sizing:border-box;}
+html{background:var(--paper);}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%; display:block;}
+a{color:var(--red);}
+::selection{background:var(--red-soft); color:var(--ink);}
+
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+@media (max-width:640px){ .wrap{padding:0 18px;} }
+
+.eyebrow{
+  font-family:var(--mono); font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--red-deep); font-weight:700; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{ content:none; width:7px; height:7px; border-radius:50%; background:var(--red); flex:none; }
+
+h1,h2,h3{ font-family:var(--serif); font-weight:800; letter-spacing:-0.01em; text-wrap:balance; margin:0; color:var(--ink); }
+
+.btn{
+  font-family:var(--sans); font-weight:800; font-size:14.5px; letter-spacing:0.01em;
+  display:inline-flex; align-items:center; gap:8px; padding:14px 26px; border-radius:999px;
+  border:2px solid var(--ink); background:transparent; color:var(--ink); cursor:pointer; text-decoration:none;
+  transition:transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.btn:hover{ transform:translateY(-2px); box-shadow:0 14px 26px -14px var(--shadow); }
+.btn:focus-visible{ outline:3px solid var(--focus); outline-offset:2px; }
+.btn-primary{ background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 14px 28px -12px rgba(255,0,0,0.45); }
+.btn-primary:hover{ background:var(--red-deep); border-color:var(--red-deep); box-shadow:0 18px 34px -12px rgba(255,0,0,0.55); }
+.btn-ghost{ border-color:transparent; padding-left:0; padding-right:0; }
+.btn-ghost:hover{ box-shadow:none; text-decoration:underline; transform:none; }
+.btn-sm{ padding:9px 16px; font-size:13px; }
+
+header{
+  position:sticky; top:0; z-index:40;
+  background:color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter:blur(6px); border-bottom:1px solid var(--line);
+}
+.headerbar{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; gap:20px; }
+.brand-logo-img{ height:42px; width:auto; display:block; }
+nav.primary{ display:flex; align-items:center; gap:30px; }
+nav.primary a{
+  font-family:var(--mono); font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-soft); text-decoration:none;
+}
+nav.primary a:hover{ color:var(--ink); }
+.nav-cta{ display:flex; align-items:center; gap:18px; }
+.lang-switch{ display:flex; align-items:center; gap:2px; font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em; }
+.lang-switch button{
+  background:none; border:none; cursor:pointer; padding:4px 5px;
+  color:var(--ink-faint); font-family:inherit; font-size:inherit; letter-spacing:inherit;
+}
+.lang-switch button[aria-current="true"]{ color:var(--red); font-weight:700; }
+.lang-switch .sep{ color:var(--line-strong); }
+.burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
+.burger span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
+@media (max-width:860px){ nav.primary{ display:none; } .burger{ display:block; } }
+
+/* ============ ARTICLE ============ */
+.article-head{ padding:54px 0 36px; }
+.back-link{
+  font-family:var(--mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+  text-decoration:none; color:var(--ink-soft); display:inline-flex; gap:8px; margin-bottom:28px;
+}
+.back-link:hover{ color:var(--red); }
+.article-title{ font-size:clamp(28px,4.2vw,44px); line-height:1.1; margin-top:16px; max-width:26ch; }
+.article-lede{ font-size:19px; color:var(--ink-soft); max-width:46ch; margin-top:22px; font-weight:600; }
+.byline{
+  display:flex; align-items:center; gap:14px; margin-top:28px;
+  font-family:var(--mono); font-size:12.5px; color:var(--ink-faint); letter-spacing:0.02em;
+}
+.byline strong{ color:var(--ink); font-family:var(--sans); font-weight:700; font-size:14px; letter-spacing:0; }
+.byline .dot{ width:4px; height:4px; border-radius:50%; background:var(--line-strong); flex:none; }
+
+.cover{
+  width:100%; aspect-ratio:16/9; object-fit:cover; border:1px solid var(--line); border-radius:16px;
+  margin:36px 0 0;
+}
+
+.article-body{ max-width:680px; margin:0 auto; padding:48px 28px 20px; }
+.article-body p{ font-size:17.5px; line-height:1.75; color:var(--ink); margin:0 0 22px; }
+.article-body p strong{ font-weight:700; }
+.article-body p em{ font-style:italic; }
+.article-body h2{ font-size:clamp(23px,2.8vw,28px); margin:52px 0 20px; line-height:1.2; }
+.article-body h2 em{ font-style:italic; }
+.article-body .pull{
+  font-family:var(--serif); font-weight:600; font-style:normal; font-size:26px; line-height:1.35;
+  color:var(--ink); border-left:3px solid var(--red); padding-left:24px; margin:40px 0;
+}
+.article-body .q{ font-family:var(--serif); font-weight:600; font-size:21px; color:var(--red-deep); margin:0 0 22px; }
+.article-note{
+  margin-top:50px; padding-top:28px; border-top:1px dashed var(--line-strong);
+  font-style:italic; color:var(--ink-soft); font-size:15px;
+}
+.article-note a{ font-style:normal; }
+.article-share{ display:flex; gap:14px; margin-top:44px; align-items:center; }
+.article-share .lbl{ font-family:var(--mono); font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); }
+
+footer{ border-top:1px solid var(--line); padding:54px 0 36px; margin-top:40px; }
+.foot-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px; }
+@media (max-width:760px){ .foot-grid{ grid-template-columns:1fr; gap:30px; } }
+footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; }
+.foot-links{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:9px; }
+.foot-links a{ color:var(--ink-soft); text-decoration:none; font-size:14px; }
+.foot-links a:hover{ color:var(--ink); text-decoration:underline; }
+.foot-social{ display:flex; gap:12px; margin-top:38px; padding-top:28px; border-top:1px dashed var(--line-strong); }
+.foot-social a{
+  width:38px; height:38px; border-radius:50%; flex:none;
+  display:flex; align-items:center; justify-content:center;
+  border:1.5px solid var(--line-strong); color:var(--ink-soft);
+  transition:border-color .15s ease, color .15s ease, background .15s ease, transform .15s ease;
+}
+.foot-social a:hover{ border-color:var(--red); color:var(--red); background:var(--red-soft); transform:translateY(-2px); }
+.foot-social svg{ width:18px; height:18px; fill:currentColor; display:block; }
+.foot-bottom{ display:flex; justify-content:space-between; align-items:center; margin-top:46px; padding-top:22px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-faint); flex-wrap:wrap; gap:10px; }
+.foot-legal{ display:flex; gap:18px; flex-wrap:wrap; }
+.foot-legal a{ color:var(--ink-faint); text-decoration:none; font-size:12.5px; }
+.foot-legal a:hover{ color:var(--red); text-decoration:underline; }
+
+html:not([data-lang="en"]) .lang-en{ display:none; }
+html[data-lang="en"] .lang-hr{ display:none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headerbar">
+    <a href="index.html#top"><img class="brand-logo-img" src="logo.png" width="1285" height="324" alt="Brandheadteacher"></a>
+    <nav class="primary">
+      <a href="index.html#blog" class="lang-hr">Blog</a><a href="index.html#blog" class="lang-en">Blog</a>
+      <a href="index.html#usluge" class="lang-hr">Usluge</a><a href="index.html#usluge" class="lang-en">Services</a>
+      <a href="index.html#suradnja" class="lang-hr">Suradnja</a><a href="index.html#suradnja" class="lang-en">Work With Me</a>
+      <a href="index.html#kontakt" class="lang-hr">Kontakt</a><a href="index.html#kontakt" class="lang-en">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="lang-switch" id="langSwitch">
+        <button type="button" data-lang="hr" aria-current="true">HR</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="en" aria-current="false">ENG</button>
+      </div>
+      <a class="btn btn-primary btn-sm lang-hr" href="index.html#suradnja">Zatraži konzultacije</a>
+      <a class="btn btn-primary btn-sm lang-en" href="index.html#suradnja">Request a consultation</a>
+      <button class="burger" aria-label="Meni"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <article>
+    <div class="wrap article-head">
+      <a class="back-link lang-hr" href="index.html#blog">← Natrag na Svijet reklame</a>
+      <a class="back-link lang-en" href="index.html#blog">← Back to Svijet Reklame</a>
+
+      <p class="eyebrow">Svijet reklame — AI &amp; marketing consulting</p>
+
+      <h1 class="article-title lang-hr">Živimo li već danas innovation theatre, ili je AI tek dignuo zastor?</h1>
+      <h1 class="article-title lang-en">Are We Already Living in Innovation Theatre, or Has AI Just Raised the Curtain?</h1>
+
+      <p class="article-lede lang-hr">Publika može ući. Predstava počinje.</p>
+      <p class="article-lede lang-en">The audience may now enter. The show begins.</p>
+
+      <div class="byline">
+        <strong>Branimir Zoraja</strong>
+        <span class="dot"></span>
+        <span class="lang-hr">23. kolovoza 2026.</span><span class="lang-en">August 23, 2026</span>
+        <span class="dot"></span>
+        <span class="lang-hr">8 min čitanja</span><span class="lang-en">8 min read</span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <img class="cover" src="post-theatre-cover.png" alt="Zastor se razdvaja između polica pretrpanih 'NOVO' proizvodima i okvira za stvarnu inovaciju" width="1280" height="719">
+    </div>
+
+    <div class="article-body">
+
+      <!-- HR -->
+      <div class="lang-hr">
+        <p>U prošlom članku ostao sam dužan jednu neugodnu posljedicu rečenice: <a href="post-ai-zna-sto-kupac-radi.html">AI zna što kupac radi. Ne zna što ga pokreće.</a></p>
+        <p>Ako AI ne razumije zašto ljudi nešto žele, zašto smo sigurni da će nam pomoći stvarati bolje inovacije?</p>
+
+        <h2>Kad je NOVO postalo zamjena za inovaciju</h2>
+        <p>Za početak se ne mogu oteti dojmu da je AI stigao u idealnom trenutku. U marketingu već godinama patimo od kronične upale riječi NOVO.</p>
+        <p>Novi okus. Novi miris. Nova formula s 3 % više nečega što nitko nije tražio. Improved formula. „Pro“, „Max“, „Plus“ ili „Ultra“ iza starog imena. Novo pakiranje. Limited edition. Premium edition. Summer edition. Family pack. Travel pack. On-the-go pack.</p>
+        <p>A ako baš zagusti, nova „sub-brand platforma“.</p>
+        <p>Inovacija!</p>
+        <p>Nemojte me pogrešno shvatiti. Line extension može donijeti volumen, nova gramatura maržu, a novi okus malo života na polici.</p>
+        <p><strong>Ali novost i inovacija nisu isto.</strong></p>
+        <p>Steve Blank za takve je organizacijske rituale popularizirao izraz <em>innovation theatre</em>: puno aktivnosti koje izgledaju kao inoviranje, ali premalo stvarne promjene u sposobnosti kompanije da stvara novu vrijednost.</p>
+        <p>Prevedeno na jezik marketinga: imamo innovation lab, innovation pipeline, innovation day, 58 Post-it papirića u šest boja na zidu, launch calendar i PowerPoint na kojem riječ INNOVATION stoji fontom 54.</p>
+        <p>I što ćemo s njima?</p>
+        <p>Na kraju promijenimo okus. Dodamo vitamin. Smanjimo šećer. Stavimo proizvod u tubu. Napravimo limited edition.</p>
+        <div class="pull">Publika može ući. Predstava počinje.</div>
+
+        <h2>Više ideja nije uvijek dobra vijest</h2>
+        <p>Problem nije nov.</p>
+        <p>NIQ je 2025. analizirao 250.000 inovacija u 130 kategorija i utvrdio prilično neugodan podatak: samo je 7 % kompanija povećalo prodaju zahvaljujući inovacijama, a tek je polovica novih proizvoda nastavila rasti i u drugoj godini. Štoviše, NIQ navodi da jedna od četiri inovacije može naštetiti ukupnoj prodaji brenda (Innovation Essentials for Emerging Brands: From Idea to Shelf).</p>
+        <p>Možda naš problem, dakle, nikada nije bio premalo ideja. Možda ih imamo previše. A sada dolazi AI.</p>
+        <p>McKinsey procjenjuje da AI u pojedinim industrijama može gotovo udvostručiti tempo dijelova R&amp;D-a procesa, dramatično ubrzavajući generiranje novih rješenja, simulacije, evaluaciju i testiranje novih proizvoda (The next innovation revolution—powered by AI).</p>
+        <p>Divno.</p>
+        <p><strong>Do jučer smo nakon innovation daya imali 30 ideja za koje ne znamo što ćemo s njima. Sutra ćemo ih imati 3.000 prije ručka. Napredak je očit. Samo još trebamo riješiti sitnicu: koja od njih zaslužuje postojati?</strong></p>
+
+        <h2>Svi kreativniji. I svi malo više isti.</h2>
+        <p>Kantar u Marketing Trends-u 2026 upozorava na opasnost da se nediferencirani brendovi u takvom digitalnom ekosustavu izgube u sve većoj "algoritamskoj istosti". AI može povećati brzinu i kvalitetu odlučivanja, ali temeljna pravila rasta i diferencijacije brenda time neće nestati.</p>
+        <p>Jedno eksperimentalno istraživanje objavljeno u Science Advances pokazalo je zanimljiv paradoks: generativni AI može pomoći ljudima da proizvedu kreativnije pojedinačne rezultate, posebno onima koji su manje kreativni, ali rezultati istodobno postaju međusobno sličniji (Anil R. Doshi &amp; Oliver P. Hauser (2024), "Generative AI enhances individual creativity but reduces the collective diversity of novel content", Vol 10, Issue 28).</p>
+        <p>To bi marketing trebalo malo zabrinuti.</p>
+        <p>Zamislite sada istu generativnu inteligenciju kod svih konkurenata. Isti trend report. Isti retail data. Isti consumer insights. Isti benchmarkovi. Isti „best practices“. Isti innovation territories. I svi žele biti prvi. Na istom mjestu.</p>
+        <div class="pull">Dobit ćemo nevjerojatno inovativnu industriju u kojoj svi lansiraju isto. Samo u drugoj boji.</div>
+
+        <h2>Za inovaciju često treba razumjeti ponašanje koje još ne postoji</h2>
+        <p>Christensenova logika Jobs to Be Done kaže da ljudi ne biraju proizvode samo zbog njihovih karakteristika. Uvode ih u svoj život jer njima žele ostvariti neki funkcionalni, društveni ili emocionalni napredak.</p>
+        <p>To je velika razlika.</p>
+        <p>AI je odličan kada treba odgovoriti na pitanje:</p>
+        <p class="q">„Što još možemo napraviti od ovoga što već imamo?“</p>
+        <p>Brend menadžer kroz inovaciju mora postaviti drugo pitanje:</p>
+        <p class="q">„Koji problem kupca naš brend još ima pravo riješiti?“</p>
+        <p>Ovo potonje zovem inovativnim potencijalom brenda.</p>
+        <p>To nije popis mogućih SKU-ova. To je prostor između onoga što brend danas znači i onoga što bi sutra mogao vjerodostojno značiti.</p>
+        <p>Tenisice Nike Go FlyEase, koje koriste posebnu šarku i zatezni mehanizam koji omogućuju obuvanje i izuvanje bez korištenja ruku, dobar su primjer. Problem nije bio: kako napraviti još jedne tenisice? Problem je bio mnogo ljudskiji: zašto obuvanje tenisice uopće mora zahtijevati ruke? Ta je inovacija možda nacrtana na tehničkom crtežu na temelju uvida dobivenih od roditelja, djece i zajednice osoba s invaliditetom. Ali njezin pravi izvor nije tehnologija.</p>
+        <p>Nego frustracija.</p>
+        <p>Kad biste algoritmu dali samo podatke o prodaji postojećih tenisica, predložio bi da napravite još više onoga što se već prodaje. To mu je logično. Brend menadžer mora vidjeti čovjeka kojem su i vezice tržišna barijera.</p>
+        <p>Tu se vraćamo Theodoreu Levittu. Njegova stara lekcija iz članka Marketing Myopia bila je da tvrtke ograničavaju vlastiti rast kada svoj posao definiraju proizvodom koji proizvode umjesto potrebom kojoj služe.</p>
+        <p>To je danas važnije nego ikad.</p>
+        <p>Jer AI će vašu postojeću kategoriju naučiti nevjerojatno dobro. A možda upravo trebate izaći iz nje.</p>
+        <p>Gatorade je mogao još desetljećima inovirati okuse sportskog napitka. Umjesto toga, njegov Gatorade Sports Science Institute razvio je Gx Sweat Patch, jednokratni pametni flaster za analizu znoja koji prati znojenje i gubitak elektrolita te korisniku daje personalizirane preporuke za hidraciju. Gx ekosustav danas uključuje čak i pametnu bocu koja prati koliko sportaš pije.</p>
+        <p>Što Gatorade tu zapravo prodaje?</p>
+        <p>Piće? Flaster? Bocu? Aplikaciju?</p>
+        <p><strong>Pogrešno pitanje. Prodaje bolju hidraciju sportaša.</strong></p>
+        <p>Kad tako definirate brend, kategorija postaje manja od ideje brenda.</p>
+        <p>I tu počinje posao brend menadžera koji AI teško može preuzeti: odrediti gdje završava proizvod, a počinje tržišno pravo brenda.</p>
+
+        <h2>Innovation pipeline bez kriterija nije strategija</h2>
+        <p>To je skladište ideja. Upravo gledamo kako AI gradi najveće skladište u povijesti.</p>
+        <p>Roger Martin kaže da strategija nije veliki dokument nego međusobno povezan skup izbora: što želimo postići, gdje ćemo igrati, kako ćemo pobijediti, koje nam sposobnosti za to trebaju i koji će ih sustavi podržati.</p>
+        <p>Isto vrijedi i za inovacije.</p>
+        <p><strong>Inovacija ne počinje proizvodom. Počinje problemom.</strong></p>
+        <p>Uzmimo primjer tvrtke SharkNinja, čija je djelatnost proizvodnja kućanskih aparata. Tvrtka godišnje lansira približno 25 novih proizvoda, ali vlastitu inovacijsku filozofiju ne definira brojem novih boja i pametnih gumba. Kaže da svaka inovacija počinje prepoznavanjem stvarnog problema potrošača i njegovim rješavanjem pomoću dizajna, tehnologije i potrošačkih uvida. Ninja SLUSHi, primjerice, nije nastao zato što je nekome u innovation pipelineu nedostajao još jedan kuhinjski aparat. Proizvod je kućnom korisniku omogućio nešto za što je prije uglavnom trebala profesionalna oprema: pripremu smrznutih napitaka bez klasičnog usitnjavanja leda u blenderu. Proizvod je snažno pridonio rastu nove frozen-drinks kategorije za SharkNinju.</p>
+        <p>To je potpuno druga filozofija. AI ubrzava rješavanje. Ne bira problem.</p>
+        <p>Tu bih tražio budući odnos AI-ja i brend menadžera.</p>
+
+        <h2>AI <em>innovation theatre</em> ili inovacija s AI-jem?</h2>
+        <p>Jedan od najsvježijih radova o generativnom AI-ju i inovacijama iz 2026., čiji su autori povezani s Harvardom i Columbijom, ne promatra AI kao jednostavnu zamjenu za čovjeka (Innovating with Generative AI: A Human Bottleneck Framework). Autori pokazuju da AI neka ljudska uska grla inovacijskog procesa može smanjiti, dok druga može čak i pojačati. Pritom promatraju cijeli proces, od stvaranja i selekcije ideja do razumijevanja potrošača i tržišnog učenja.</p>
+        <p>Drugim riječima, najveći rizik AI-ja u inovacijama možda nije to što bi mogao zamijeniti brend menadžera. Veći je rizik da će mu omogućiti da puno brže radi ono što je i prije radio pogrešno.</p>
+        <p>Tu je razlika između pristupa AI <em>innovation theatre</em> i inovacije s AI-jem.</p>
+        <p><strong>U prvom slučaju tehnologija glumi inovaciju. U drugom pomaže da se inovacija dogodi.</strong></p>
+
+        <h2>Brend menadžer kao redatelj budućnosti brenda</h2>
+        <p>Innovation theatre svakako nije počeo s AI-jem. Mi smo već bili na pozornici. AI je samo dignuo zastor i upalio sva svjetla. Sad se barem puno bolje vidi tko zaista inovira, a tko samo glumi.</p>
+        <p>Zato će brend menadžer u doba AI-ja biti manje generator ideja, a više redatelj budućnosti brenda. AI će vrlo brzo naučiti napisati predstavu, napraviti scenografiju, podijeliti uloge i testirati 30 završetaka. Možda će čak i predvidjeti aplauz. Ali netko još uvijek mora odlučiti: je li ovo predstava koju naš brend uopće treba igrati?</p>
+        <div class="pull">Ne treba nam AI koji će glumiti brend menadžera. Treba nam bolji brend menadžer s AI-jem.</div>
+
+        <h2>Što može AI, a što mora brend menadžer?</h2>
+        <p>AI može pronaći tisuće neiskorištenih kombinacija proizvoda, sastojaka, okusa, pakiranja i koristi. Brend menadžer mora odlučiti rješava li ijedna od njih stvarni problem kupca.</p>
+        <p>AI može analizirati milijune podataka o tome što ljudi danas kupuju. Brend menadžer mora razumjeti što bi ljudi sutra mogli poželjeti, iako to još ne znaju tražiti.</p>
+        <p>AI može pronaći tržišnu prazninu. Brend menadžer mora odlučiti ima li njegov brend pravo ući u nju.</p>
+        <p>AI može povezati trendove, prodaju, recenzije i ponašanje kupaca. Brend menadžer mora prepoznati motive koji stoje iza tih podataka.</p>
+        <p>AI može generirati novu ekstenziju za nekoliko sekundi. Brend menadžer mora znati širi li ona značenje brenda ili ga samo razvlači.</p>
+        <p>AI može ubrzati innovation pipeline. Brend menadžer mora paziti da innovation pipeline ne postane pokretna traka za proizvodnju noviteta.</p>
+        <p>AI može optimizirati brend prema onome što se najbolje prodavalo jučer. Brend menadžer mora odlučiti želi li brend sutra biti samo bolja verzija jučerašnjeg.</p>
+
+        <p class="article-note">Sljedeći članak: <a href="post-ai-slogani.html">AI može napisati 10.000 slogana. Šefov šofer sada ima kreativnu agenciju u džepu →</a></p>
+      </div>
+
+      <!-- EN -->
+      <div class="lang-en">
+        <p>In the last article, I owed you one uncomfortable consequence of the sentence: <a href="post-ai-zna-sto-kupac-radi.html">AI knows what the customer does. It doesn't know what drives them.</a></p>
+        <p>If AI doesn't understand why people want something, why are we so sure it will help us create better innovations?</p>
+
+        <h2>When NEW became a substitute for innovation</h2>
+        <p>To start with, I can't shake the feeling that AI arrived at the perfect moment. In marketing, we've suffered from a chronic inflammation of the word NEW for years.</p>
+        <p>New flavour. New scent. A new formula with 3% more of something nobody asked for. Improved formula. "Pro," "Max," "Plus" or "Ultra" tacked onto the old name. New packaging. Limited edition. Premium edition. Summer edition. Family pack. Travel pack. On-the-go pack.</p>
+        <p>And if things get really desperate, a new "sub-brand platform."</p>
+        <p>Innovation!</p>
+        <p>Don't get me wrong. A line extension can bring volume, a new pack size can bring margin, and a new flavour can bring a bit of life to the shelf.</p>
+        <p><strong>But novelty and innovation aren't the same thing.</strong></p>
+        <p>Steve Blank popularised the term <em>innovation theatre</em> for exactly these organisational rituals: a lot of activity that looks like innovating, but too little real change in a company's ability to create new value.</p>
+        <p>Translated into marketing language: we have an innovation lab, an innovation pipeline, an innovation day, 58 Post-it notes in six colours on the wall, a launch calendar, and a PowerPoint slide where the word INNOVATION sits in 54-point font.</p>
+        <p>And what do we do with all of it?</p>
+        <p>In the end, we change the flavour. We add a vitamin. We cut the sugar. We put the product in a tube. We make a limited edition.</p>
+        <div class="pull">The audience may now enter. The show begins.</div>
+
+        <h2>More ideas isn't always good news</h2>
+        <p>The problem isn't new.</p>
+        <p>In 2025, NIQ analysed 250,000 innovations across 130 categories and found a fairly uncomfortable statistic: only 7% of companies increased sales thanks to innovation, and only half of new products kept growing into their second year. What's more, NIQ states that one in four innovations can actually harm a brand's overall sales (Innovation Essentials for Emerging Brands: From Idea to Shelf).</p>
+        <p>So maybe our problem was never too few ideas. Maybe we have too many. And now AI arrives.</p>
+        <p>McKinsey estimates that in certain industries, AI can nearly double the pace of parts of the R&amp;D process, dramatically speeding up the generation of new solutions, simulation, evaluation and testing of new products (The next innovation revolution—powered by AI).</p>
+        <p>Wonderful.</p>
+        <p><strong>Until yesterday, we'd come out of an innovation day with 30 ideas we didn't know what to do with. Tomorrow we'll have 3,000 before lunch. The progress is obvious. We just need to sort out one small detail: which of them actually deserve to exist?</strong></p>
+
+        <h2>Everyone more creative. And everyone a little more the same.</h2>
+        <p>Kantar's Marketing Trends 2026 warns of the danger that undifferentiated brands get lost in an increasingly "algorithmic sameness" within this kind of digital ecosystem. AI can increase the speed and quality of decision-making, but the fundamental rules of brand growth and differentiation won't disappear because of it.</p>
+        <p>An experimental study published in Science Advances revealed an interesting paradox: generative AI can help people produce more creative individual results, especially people who are less creative to begin with, but the results simultaneously become more similar to one another (Anil R. Doshi &amp; Oliver P. Hauser (2024), "Generative AI enhances individual creativity but reduces the collective diversity of novel content," Vol 10, Issue 28).</p>
+        <p>That should worry marketing a little.</p>
+        <p>Now picture the same generative intelligence at every one of your competitors. The same trend report. The same retail data. The same consumer insights. The same benchmarks. The same "best practices." The same innovation territories. And everyone wants to be first. In the same place.</p>
+        <div class="pull">We'll end up with an incredibly innovative industry where everyone launches the same thing. Just in a different colour.</div>
+
+        <h2>Innovation often requires understanding behaviour that doesn't exist yet</h2>
+        <p>Christensen's Jobs to Be Done logic says people don't choose products purely for their features. They bring them into their lives because they want to achieve some functional, social or emotional progress.</p>
+        <p>That's a big difference.</p>
+        <p>AI is excellent at answering the question:</p>
+        <p class="q">"What else can we make from what we already have?"</p>
+        <p>Through innovation, the brand manager has to ask a different question:</p>
+        <p class="q">"Which customer problem does our brand still have the right to solve?"</p>
+        <p>I call this second thing the brand's innovation potential.</p>
+        <p>It isn't a list of possible SKUs. It's the space between what the brand means today and what it could credibly mean tomorrow.</p>
+        <p>Nike's Go FlyEase sneaker, which uses a special hinge and tensioning mechanism that lets you put it on and take it off without using your hands, is a good example. The problem wasn't: how do we make yet another sneaker? The problem was much more human: why does putting on a sneaker have to require hands at all? That innovation may have been drawn up on a technical sketch, based on insight gathered from parents, children, and the disability community. But its real source wasn't technology.</p>
+        <p>It was frustration.</p>
+        <p>If you gave an algorithm nothing but sales data on existing sneakers, it would suggest you make more of what already sells. That's logical, from its point of view. The brand manager has to see the human being for whom even shoelaces are a market barrier.</p>
+        <p>This brings us back to Theodore Levitt. His old lesson from the article Marketing Myopia was that companies limit their own growth when they define their business by the product they make instead of the need they serve.</p>
+        <p>That matters more today than ever.</p>
+        <p>Because AI will learn your existing category incredibly well. And you may need to step outside it entirely.</p>
+        <p>Gatorade could have kept inventing new sports-drink flavours for decades to come. Instead, its Gatorade Sports Science Institute developed the Gx Sweat Patch, a disposable smart patch for sweat analysis that tracks perspiration and electrolyte loss and gives the user personalised hydration recommendations. The Gx ecosystem today even includes a smart bottle that tracks how much an athlete drinks.</p>
+        <p>What is Gatorade actually selling here?</p>
+        <p>A drink? A patch? A bottle? An app?</p>
+        <p><strong>Wrong question. It's selling better athlete hydration.</strong></p>
+        <p>When you define the brand that way, the category becomes smaller than the brand's idea.</p>
+        <p>And that's where the brand manager's job begins — one AI can't easily take over: deciding where the product ends and the brand's right to the market begins.</p>
+
+        <h2>An innovation pipeline without criteria isn't a strategy</h2>
+        <p>It's a warehouse of ideas. And right now we're watching AI build the biggest warehouse in history.</p>
+        <p>Roger Martin says strategy isn't a big document but an interconnected set of choices: what we want to achieve, where we'll play, how we'll win, what capabilities we need for that, and what systems will support them.</p>
+        <p>The same goes for innovation.</p>
+        <p><strong>Innovation doesn't start with a product. It starts with a problem.</strong></p>
+        <p>Take the example of SharkNinja, a home-appliance company. It launches around 25 new products a year, but it doesn't define its innovation philosophy by the number of new colours and smart buttons. It says every innovation starts with recognising a real consumer problem and solving it through design, technology and consumer insight. The Ninja SLUSHi, for instance, wasn't created because someone in the innovation pipeline was missing yet another kitchen appliance. The product gave home users something that mostly used to require professional equipment: making frozen drinks without the classic blender-style ice crushing. The product made a major contribution to growing a new frozen-drinks category for SharkNinja.</p>
+        <p>That's a completely different philosophy. AI speeds up the solving. It doesn't choose the problem.</p>
+        <p>That's where I'd look for the future relationship between AI and the brand manager.</p>
+
+        <h2>AI <em>innovation theatre</em>, or innovation with AI?</h2>
+        <p>One of the freshest 2026 papers on generative AI and innovation, whose authors are affiliated with Harvard and Columbia, doesn't treat AI as a simple replacement for humans (Innovating with Generative AI: A Human Bottleneck Framework). The authors show that AI can shrink some human bottlenecks in the innovation process, while actually widening others. In doing so, they look at the entire process, from idea generation and selection through to understanding consumers and market learning.</p>
+        <p>In other words, the biggest risk AI poses to innovation may not be that it could replace the brand manager. The bigger risk is that it will let them do, much faster, what they were already doing wrong.</p>
+        <p>That's the difference between an AI <em>innovation theatre</em> approach and innovation with AI.</p>
+        <p><strong>In the first case, the technology performs innovation. In the second, it helps innovation actually happen.</strong></p>
+
+        <h2>The brand manager as director of the brand's future</h2>
+        <p>Innovation theatre certainly didn't start with AI. We were already on the stage. AI just raised the curtain and turned on all the lights. At least now it's much easier to see who's really innovating and who's just acting.</p>
+        <p>That's why, in the age of AI, the brand manager will be less of an idea generator and more of a director of the brand's future. AI will very quickly learn to write the play, build the set, cast the roles, and test 30 different endings. It might even predict the applause. But someone still has to decide: is this even a play our brand should be putting on?</p>
+        <div class="pull">We don't need AI that plays the role of a brand manager. We need a better brand manager with AI.</div>
+
+        <h2>What can AI do, and what must the brand manager do?</h2>
+        <p>AI can find thousands of unused combinations of products, ingredients, flavours, packaging and benefits. The brand manager has to decide whether any of them actually solve a real customer problem.</p>
+        <p>AI can analyse millions of data points about what people buy today. The brand manager has to understand what people might want tomorrow, even though they don't yet know how to ask for it.</p>
+        <p>AI can find a gap in the market. The brand manager has to decide whether their brand has the right to step into it.</p>
+        <p>AI can connect trends, sales, reviews and customer behaviour. The brand manager has to recognise the motives behind that data.</p>
+        <p>AI can generate a new line extension in a few seconds. The brand manager has to know whether it expands the brand's meaning or just stretches it thin.</p>
+        <p>AI can speed up the innovation pipeline. The brand manager has to make sure the innovation pipeline doesn't turn into a conveyor belt for manufacturing novelty.</p>
+        <p>AI can optimise the brand around whatever sold best yesterday. The brand manager has to decide whether the brand wants to be nothing more than a better version of yesterday, tomorrow.</p>
+
+        <p class="article-note">Next article: <a href="post-ai-slogani.html">AI Can Write 10,000 Taglines. The Boss's Driver Now Has a Creative Agency in His Pocket →</a></p>
+      </div>
+
+      <div class="article-share">
+        <span class="lbl lang-hr">Izvorno objavljeno na</span><span class="lbl lang-en">Originally published on</span>
+        <a href="https://www.linkedin.com/pulse/%C5%BEivimo-li-ve%C4%87-danas-innovation-theatre-ili-je-ai-tek-dignuo-zoraja-p8m1f" target="_blank" rel="noopener">LinkedIn →</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img class="brand-logo-img" src="logo.png" width="1285" height="324" alt="Brandheadteacher">
+        <p style="color:var(--ink-soft); font-size:14px; max-width:36ch; margin-top:16px;" class="lang-hr">Blog o svijetu reklame i marketing consulting za brendove koji ne žele biti dekoracija.</p>
+        <p style="color:var(--ink-soft); font-size:14px; max-width:36ch; margin-top:16px;" class="lang-en">A blog about the world of advertising, and marketing consulting for brands that don't want to be decoration.</p>
+        <p style="margin-top:16px; font-size:14px;"><a href="mailto:brand@brandheadteacher.com">brand@brandheadteacher.com</a> · <a href="https://www.linkedin.com/in/brandheadteacher/" target="_blank" rel="noopener">LinkedIn</a></p>
+      </div>
+      <div>
+        <h4 class="lang-hr">Navigacija</h4><h4 class="lang-en">Navigation</h4>
+        <ul class="foot-links">
+          <li><a href="index.html#blog" class="lang-hr">Svijet reklame — blog</a><a href="index.html#blog" class="lang-en">Svijet Reklame — blog</a></li>
+          <li><a href="index.html#arhiva" class="lang-hr">Arhiva blogova</a><a href="index.html#arhiva" class="lang-en">Blog archive</a></li>
+          <li><a href="index.html#usluge" class="lang-hr">Usluge</a><a href="index.html#usluge" class="lang-en">Services</a></li>
+          <li><a href="index.html#suradnja" class="lang-hr">Suradnja</a><a href="index.html#suradnja" class="lang-en">Work With Me</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="lang-hr">Favoriti struke</h4><h4 class="lang-en">Industry favorites</h4>
+        <ul class="foot-links">
+          <li><a href="#">Campaign</a></li>
+          <li><a href="#">Adweek</a></li>
+          <li><a href="#">Creative Review</a></li>
+          <li><a href="#">The Drum</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-social">
+      <a href="https://www.linkedin.com/in/brandheadteacher/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12z"/></svg></a>
+      <a href="https://x.com/brandheadteach" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 3H21l-6.3 7.2L21.7 21h-5.4l-4.2-5.5L7 21H3.9l6.9-7.8L3.6 3h5.5l3.8 5.1L18.3 3z"/></svg></a>
+      <a href="https://www.facebook.com/Brandheadteacher/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3H13.5V8.3c0-.9.3-1.5 1.6-1.5h1.7V4.2C16.5 4.1 15.3 4 14 4c-2.6 0-4.4 1.6-4.4 4.5v2h-2.6v3h2.6V21h3.9z"/></svg></a>
+      <a href="https://www.youtube.com/channel/UCnXsDQALeyIfeEevKOP-S5Q" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 8.6s-.2-1.5-.8-2.2c-.8-.8-1.6-.8-2-.9C16.3 5.2 12 5.2 12 5.2s-4.3 0-7.2.3c-.4 0-1.2.1-2 .9-.6.7-.8 2.2-.8 2.2S1.8 10.4 1.8 12.2v1.6c0 1.8.2 3.6.2 3.6s.2 1.5.8 2.2c.8.8 1.8.8 2.3.9 1.6.2 7 .3 7 .3s4.3 0 7.2-.3c.4 0 1.2-.1 2-.9.6-.7.8-2.2.8-2.2s.2-1.8.2-3.6v-1.6c0-1.8-.2-3.6-.2-3.6zM9.9 15.3V9.1l5.4 3.1-5.4 3.1z"/></svg></a>
+      <a href="https://www.tiktok.com/@brandheadteacher" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3h2.6c.2 1.5 1.1 2.9 2.4 3.7.9.6 2 .9 3.1.9v2.7c-1.6 0-3.1-.5-4.4-1.3v6.6c0 3.3-2.7 6-6 6-1.3 0-2.6-.4-3.6-1.2A6 6 0 0 1 6 15.9a6 6 0 0 1 6.5-6v2.8a3.2 3.2 0 0 0-2.9 3.2 3.2 3.2 0 0 0 3.2 3.2 3.2 3.2 0 0 0 3.2-3.2V3z"/></svg></a>
+      <a href="https://www.pinterest.com/brandheadteacher/" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.6 7.85 6.27 9.36-.09-.78-.17-1.98.04-2.84.19-.77 1.23-5.14 1.23-5.14s-.31-.63-.31-1.55c0-1.45.84-2.53 1.89-2.53.89 0 1.32.67 1.32 1.47 0 .89-.57 2.23-.86 3.47-.25 1.04.52 1.89 1.54 1.89 1.85 0 3.1-2.38 3.1-5.19 0-2.14-1.44-3.74-4.06-3.74-2.96 0-4.81 2.21-4.81 4.68 0 .86.25 1.46.64 1.93.1.12.11.23.08.35-.09.37-.28 1.14-.32 1.3-.05.2-.17.25-.39.15-1.39-.57-2.04-2.08-2.04-3.79 0-2.82 2.38-6.2 7.1-6.2 3.79 0 6.29 2.74 6.29 5.69 0 3.89-2.17 6.8-5.37 6.8-1.08 0-2.09-.59-2.44-1.25 0 0-.58 2.32-.7 2.77-.21.8-.62 1.6-1 2.22.86.26 1.77.4 2.72.4 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg></a>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Brandheadteacher &amp; Brandactivist</span>
+      <nav class="foot-legal" aria-label="Legal">
+        <a href="#" class="lang-hr">Postavke kolačića</a><a href="#" class="lang-en">Cookie Preferences</a>
+        <a href="#" class="lang-hr">Pravila privatnosti</a><a href="#" class="lang-en">Privacy Notice</a>
+        <a href="#" class="lang-hr">Uvjeti korištenja</a><a href="#" class="lang-en">Terms of Service</a>
+        <a href="index.html#kontakt" class="lang-hr">Kontakt</a><a href="index.html#kontakt" class="lang-en">Contact</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var CURRENT_LANG = 'hr';
+try{
+  var saved = localStorage.getItem('bht-lang');
+  if(saved === 'hr' || saved === 'en') CURRENT_LANG = saved;
+}catch(e){}
+
+function applyLang(lang){
+  CURRENT_LANG = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('#langSwitch button').forEach(function(b){
+    b.setAttribute('aria-current', b.dataset.lang === lang ? 'true' : 'false');
+  });
+  try{ localStorage.setItem('bht-lang', lang); }catch(e){}
+}
+
+document.querySelectorAll('#langSwitch button').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    if(btn.dataset.lang !== CURRENT_LANG) applyLang(btn.dataset.lang);
+  });
+});
+
+applyLang(CURRENT_LANG);
+</script>
+</body>
+</html>

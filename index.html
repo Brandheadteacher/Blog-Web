@@ -1,0 +1,1320 @@
+<meta charset="UTF-8">
+<title>Svijet Reklame</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --paper: #F6F2E9;
+  --paper-raised: #EFE9DA;
+  --paper-stamp: #E9E1CC;
+  --ink: #1A1714;
+  --ink-soft: #5B5650;
+  --ink-faint: #8C8678;
+  --red: #FF0000;
+  --red-deep: #B30000;
+  --red-soft: #FFE1DE;
+  --line: #D9D0BC;
+  --line-strong: #C6BA9E;
+  --shadow: rgba(32,29,26,0.12);
+  --focus: #1A1714;
+
+  --serif: "Poppins", "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --sans: "Poppins", "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", "Courier New", monospace;
+
+  --maxw: 1180px;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper: #1B1916;
+    --paper-raised: #252220;
+    --paper-stamp: #2C2824;
+    --ink: #ECE6D8;
+    --ink-soft: #AFA695;
+    --ink-faint: #7A7367;
+    --red: #FF4A3D;
+    --red-deep: #FF6B5E;
+    --red-soft: #45130F;
+    --line: #3A352E;
+    --line-strong: #4A433A;
+    --shadow: rgba(0,0,0,0.45);
+    --focus: #ECE6D8;
+  }
+}
+:root[data-theme="dark"]{
+  --paper: #1B1916;
+  --paper-raised: #252220;
+  --paper-stamp: #2C2824;
+  --ink: #ECE6D8;
+  --ink-soft: #AFA695;
+  --ink-faint: #7A7367;
+  --red: #FF4A3D;
+  --red-deep: #FF6B5E;
+  --red-soft: #45130F;
+  --line: #3A352E;
+  --line-strong: #4A433A;
+  --shadow: rgba(0,0,0,0.45);
+  --focus: #ECE6D8;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+
+*{box-sizing:border-box;}
+html{background:var(--paper);}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;display:block;}
+a{color:var(--red);}
+::selection{background:var(--red-soft); color:var(--ink);}
+
+.wrap{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 28px;
+}
+@media (max-width:640px){ .wrap{padding:0 18px;} }
+
+.eyebrow{
+  font-family:var(--mono);
+  font-size:12.5px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--red-deep);
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{
+  content:none;
+  width:7px;height:7px;border-radius:50%;
+  background:var(--red);
+  flex:none;
+}
+
+h1,h2,h3{
+  font-family:var(--serif);
+  font-weight:800;
+  letter-spacing:-0.01em;
+  text-wrap:balance;
+  margin:0;
+  color:var(--ink);
+}
+
+.rule{
+  border:none;
+  border-top:1px solid var(--line);
+  margin:0;
+}
+
+.btn{
+  font-family:var(--sans);
+  font-weight:800;
+  font-size:14.5px;
+  letter-spacing:0.01em;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:14px 26px;
+  border-radius:999px;
+  border:2px solid var(--ink);
+  background:transparent;
+  color:var(--ink);
+  cursor:pointer;
+  text-decoration:none;
+  transition:transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.btn:hover{ transform:translateY(-2px); box-shadow:0 14px 26px -14px var(--shadow); }
+.btn:focus-visible{ outline:3px solid var(--focus); outline-offset:2px; }
+.btn-primary{
+  background:var(--red);
+  border-color:var(--red);
+  color:#fff;
+  box-shadow:0 14px 28px -12px rgba(255,0,0,0.45);
+}
+.btn-primary:hover{ background:var(--red-deep); border-color:var(--red-deep); box-shadow:0 18px 34px -12px rgba(255,0,0,0.55); }
+.btn-ghost{ border-color:transparent; padding-left:0; padding-right:0; }
+.btn-ghost:hover{ box-shadow:none; text-decoration:underline; transform:none; }
+.btn-sm{ padding:9px 16px; font-size:13px; }
+
+/* ============ HEADER ============ */
+header{
+  position:sticky; top:0; z-index:40;
+  background:color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.headerbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 0;
+  gap:20px;
+}
+.brand-logo{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  text-decoration:none;
+  font-family:"Poppins", var(--sans);
+  font-weight:800;
+  font-size:19px;
+  letter-spacing:-0.01em;
+  white-space:nowrap;
+  flex:none;
+}
+.brand-logo .sq{
+  width:15px; height:15px;
+  border:3.5px solid var(--red);
+  flex:none;
+  display:inline-block;
+}
+.brand-logo .b{ color:var(--red); }
+.brand-logo .h{ color:var(--ink); }
+.brand-logo.lg{ font-size:28px; gap:10px; }
+.brand-logo.lg .sq{ width:19px; height:19px; border-width:4px; }
+.brand-logo-img{ height:42px; width:auto; display:block; }
+nav.primary{
+  display:flex; align-items:center; gap:30px;
+}
+nav.primary a{
+  font-family:var(--mono);
+  font-size:12.5px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  text-decoration:none;
+}
+nav.primary a:hover{ color:var(--ink); }
+.nav-cta{ display:flex; align-items:center; gap:18px; }
+.lang-switch{
+  display:flex; align-items:center; gap:2px;
+  font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em;
+}
+.lang-switch button{
+  background:none; border:none; cursor:pointer; padding:4px 5px;
+  color:var(--ink-faint); font-family:inherit; font-size:inherit; letter-spacing:inherit;
+}
+.lang-switch button[aria-current="true"]{ color:var(--red); font-weight:700; }
+.lang-switch .sep{ color:var(--line-strong); }
+.burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
+.burger span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
+@media (max-width:860px){
+  nav.primary{ display:none; }
+  .burger{ display:block; }
+}
+
+/* ============ HERO ============ */
+.hero{
+  padding:84px 0 86px;
+  position:relative;
+  z-index:5;
+  background:#141414 url('hero-office.webp') left center/cover no-repeat;
+  color:#fff;
+}
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:linear-gradient(100deg, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.52) 40%, rgba(10,10,10,0.22) 68%, rgba(10,10,10,0.12) 100%);
+}
+.hero h1, .hero p.lede{ text-shadow:0 2px 24px rgba(0,0,0,0.5); }
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr 0.8fr;
+  gap:56px;
+  align-items:start;
+  position:relative; z-index:1;
+}
+@media (max-width:860px){ .hero-grid{ grid-template-columns:1fr; gap:40px; } }
+
+.hero .eyebrow{ color:rgba(255,255,255,0.88); }
+.hero .eyebrow::before{ background:#fff; }
+.hero h1{
+  font-size:clamp(34px, 5.4vw, 60px);
+  line-height:1.04;
+  letter-spacing:-0.01em;
+  margin-top:18px;
+  color:#fff;
+}
+.hero h1 em{ font-style:italic; font-weight:600; color:#fff; }
+.mark{
+  position:relative;
+  white-space:nowrap;
+}
+.mark svg{
+  position:absolute; left:-2%; bottom:-0.12em; width:104%; height:0.4em;
+  z-index:-1;
+}
+.mark svg path{ stroke:rgba(255,255,255,0.7) !important; }
+.hero p.lede{
+  font-size:18px;
+  color:rgba(255,255,255,0.86);
+  max-width:46ch;
+  margin-top:22px;
+}
+.hero .ctas{
+  display:flex; gap:16px; align-items:center; margin-top:34px; flex-wrap:wrap;
+}
+.hero .btn-primary{ background:#fff; border-color:#fff; color:var(--red); box-shadow:0 16px 34px -16px rgba(0,0,0,0.45); }
+.hero .btn-primary:hover{ background:var(--ink); border-color:var(--ink); color:#fff; box-shadow:0 16px 34px -16px rgba(0,0,0,0.55); }
+.hero .btn-ghost{ color:#fff; }
+.hero .btn-ghost:hover{ color:#fff; }
+
+.proofcard{
+  background:#fff;
+  border:none;
+  border-radius:16px;
+  padding:22px 22px 18px;
+  position:relative;
+  color:var(--ink);
+  box-shadow:0 30px 60px -22px rgba(0,0,0,0.5);
+  max-width:360px;
+  align-self:end;
+}
+@media (max-width:860px){ .proofcard{ align-self:auto; margin-top:8px; max-width:none; } }
+.proofcard::before, .proofcard::after,
+.proofcard .cm1, .proofcard .cm2{ display:none; }
+.proofcard .stamp{
+  position:absolute; top:-14px; right:18px;
+  font-family:var(--mono); font-size:9.5px; letter-spacing:0.1em;
+  color:#fff; background:var(--red);
+  border:none; border-radius:6px;
+  width:auto; height:28px; padding:0 10px; display:flex; align-items:center; justify-content:center;
+  white-space:nowrap;
+  text-align:center; transform:rotate(8deg); text-transform:uppercase;
+  box-shadow:0 10px 20px -8px rgba(0,0,0,0.4);
+}
+.proofcard h3{ font-size:16px; margin-bottom:8px; }
+.proofcard p{ color:var(--ink-soft); font-size:13px; margin:0 0 12px; }
+.proofcard .quote{
+  font-family:var(--serif); font-style:italic; font-size:16px; line-height:1.4;
+  color:var(--ink);
+}
+.proofcard .quote-src{
+  margin-top:14px; font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em;
+  color:var(--ink-faint); text-transform:uppercase;
+}
+
+/* ============ SECTION SCAFFOLD ============ */
+section{ padding:76px 0; }
+.section-head{
+  display:flex; justify-content:space-between; align-items:flex-end; gap:24px;
+  margin-bottom:40px; flex-wrap:wrap;
+}
+.section-head h2{ font-size:clamp(26px,3.4vw,36px); margin-top:10px; max-width:20ch; }
+.section-head .desc{ color:var(--ink-soft); max-width:36ch; font-size:15px; }
+
+/* ============ ABOUT ============ */
+.about{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:start; }
+@media (max-width:860px){ .about{ grid-template-columns:1fr; } }
+.about-visual{
+  aspect-ratio:4/5; background:var(--paper-raised); border:1px solid var(--line);
+  position:relative; overflow:hidden; border-radius:16px;
+}
+.about p{ color:var(--ink-soft); font-size:16px; max-width:58ch; }
+.about p strong{ color:var(--ink); }
+.pull{
+  font-family:var(--serif); font-style:italic; font-size:22px; line-height:1.45;
+  color:var(--ink); border-left:3px solid var(--red); padding-left:20px; margin:26px 0;
+}
+
+/* ============ SERVICES ============ */
+.band{
+  background:var(--paper-raised);
+  border-top:1px solid var(--line-strong);
+  border-bottom:1px solid var(--line-strong);
+}
+.services{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; background:transparent; border:none; }
+@media (max-width:860px){ .services{ grid-template-columns:1fr; } }
+.svc{
+  background:var(--paper); padding:34px 30px; display:flex; flex-direction:column; gap:14px;
+  border:1px solid var(--line); border-radius:18px;
+  box-shadow:0 2px 0 var(--line);
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.svc:hover{ transform:translateY(-4px); box-shadow:0 20px 34px -18px var(--shadow); border-color:var(--red); }
+.svc .num{ font-family:var(--mono); font-size:12px; color:var(--red); letter-spacing:0.08em; font-weight:700; }
+.svc h3{ font-size:20px; }
+.svc p{ color:var(--ink-soft); font-size:14.5px; flex:1; margin:0; }
+.svc .btn-ghost{ font-size:13.5px; }
+
+/* ---- consulting quiz ---- */
+.quiz-card{
+  margin-top:50px; border:1px solid var(--line); background:var(--paper);
+  border-radius:16px; padding:34px 36px;
+}
+@media (max-width:640px){ .quiz-card{ padding:26px 22px; } }
+.quiz-head h3{ font-size:19px; margin-top:8px; max-width:42ch; }
+.quiz-q{ margin-top:26px; }
+.quiz-q-label{ font-size:14.5px; font-weight:700; margin:0 0 12px; }
+.quiz-opts{ display:flex; gap:10px; flex-wrap:wrap; }
+.quiz-opt{
+  font-family:var(--sans); font-size:13.5px; padding:9px 16px; border:1.5px solid var(--line);
+  border-radius:999px; background:var(--paper); color:var(--ink-soft); cursor:pointer; text-align:left;
+}
+.quiz-opt:hover{ border-color:var(--ink-faint); }
+.quiz-opt.selected{ border-color:var(--red); color:var(--red); background:var(--red-soft); }
+.quiz-result{ margin-top:30px; padding-top:26px; border-top:1px dashed var(--line-strong); }
+.quiz-result h3{ font-size:21px; margin-top:8px; }
+.quiz-result p{ color:var(--ink-soft); font-size:14.5px; max-width:48ch; margin:10px 0 18px; }
+
+/* ============ BLOG ============ */
+.posts{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+@media (max-width:960px){ .posts{ grid-template-columns:1fr 1fr; } }
+@media (max-width:640px){ .posts{ grid-template-columns:1fr; } }
+.post{
+  border:1px solid var(--line); background:var(--paper-raised); border-radius:16px;
+  padding:22px; display:flex; flex-direction:column; gap:10px; position:relative;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.post:hover{ transform:translateY(-3px); box-shadow:0 10px 24px -14px var(--shadow); }
+.post .meta{ font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em; color:var(--ink-faint); text-transform:uppercase; display:flex; justify-content:space-between; }
+.post .featured{ color:var(--red); }
+.post h3{ font-size:19px; line-height:1.25; }
+.post p{ color:var(--ink-soft); font-size:14px; margin:0; flex:1; }
+.post a.readmore{ font-family:var(--mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; color:var(--red); }
+.post a.readmore:hover{ text-decoration:underline; }
+
+/* ============ ARHIVA ============ */
+.archive-year{ margin-bottom:30px; }
+.archive-year:last-child{ margin-bottom:0; }
+.archive-year-label{
+  font-family:var(--mono); font-size:13px; letter-spacing:0.1em; color:var(--red-deep);
+  text-transform:uppercase; margin:0 0 6px; padding-bottom:10px; border-bottom:1px solid var(--line-strong);
+}
+.archive-list{ list-style:none; margin:0; padding:0; }
+.archive-list li{ border-bottom:1px dashed var(--line); }
+.archive-list li:last-child{ border-bottom:none; }
+.archive-list a{
+  display:flex; justify-content:space-between; gap:18px; align-items:baseline;
+  padding:14px 2px; text-decoration:none; color:var(--ink);
+}
+.archive-date{ font-family:var(--mono); font-size:12.5px; color:var(--ink-faint); flex:none; white-space:nowrap; }
+.archive-title{ font-size:15.5px; }
+.archive-list a:hover .archive-title{ color:var(--red); text-decoration:underline; }
+
+/* ============ NEWSLETTER ============ */
+.newsletter{
+  background:var(--paper-raised);
+  border:1px solid var(--line-strong);
+  color:var(--ink); border-radius:20px; padding:50px 46px;
+  display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:center;
+}
+@media (max-width:860px){ .newsletter{ grid-template-columns:1fr; padding:38px 26px; } }
+.newsletter h2{ color:inherit; font-size:clamp(24px,3vw,32px); }
+.newsletter p{ color:var(--ink-soft); font-size:14.5px; margin-top:10px; max-width:40ch; }
+.nl-form{ display:flex; gap:10px; flex-wrap:wrap; }
+.nl-form input[type=email]{
+  flex:1; min-width:200px; background:var(--paper); border:1.5px solid var(--line); border-radius:999px;
+  color:var(--ink); font-family:var(--sans); font-size:15px; padding:12px 18px; outline:none;
+}
+.nl-form input[type=email]::placeholder{ color:var(--ink-faint); opacity:1; }
+.nl-form .btn{ border-color:var(--ink); color:var(--ink); flex:none; }
+.nl-msg{ font-family:var(--mono); font-size:12.5px; margin-top:10px; min-height:16px; letter-spacing:0.02em; }
+.nl-msg.ok{ color:#8FD19E; }
+
+/* ============ COLLAB FORM ============ */
+.collab-card{
+  border:1px solid var(--line); background:var(--paper-raised); border-radius:16px;
+  padding:0; overflow:hidden;
+}
+.steps-bar{
+  display:flex; border-bottom:1px solid var(--line);
+}
+.step-tab{
+  flex:1; padding:16px 10px; text-align:center; font-family:var(--mono); font-size:11.5px;
+  letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-faint); border-right:1px solid var(--line);
+  position:relative;
+}
+.step-tab:last-child{ border-right:none; }
+.step-tab.active{ color:var(--ink); background:var(--paper); }
+.step-tab.done{ color:var(--red-deep); }
+.step-tab .n{ display:block; font-size:16px; font-family:var(--serif); margin-bottom:2px; }
+
+.collab-body{ padding:36px; min-height:300px; }
+@media (max-width:640px){ .collab-body{ padding:24px 20px; } .steps-bar{ font-size:10px; } }
+.step-panel{ display:none; }
+.step-panel.active{ display:block; animation:fade .25s ease; }
+@keyframes fade{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
+
+.choice-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:22px; }
+@media (max-width:560px){ .choice-grid{ grid-template-columns:1fr; } }
+.choice{
+  border:1.5px solid var(--line); border-radius:16px; padding:18px 18px; cursor:pointer;
+  background:var(--paper); transition:border-color .15s ease, background .15s ease;
+}
+.choice:hover{ border-color:var(--ink-faint); }
+.choice.selected{ border-color:var(--red); background:var(--red-soft); }
+.choice .t{ font-weight:700; font-size:15px; }
+.choice .d{ font-size:13px; color:var(--ink-soft); margin-top:4px; }
+
+.field-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:22px; }
+@media (max-width:560px){ .field-grid{ grid-template-columns:1fr; } }
+.field{ display:flex; flex-direction:column; gap:6px; }
+.field.full{ grid-column:1/-1; }
+.field label{ font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft); }
+.field input, .field select, .field textarea{
+  font-family:var(--sans); font-size:15px; padding:11px 12px; border:1.5px solid var(--line);
+  border-radius:16px; background:var(--paper); color:var(--ink); outline:none;
+}
+.field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--focus); }
+.field textarea{ resize:vertical; min-height:96px; font-family:var(--sans); }
+.field .err{ font-size:12px; color:var(--red); min-height:14px; font-family:var(--mono); }
+
+.budget-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:10px; }
+@media (max-width:640px){ .budget-grid{ grid-template-columns:1fr 1fr; } }
+.budget-pill{
+  text-align:center; border:1.5px solid var(--line); border-radius:999px; padding:10px 8px;
+  font-family:var(--mono); font-size:12px; cursor:pointer; color:var(--ink-soft);
+}
+.budget-pill.selected{ border-color:var(--red); color:var(--red); background:var(--red-soft); }
+
+.review-box{ border:1px solid var(--line); border-radius:16px; padding:20px 22px; background:var(--paper); margin-top:20px; }
+.review-row{ display:flex; justify-content:space-between; gap:16px; padding:9px 0; border-bottom:1px dashed var(--line); font-size:14px; }
+.review-row:last-child{ border-bottom:none; }
+.review-row .k{ color:var(--ink-faint); font-family:var(--mono); font-size:11.5px; letter-spacing:0.05em; text-transform:uppercase; }
+.review-row .v{ font-weight:600; text-align:right; }
+
+.step-nav{ display:flex; justify-content:space-between; align-items:center; margin-top:30px; }
+
+.success{ text-align:center; padding:30px 0; }
+.success .stampbig{
+  width:84px; height:84px; border:2.5px solid var(--red); border-radius:50%; color:var(--red);
+  display:flex; align-items:center; justify-content:center; margin:0 auto 20px; transform:rotate(-6deg);
+  font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-align:center; line-height:1.2;
+}
+.success h3{ font-size:24px; }
+.success p{ color:var(--ink-soft); max-width:40ch; margin:10px auto 0; }
+
+/* ============ FOOTER ============ */
+footer{ border-top:3px solid var(--red); padding:54px 0 36px; }
+.foot-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px; }
+@media (max-width:760px){ .foot-grid{ grid-template-columns:1fr; gap:30px; } }
+footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; }
+.foot-links{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:9px; }
+.foot-links a{ color:var(--ink-soft); text-decoration:none; font-size:14px; }
+.foot-links a:hover{ color:var(--ink); text-decoration:underline; }
+.foot-social{ display:flex; gap:12px; margin-top:38px; padding-top:28px; border-top:1px dashed var(--line-strong); }
+.foot-social a{
+  width:38px; height:38px; border-radius:50%; flex:none;
+  display:flex; align-items:center; justify-content:center;
+  border:1.5px solid var(--line-strong); color:var(--ink-soft);
+  transition:border-color .15s ease, color .15s ease, background .15s ease, transform .15s ease;
+}
+.foot-social a:hover{ border-color:var(--red); color:var(--red); background:var(--red-soft); transform:translateY(-2px); }
+.foot-social svg{ width:18px; height:18px; fill:currentColor; display:block; }
+.foot-bottom{ display:flex; justify-content:space-between; align-items:center; margin-top:46px; padding-top:22px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-faint); flex-wrap:wrap; gap:10px; }
+.foot-legal{ display:flex; gap:18px; flex-wrap:wrap; }
+.foot-legal a{ color:var(--ink-faint); text-decoration:none; font-size:12.5px; }
+.foot-legal a:hover{ color:var(--red); text-decoration:underline; }
+
+.visually-hidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+</style>
+
+<header>
+  <div class="wrap headerbar">
+    <a href="#top"><img class="brand-logo-img" src="logo.png" width="1285" height="324" alt="Brandheadteacher"></a>
+    <nav class="primary">
+      <a href="#blog" data-i18n="nav_blog">Blog</a>
+      <a href="#usluge" data-i18n="nav_usluge">Usluge</a>
+      <a href="#suradnja" data-i18n="nav_suradnja">Suradnja</a>
+      <a href="#kontakt" data-i18n="nav_kontakt">Kontakt</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="lang-switch" id="langSwitch">
+        <button type="button" data-lang="hr" aria-current="true">HR</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="en" aria-current="false">ENG</button>
+      </div>
+      <a class="btn btn-primary btn-sm" href="#suradnja" data-i18n="nav_cta">Zatraži konzultacije</a>
+      <button class="burger" aria-label="Meni" data-i18n-aria="burger_aria"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow" data-i18n="hero_eyebrow">Blog Svijet reklame</p>
+        <h1 data-i18n-html="hero_h1">
+          Reklama nije <span class="mark"><em>dekoracija</em>
+            <svg viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 Q 55 2, 110 10 T 218 8" stroke="var(--red-deep)" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+          </span>. Reklama je strategija.
+        </h1>
+        <p class="lede" data-i18n="hero_lede">Desetljeća u oglašavanju naučila su me jedno: ništa nije (ne)važnije od oglasne poruke. Ovdje pišem o kampanjama koje su to dokazale — i pomažem brendovima da svoju poruku postave na isti temelj.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#suradnja" data-i18n="hero_cta_primary">Zatraži konzultacije →</a>
+          <a class="btn btn-ghost" href="#blog" data-i18n="hero_cta_secondary">Pročitaj Svijet reklame</a>
+        </div>
+      </div>
+      <div class="proofcard">
+        <span class="cm1"></span><span class="cm2"></span>
+        <span class="stamp" data-i18n-html="proofcard_stamp">OVJERENO</span>
+        <p class="quote" data-i18n="proofcard_quote">"Pitanje nije možete li preživjeti bez reklame. Pitanje je hoće li vaša poruka ikoga dirnuti."</p>
+        <p class="quote-src">— Brandheadteacher &amp; Brandactivist</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="o-meni">
+    <div class="wrap about">
+      <div class="about-visual" role="img" aria-label="Stol s marketinškim bilješkama i olovkama" data-i18n-aria="about_visual_aria">
+        <svg viewBox="0 0 400 500" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="500" fill="var(--paper-raised)"/>
+          <rect x="60" y="70" width="280" height="200" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="2" transform="rotate(-2 200 170)"/>
+          <path d="M100 150 Q 180 110 260 150 T 320 190" stroke="var(--red-deep)" stroke-width="4" fill="none" stroke-linecap="round" transform="rotate(-2 200 170)"/>
+          <text x="100" y="230" font-family="Poppins, sans-serif" font-weight="600" font-style="italic" font-size="26" fill="var(--ink)" transform="rotate(-2 200 170)">Marketing Strategy</text>
+          <circle cx="300" cy="360" r="46" fill="none" stroke="var(--red)" stroke-width="2.5" transform="rotate(8 300 360)"/>
+          <text x="300" y="356" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--red)" text-anchor="middle" transform="rotate(8 300 360)">BRAND</text>
+          <text x="300" y="370" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--red)" text-anchor="middle" transform="rotate(8 300 360)">ACTIVIST</text>
+          <rect x="70" y="400" width="90" height="14" rx="7" fill="var(--red-deep)" opacity="0.6" transform="rotate(-4 115 407)"/>
+          <rect x="170" y="408" width="60" height="14" rx="7" fill="var(--ink-faint)" opacity="0.5" transform="rotate(3 200 415)"/>
+        </svg>
+      </div>
+      <div>
+        <p class="eyebrow" data-i18n="about_eyebrow">O meni</p>
+        <h2 style="margin-top:12px;">Brandheadteacher &amp; Brandactivist</h2>
+        <p style="margin-top:18px;" data-i18n-html="about_p1"><strong>Svijet reklame</strong> je blog o najnovijim kampanjama i trendovima u oglašavanju — pisan iz iskustva u industriji, s linkom na svaki primjer i stalnim naglaskom na to kako oglasna poruka oblikuje marketinšku strategiju.</p>
+        <p data-i18n="about_p2">Dvadesetak godina rada na kampanjama i brendovima pretočeno je u jednostavan princip: dobra reklama se može objasniti u jednoj rečenici, a loša se brani stotinama slajdova.</p>
+        <div class="pull" data-i18n="about_pull">"Say yes to your brain" — princip koji vodi svaku analizu na ovom blogu, otkad je prvi put objavljen u rubrici Marketing UP, 2002.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="usluge" class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-i18n="usluge_eyebrow">Usluge — marketing consulting</p>
+          <h2 data-i18n="usluge_h2">Marketing consulting za brendove koji žele reći nešto konkretno</h2>
+        </div>
+        <p class="desc" data-i18n="usluge_desc">Tri formata suradnje — od jednokratne revizije do dugoročnog partnerstva.</p>
+      </div>
+      <div class="services">
+        <div class="svc">
+          <span class="num" data-i18n="svc1_num">01 — Konzultacije</span>
+          <h3 data-i18n="svc1_h3">Brand &amp; marketing strategija</h3>
+          <p data-i18n="svc1_p">Analiza pozicioniranja, poruke i marketinškog miksa. Izlaz: konkretan plan, ne prezentacija od 80 slajdova.</p>
+          <a class="btn btn-ghost btn-sm" href="#suradnja" data-i18n="svc_cta">Zatraži ponudu →</a>
+        </div>
+        <div class="svc">
+          <span class="num" data-i18n="svc2_num">02 — Revizija</span>
+          <h3 data-i18n="svc2_h3">Pregled i revizija kampanje</h3>
+          <p data-i18n="svc2_p">Neovisna ocjena postojeće ili planirane kampanje — poruka, kanal, kreativa — prije nego što krene budžet.</p>
+          <a class="btn btn-ghost btn-sm" href="#suradnja" data-i18n="svc_cta">Zatraži ponudu →</a>
+        </div>
+        <div class="svc">
+          <span class="num" data-i18n="svc3_num">03 — Edukacija</span>
+          <h3 data-i18n="svc3_h3">Predavanja &amp; radionice</h3>
+          <p data-i18n="svc3_p">Interno predavanje ili radionica za marketing i prodajni tim — studije slučaja iz Svijeta reklame, prilagođene vašoj industriji.</p>
+          <a class="btn btn-ghost btn-sm" href="#suradnja" data-i18n="svc_cta">Zatraži ponudu →</a>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="consultQuiz">
+        <div class="quiz-head">
+          <p class="eyebrow" data-i18n="quiz_eyebrow">Upitnik za savjetovanje</p>
+          <h3 data-i18n="quiz_h3">Ne znate koja vam usluga treba? Odgovorite na 3 pitanja.</h3>
+        </div>
+
+        <div class="quiz-q">
+          <p class="quiz-q-label" data-i18n="quiz_q1_label">1. Gdje ste trenutno s kampanjom ili strategijom?</p>
+          <div class="quiz-opts" data-q="1">
+            <button type="button" class="quiz-opt" data-v="consult" data-i18n="quiz_q1_consult">Nemamo još jasnu strategiju</button>
+            <button type="button" class="quiz-opt" data-v="audit" data-i18n="quiz_q1_audit">Kampanja je spremna, treba drugo mišljenje</button>
+            <button type="button" class="quiz-opt" data-v="partner" data-i18n="quiz_q1_partner">Tražimo dugoročnog partnera, ne jednokratan posao</button>
+          </div>
+        </div>
+
+        <div class="quiz-q">
+          <p class="quiz-q-label" data-i18n="quiz_q2_label">2. Što vam najviše treba?</p>
+          <div class="quiz-opts" data-q="2">
+            <button type="button" class="quiz-opt" data-v="consult" data-i18n="quiz_q2_consult">Konkretan strateški plan</button>
+            <button type="button" class="quiz-opt" data-v="audit" data-i18n="quiz_q2_audit">Provjeru prije lansiranja</button>
+            <button type="button" class="quiz-opt" data-v="edu" data-i18n="quiz_q2_edu">Edukaciju za naš tim</button>
+          </div>
+        </div>
+
+        <div class="quiz-q">
+          <p class="quiz-q-label" data-i18n="quiz_q3_label">3. Kako zamišljate suradnju?</p>
+          <div class="quiz-opts" data-q="3">
+            <button type="button" class="quiz-opt" data-v="audit" data-i18n="quiz_q3_audit">Jedan projekt, jasan opseg</button>
+            <button type="button" class="quiz-opt" data-v="edu" data-i18n="quiz_q3_edu">Radionica ili predavanje za tim</button>
+            <button type="button" class="quiz-opt" data-v="partner" data-i18n="quiz_q3_partner">Kontinuirana, dugoročna suradnja</button>
+          </div>
+        </div>
+
+        <div class="quiz-result" id="quizResult" hidden>
+          <p class="eyebrow" data-i18n="quiz_result_eyebrow">Preporuka</p>
+          <h3 id="quizResultTitle"></h3>
+          <p id="quizResultDesc"></p>
+          <button type="button" class="btn btn-primary btn-sm" id="quizCta" data-i18n="quiz_cta">Zatraži ovu uslugu →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Svijet reklame</p>
+          <h2 data-i18n="blog_h2">Najnovije sa bloga</h2>
+        </div>
+        <p class="desc" data-i18n="blog_desc">Analize kampanja i trendova u oglašavanju, s naglaskom na ono što poruka radi za strategiju.</p>
+      </div>
+      <div class="posts">
+        <article class="post">
+          <div class="meta"><span class="featured" data-i18n="post1_featured">● Izdvojeno</span><span data-i18n="post1_date">Rujan 2026</span></div>
+          <h3 data-i18n="post1_h3">AI može pisati kao ja. Ali ne može odlučiti što je moje</h3>
+          <p data-i18n="post1_p">AI može napisati rečenicu. Potpis ispod nje još uvijek morate staviti sami.</p>
+          <a class="readmore" href="post-ai-moze-pisati.html" data-i18n="readmore">Pročitaj više →</a>
+        </article>
+        <article class="post">
+          <div class="meta"><span data-i18n="post2_date">Rujan 2026</span><span>8 min</span></div>
+          <h3 data-i18n="post2_h3">AI nema karakter. Brend bi ga morao imati. Tko će mu objasniti razliku?</h3>
+          <p data-i18n="post2_p">AI će znati sve o vašem brendu. Osim što je za njega dobro.</p>
+          <a class="readmore" href="post-ai-nema-karakter.html" data-i18n="readmore">Pročitaj više →</a>
+        </article>
+        <article class="post">
+          <div class="meta"><span data-i18n="post3_date">Rujan 2026</span><span>8 min</span></div>
+          <h3 data-i18n="post3_h3">AI zna tko izgleda kao brend menadžer. Ne zna tko će znati voditi brend</h3>
+          <p data-i18n="post3_p">AI može pronaći kandidata koji odgovara oglasu. Ne može pronaći brend menadžera koji odgovara brendu.</p>
+          <a class="readmore" href="post-ai-zna-tko-izgleda.html" data-i18n="readmore">Pročitaj više →</a>
+        </article>
+      </div>
+      <div style="text-align:center; margin-top:40px;">
+        <a class="btn" href="#" data-i18n="blog_all_btn">Svi članci →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="arhiva">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-i18n="arhiva_eyebrow">Arhiva</p>
+          <h2 data-i18n="arhiva_h2">Arhiva blogova</h2>
+        </div>
+        <p class="desc" data-i18n="arhiva_desc">Stariji zapisi iz Svijeta reklame, po godinama — za one koji vole čitati ispočetka.</p>
+      </div>
+
+      <div class="archive-year">
+        <p class="archive-year-label">2026</p>
+        <ul class="archive-list">
+          <li><a href="post-ai-slogani.html"><span class="archive-title" data-i18n="archive_2026_7">AI može napisati 10.000 slogana. Šefov šofer sada ima kreativnu agenciju u džepu</span><span class="archive-date">30.08.2026.</span></a></li>
+          <li><a href="post-innovation-theatre.html"><span class="archive-title" data-i18n="archive_2026_6">Živimo li već danas innovation theatre, ili je AI tek dignuo zastor?</span><span class="archive-date">23.08.2026.</span></a></li>
+          <li><a href="post-ai-zna-sto-kupac-radi.html"><span class="archive-title" data-i18n="archive_2026_5">AI zna što kupac radi. Ne zna što ga pokreće</span><span class="archive-date">16.08.2026.</span></a></li>
+          <li><a href="post-buducnost-marketinga-sustav.html"><span class="archive-title" data-i18n="archive_2026_4">Budućnost marketinga nije upravljanje promocijom. To je upravljanje sustavom</span><span class="archive-date">09.08.2026.</span></a></li>
+          <li><a href="post-ai-ima-odgovore.html"><span class="archive-title" data-i18n="archive_2026_3">AI ima odgovore. Ima li brend menadžer kriterij?</span><span class="archive-date">02.08.2026.</span></a></li>
+          <li><a href="post-ai-nece-zamijeniti-marketing.html"><span class="archive-title" data-i18n="archive_2026_2">Umjetna inteligencija neće zamijeniti marketing. Prosječan marketing hoće</span><span class="archive-date">26.07.2026.</span></a></li>
+          <li><a href="post-sto-moze-ai.html"><span class="archive-title" data-i18n="archive_2026_1">Što može AI, a ne može brend menadžer — i obratno?</span><span class="archive-date">19.07.2026.</span></a></li>
+        </ul>
+      </div>
+
+      <div style="text-align:center; margin-top:36px;">
+        <a class="btn btn-ghost" href="#" data-i18n="archive_all_btn">Pregledaj cijelu arhivu →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="newsletter-sec">
+    <div class="wrap">
+      <div class="newsletter">
+        <div>
+          <img class="brand-logo-img" style="margin-bottom:18px;" src="logo.png" width="1285" height="324" alt="Brandheadteacher">
+          <p class="eyebrow" style="color:inherit; opacity:0.75; margin-top:18px;" data-i18n="nl_eyebrow">Prijava</p>
+          <h2 style="margin-top:10px;" data-i18n="nl_h2">Najbolje iz Svijeta reklame, u inbox.</h2>
+          <p data-i18n="nl_p">Jedan email mjesečno. Kampanje vrijedne analize, bez spama.</p>
+        </div>
+        <div>
+          <form class="nl-form" id="nlForm">
+            <input type="email" id="nlEmail" placeholder="ime@tvrtka.hr" aria-label="Email adresa" required data-i18n-placeholder="nl_email_placeholder" data-i18n-aria="nl_email_aria">
+            <button class="btn btn-primary" type="submit" data-i18n="nl_submit">Pretplati se</button>
+          </form>
+          <p class="nl-msg" id="nlMsg"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="suradnja">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-i18n="suradnja_eyebrow">Suradnja</p>
+          <h2 data-i18n="suradnja_h2">Dogovorimo suradnju u četiri koraka</h2>
+        </div>
+        <p class="desc" data-i18n="suradnja_desc">Konzultacije, gostujući sadržaj, predavanje ili partnerstvo — ispunite obrazac i javljam se u 48h.</p>
+      </div>
+
+      <div class="collab-card">
+        <div class="steps-bar" id="stepsBar">
+          <div class="step-tab active" data-step="1"><span class="n">01</span><span data-i18n="step_tab1">Koncept</span></div>
+          <div class="step-tab" data-step="2"><span class="n">02</span><span data-i18n="step_tab2">Detalji</span></div>
+          <div class="step-tab" data-step="3"><span class="n">03</span><span data-i18n="step_tab3">Proračun</span></div>
+          <div class="step-tab" data-step="4"><span class="n">04</span><span data-i18n="step_tab4">Potvrda</span></div>
+        </div>
+
+        <div class="collab-body">
+          <!-- STEP 1 -->
+          <div class="step-panel active" data-panel="1">
+            <p class="eyebrow" data-i18n="step1_eyebrow">Korak 1 od 4</p>
+            <h3 style="margin-top:10px; font-size:21px;" data-i18n="step1_h3">O kakvoj suradnji se radi?</h3>
+            <div class="choice-grid" id="typeChoices">
+              <div class="choice" data-value="consult"><div class="t" data-i18n="choice_consult_t">Konzultacije</div><div class="d" data-i18n="choice_consult_d">Strategija, pozicioniranje, marketinški plan</div></div>
+              <div class="choice" data-value="audit"><div class="t" data-i18n="choice_audit_t">Revizija kampanje</div><div class="d" data-i18n="choice_audit_d">Neovisna ocjena prije lansiranja</div></div>
+              <div class="choice" data-value="edu"><div class="t" data-i18n="choice_edu_t">Predavanje / radionica</div><div class="d" data-i18n="choice_edu_d">Edukacija za vaš tim</div></div>
+              <div class="choice" data-value="partner"><div class="t" data-i18n="choice_partner_t">Gostujući sadržaj / partnerstvo</div><div class="d" data-i18n="choice_partner_d">Objava, kolaboracija, oglašavanje na blogu</div></div>
+            </div>
+            <div class="field"><p class="err" id="err1"></p></div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="step-panel" data-panel="2">
+            <p class="eyebrow" data-i18n="step2_eyebrow">Korak 2 od 4</p>
+            <h3 style="margin-top:10px; font-size:21px;" data-i18n="step2_h3">Tko se javlja?</h3>
+            <div class="field-grid">
+              <div class="field"><label for="f-name" data-i18n="field_name_label">Ime i prezime *</label><input id="f-name" type="text" autocomplete="name"><span class="err" id="err-name"></span></div>
+              <div class="field"><label for="f-company" data-i18n="field_company_label">Tvrtka</label><input id="f-company" type="text" autocomplete="organization"></div>
+              <div class="field"><label for="f-email" data-i18n="field_email_label">Email *</label><input id="f-email" type="email" autocomplete="email"><span class="err" id="err-email"></span></div>
+              <div class="field"><label for="f-phone" data-i18n="field_phone_label">Telefon (opcionalno)</label><input id="f-phone" type="tel" autocomplete="tel"></div>
+            </div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="step-panel" data-panel="3">
+            <p class="eyebrow" data-i18n="step3_eyebrow">Korak 3 od 4</p>
+            <h3 style="margin-top:10px; font-size:21px;" data-i18n="step3_h3">Okvirni proračun i poruka</h3>
+            <div class="budget-grid" id="budgetChoices">
+              <div class="budget-pill" data-value="b1" data-i18n="budget_b1">Do 1.000 €</div>
+              <div class="budget-pill" data-value="b2" data-i18n="budget_b2">1.000–5.000 €</div>
+              <div class="budget-pill" data-value="b3" data-i18n="budget_b3">5.000–15.000 €</div>
+              <div class="budget-pill" data-value="b4" data-i18n="budget_b4">Po dogovoru</div>
+            </div>
+            <div class="field full" style="margin-top:22px;">
+              <label for="f-msg" data-i18n="field_msg_label">Kratak opis suradnje *</label>
+              <textarea id="f-msg" placeholder="U dvije-tri rečenice: što trebate i do kada." data-i18n-placeholder="field_msg_placeholder"></textarea>
+              <span class="err" id="err-msg"></span>
+            </div>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="step-panel" data-panel="4">
+            <div id="reviewStep">
+              <p class="eyebrow" data-i18n="step4_eyebrow">Korak 4 od 4</p>
+              <h3 style="margin-top:10px; font-size:21px;" data-i18n="step4_h3">Provjerite prije slanja</h3>
+              <div class="review-box" id="reviewBox"></div>
+            </div>
+            <div class="success" id="successBox" style="display:none;">
+              <div class="stampbig" data-i18n-html="success_stamp">PRIMLJE<br>NO</div>
+              <h3 id="succHeading">Hvala, <span id="succName"></span>.</h3>
+              <p id="succBody">Upit je zaprimljen. Javljam se na <strong id="succEmail"></strong> u roku od 48 sati.</p>
+            </div>
+          </div>
+
+          <div class="step-nav" id="stepNav">
+            <button class="btn btn-ghost" id="btnBack" style="visibility:hidden;" data-i18n="btn_back">← Natrag</button>
+            <button class="btn btn-primary" id="btnNext" data-i18n="btn_next">Dalje →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img class="brand-logo-img lg" src="logo.png" width="1285" height="324" alt="Brandheadteacher">
+        <p style="color:var(--ink-soft); font-size:14px; max-width:36ch; margin-top:16px;" data-i18n="foot_tagline">Blog o svijetu reklame i marketing consulting za brendove koji ne žele biti dekoracija.</p>
+        <p style="margin-top:16px; font-size:14px;"><a href="mailto:brand@brandheadteacher.com">brand@brandheadteacher.com</a> · <a href="https://www.linkedin.com/in/brandheadteacher/" target="_blank" rel="noopener">LinkedIn</a></p>
+      </div>
+      <div>
+        <h4 data-i18n="foot_nav_h4">Navigacija</h4>
+        <ul class="foot-links">
+          <li><a href="#blog" data-i18n="foot_nav_blog">Svijet reklame — blog</a></li>
+          <li><a href="#arhiva" data-i18n="foot_nav_arhiva">Arhiva blogova</a></li>
+          <li><a href="#usluge" data-i18n="foot_nav_usluge">Usluge</a></li>
+          <li><a href="#suradnja" data-i18n="foot_nav_suradnja">Suradnja</a></li>
+          <li><a href="#o-meni" data-i18n="foot_nav_ometi">O meni</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot_fav_h4">Favoriti struke</h4>
+        <ul class="foot-links">
+          <li><a href="#">Campaign</a></li>
+          <li><a href="#">Adweek</a></li>
+          <li><a href="#">Creative Review</a></li>
+          <li><a href="#">The Drum</a></li>
+          <li><a href="#">Lürzer's Archive</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-social">
+      <a href="https://www.linkedin.com/in/brandheadteacher/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12z"/></svg></a>
+      <a href="https://x.com/brandheadteach" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 3H21l-6.3 7.2L21.7 21h-5.4l-4.2-5.5L7 21H3.9l6.9-7.8L3.6 3h5.5l3.8 5.1L18.3 3z"/></svg></a>
+      <a href="https://www.facebook.com/Brandheadteacher/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3H13.5V8.3c0-.9.3-1.5 1.6-1.5h1.7V4.2C16.5 4.1 15.3 4 14 4c-2.6 0-4.4 1.6-4.4 4.5v2h-2.6v3h2.6V21h3.9z"/></svg></a>
+      <a href="https://www.youtube.com/channel/UCnXsDQALeyIfeEevKOP-S5Q" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 8.6s-.2-1.5-.8-2.2c-.8-.8-1.6-.8-2-.9C16.3 5.2 12 5.2 12 5.2s-4.3 0-7.2.3c-.4 0-1.2.1-2 .9-.6.7-.8 2.2-.8 2.2S1.8 10.4 1.8 12.2v1.6c0 1.8.2 3.6.2 3.6s.2 1.5.8 2.2c.8.8 1.8.8 2.3.9 1.6.2 7 .3 7 .3s4.3 0 7.2-.3c.4 0 1.2-.1 2-.9.6-.7.8-2.2.8-2.2s.2-1.8.2-3.6v-1.6c0-1.8-.2-3.6-.2-3.6zM9.9 15.3V9.1l5.4 3.1-5.4 3.1z"/></svg></a>
+      <a href="https://www.tiktok.com/@brandheadteacher" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3h2.6c.2 1.5 1.1 2.9 2.4 3.7.9.6 2 .9 3.1.9v2.7c-1.6 0-3.1-.5-4.4-1.3v6.6c0 3.3-2.7 6-6 6-1.3 0-2.6-.4-3.6-1.2A6 6 0 0 1 6 15.9a6 6 0 0 1 6.5-6v2.8a3.2 3.2 0 0 0-2.9 3.2 3.2 3.2 0 0 0 3.2 3.2 3.2 3.2 0 0 0 3.2-3.2V3z"/></svg></a>
+      <a href="https://www.pinterest.com/brandheadteacher/" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.6 7.85 6.27 9.36-.09-.78-.17-1.98.04-2.84.19-.77 1.23-5.14 1.23-5.14s-.31-.63-.31-1.55c0-1.45.84-2.53 1.89-2.53.89 0 1.32.67 1.32 1.47 0 .89-.57 2.23-.86 3.47-.25 1.04.52 1.89 1.54 1.89 1.85 0 3.1-2.38 3.1-5.19 0-2.14-1.44-3.74-4.06-3.74-2.96 0-4.81 2.21-4.81 4.68 0 .86.25 1.46.64 1.93.1.12.11.23.08.35-.09.37-.28 1.14-.32 1.3-.05.2-.17.25-.39.15-1.39-.57-2.04-2.08-2.04-3.79 0-2.82 2.38-6.2 7.1-6.2 3.79 0 6.29 2.74 6.29 5.69 0 3.89-2.17 6.8-5.37 6.8-1.08 0-2.09-.59-2.44-1.25 0 0-.58 2.32-.7 2.77-.21.8-.62 1.6-1 2.22.86.26 1.77.4 2.72.4 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg></a>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Brandheadteacher &amp; Brandactivist</span>
+      <nav class="foot-legal" aria-label="Pravne informacije" data-i18n-aria="foot_legal_aria">
+        <a href="#" data-i18n="foot_legal_cookies">Postavke kolačića</a>
+        <a href="#" data-i18n="foot_legal_privacy">Pravila privatnosti</a>
+        <a href="#" data-i18n="foot_legal_terms">Uvjeti korištenja</a>
+        <a href="#kontakt" data-i18n="foot_legal_contact">Kontakt</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// ============ I18N ============
+var I18N = {
+  hr: {
+    nav_blog:'Blog', nav_usluge:'Usluge', nav_suradnja:'Suradnja', nav_kontakt:'Kontakt',
+    nav_cta:'Zatraži konzultacije', burger_aria:'Meni',
+    hero_eyebrow:'Blog Svijet reklame',
+    hero_h1:'Reklama nije <span class="mark"><em>dekoracija</em><svg viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 Q 55 2, 110 10 T 218 8" stroke="var(--red-deep)" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span>. Reklama je strategija.',
+    hero_lede:'Desetljeća u oglašavanju naučila su me jedno: ništa nije (ne)važnije od oglasne poruke. Ovdje pišem o kampanjama koje su to dokazale — i pomažem brendovima da svoju poruku postave na isti temelj.',
+    hero_cta_primary:'Zatraži konzultacije →', hero_cta_secondary:'Pročitaj Svijet reklame',
+    proofcard_stamp:'OVJERENO',
+    proofcard_quote:'"Pitanje nije možete li preživjeti bez reklame. Pitanje je hoće li vaša poruka ikoga dirnuti."',
+    about_visual_aria:'Stol s marketinškim bilješkama i olovkama', about_eyebrow:'O meni',
+    about_p1:'<strong>Svijet reklame</strong> je blog o najnovijim kampanjama i trendovima u oglašavanju — pisan iz iskustva u industriji, s linkom na svaki primjer i stalnim naglaskom na to kako oglasna poruka oblikuje marketinšku strategiju.',
+    about_p2:'Dvadesetak godina rada na kampanjama i brendovima pretočeno je u jednostavan princip: dobra reklama se može objasniti u jednoj rečenici, a loša se brani stotinama slajdova.',
+    about_pull:'"Say yes to your brain" — princip koji vodi svaku analizu na ovom blogu, otkad je prvi put objavljen u rubrici Marketing UP, 2002.',
+    usluge_eyebrow:'Usluge — marketing consulting',
+    usluge_h2:'Marketing consulting za brendove koji žele reći nešto konkretno',
+    usluge_desc:'Tri formata suradnje — od jednokratne revizije do dugoročnog partnerstva.',
+    svc1_num:'01 — Konzultacije', svc1_h3:'Brand & marketing strategija',
+    svc1_p:'Analiza pozicioniranja, poruke i marketinškog miksa. Izlaz: konkretan plan, ne prezentacija od 80 slajdova.',
+    svc2_num:'02 — Revizija', svc2_h3:'Pregled i revizija kampanje',
+    svc2_p:'Neovisna ocjena postojeće ili planirane kampanje — poruka, kanal, kreativa — prije nego što krene budžet.',
+    svc3_num:'03 — Edukacija', svc3_h3:'Predavanja & radionice',
+    svc3_p:'Interno predavanje ili radionica za marketing i prodajni tim — studije slučaja iz Svijeta reklame, prilagođene vašoj industriji.',
+    svc_cta:'Zatraži ponudu →',
+    quiz_eyebrow:'Upitnik za savjetovanje', quiz_h3:'Ne znate koja vam usluga treba? Odgovorite na 3 pitanja.',
+    quiz_q1_label:'1. Gdje ste trenutno s kampanjom ili strategijom?',
+    quiz_q1_consult:'Nemamo još jasnu strategiju', quiz_q1_audit:'Kampanja je spremna, treba drugo mišljenje', quiz_q1_partner:'Tražimo dugoročnog partnera, ne jednokratan posao',
+    quiz_q2_label:'2. Što vam najviše treba?',
+    quiz_q2_consult:'Konkretan strateški plan', quiz_q2_audit:'Provjeru prije lansiranja', quiz_q2_edu:'Edukaciju za naš tim',
+    quiz_q3_label:'3. Kako zamišljate suradnju?',
+    quiz_q3_audit:'Jedan projekt, jasan opseg', quiz_q3_edu:'Radionica ili predavanje za tim', quiz_q3_partner:'Kontinuirana, dugoročna suradnja',
+    quiz_result_eyebrow:'Preporuka', quiz_cta:'Zatraži ovu uslugu →',
+    quiz_result_consult_title:'Konzultacije — brand & marketing strategija',
+    quiz_result_consult_desc:'Treba vam jasan strateški temelj prije sljedećeg poteza. Krećemo s analizom pozicioniranja i konkretnim planom.',
+    quiz_result_audit_title:'Revizija kampanje',
+    quiz_result_audit_desc:'Imate kampanju — treba vam neovisno, iskusno drugo mišljenje prije nego što krene budžet.',
+    quiz_result_edu_title:'Predavanje &amp; radionica',
+    quiz_result_edu_desc:'Najveća vrijednost za vas je educirati tim, ne samo izvesti jedan projekt.',
+    quiz_result_partner_title:'Gostujući sadržaj / partnerstvo',
+    quiz_result_partner_desc:'Tražite dugoročnu, kontinuiranu suradnju, ne jednokratan angažman.',
+    blog_h2:'Najnovije sa bloga',
+    blog_desc:'Analize kampanja i trendova u oglašavanju, s naglaskom na ono što poruka radi za strategiju.',
+    post1_featured:'● Izdvojeno', post1_date:'Rujan 2026', post1_h3:'AI može pisati kao ja. Ali ne može odlučiti što je moje',
+    post1_p:'AI može napisati rečenicu. Potpis ispod nje još uvijek morate staviti sami.',
+    post2_date:'Rujan 2026', post2_h3:'AI nema karakter. Brend bi ga morao imati. Tko će mu objasniti razliku?',
+    post2_p:'AI će znati sve o vašem brendu. Osim što je za njega dobro.',
+    post3_date:'Rujan 2026', post3_h3:'AI zna tko izgleda kao brend menadžer. Ne zna tko će znati voditi brend',
+    post3_p:'AI može pronaći kandidata koji odgovara oglasu. Ne može pronaći brend menadžera koji odgovara brendu.',
+    archive_2026_7:'AI može napisati 10.000 slogana. Šefov šofer sada ima kreativnu agenciju u džepu',
+    archive_2026_6:'Živimo li već danas innovation theatre, ili je AI tek dignuo zastor?',
+    archive_2026_5:'AI zna što kupac radi. Ne zna što ga pokreće',
+    archive_2026_4:'Budućnost marketinga nije upravljanje promocijom. To je upravljanje sustavom',
+    archive_2026_3:'AI ima odgovore. Ima li brend menadžer kriterij?',
+    archive_2026_1:'Što može AI, a ne može brend menadžer — i obratno?',
+    archive_2026_2:'Umjetna inteligencija neće zamijeniti marketing. Prosječan marketing hoće',
+    readmore:'Pročitaj više →', blog_all_btn:'Svi članci →',
+    arhiva_eyebrow:'Arhiva', arhiva_h2:'Arhiva blogova',
+    arhiva_desc:'Stariji zapisi iz Svijeta reklame, po godinama — za one koji vole čitati ispočetka.',
+    archive_all_btn:'Pregledaj cijelu arhivu →',
+    nl_eyebrow:'Prijava', nl_h2:'Najbolje iz Svijeta reklame, u inbox.',
+    nl_p:'Jedan email mjesečno. Kampanje vrijedne analize, bez spama.',
+    nl_email_placeholder:'ime@tvrtka.hr', nl_email_aria:'Email adresa', nl_submit:'Pretplati se',
+    nl_msg_invalid:'Unesite ispravnu email adresu.', nl_msg_ok:'Hvala! Provjerite inbox za potvrdu pretplate.',
+    suradnja_eyebrow:'Suradnja', suradnja_h2:'Dogovorimo suradnju u četiri koraka',
+    suradnja_desc:'Konzultacije, gostujući sadržaj, predavanje ili partnerstvo — ispunite obrazac i javljam se u 48h.',
+    step_tab1:'Koncept', step_tab2:'Detalji', step_tab3:'Proračun', step_tab4:'Potvrda',
+    step1_eyebrow:'Korak 1 od 4', step1_h3:'O kakvoj suradnji se radi?',
+    choice_consult_t:'Konzultacije', choice_consult_d:'Strategija, pozicioniranje, marketinški plan',
+    choice_audit_t:'Revizija kampanje', choice_audit_d:'Neovisna ocjena prije lansiranja',
+    choice_edu_t:'Predavanje / radionica', choice_edu_d:'Edukacija za vaš tim',
+    choice_partner_t:'Gostujući sadržaj / partnerstvo', choice_partner_d:'Objava, kolaboracija, oglašavanje na blogu',
+    err1:'Odaberite tip suradnje.',
+    step2_eyebrow:'Korak 2 od 4', step2_h3:'Tko se javlja?',
+    field_name_label:'Ime i prezime *', field_company_label:'Tvrtka', field_email_label:'Email *', field_phone_label:'Telefon (opcionalno)',
+    err_name:'Obavezno polje.', err_email:'Unesite ispravan email.',
+    step3_eyebrow:'Korak 3 od 4', step3_h3:'Okvirni proračun i poruka',
+    budget_b1:'Do 1.000 €', budget_b2:'1.000–5.000 €', budget_b3:'5.000–15.000 €', budget_b4:'Po dogovoru',
+    field_msg_label:'Kratak opis suradnje *', field_msg_placeholder:'U dvije-tri rečenice: što trebate i do kada.',
+    err_msg:'Opišite ukratko suradnju.',
+    step4_eyebrow:'Korak 4 od 4', step4_h3:'Provjerite prije slanja',
+    review_k_type:'Tip suradnje', review_k_name:'Ime', review_k_company:'Tvrtka', review_k_email:'Email', review_k_budget:'Proračun', review_k_message:'Poruka',
+    review_budget_unset:'Nenaznačeno',
+    success_stamp:'PRIMLJE<br>NO',
+    success_heading_tpl:'Hvala, {name}.',
+    success_body_tpl:'Upit je zaprimljen. Javljam se na {email} u roku od 48 sati.',
+    btn_back:'← Natrag', btn_next:'Dalje →', btn_submit:'Pošalji upit',
+    foot_tagline:'Blog o svijetu reklame i marketing consulting za brendove koji ne žele biti dekoracija.',
+    foot_nav_h4:'Navigacija', foot_nav_blog:'Svijet reklame — blog', foot_nav_arhiva:'Arhiva blogova',
+    foot_nav_usluge:'Usluge', foot_nav_suradnja:'Suradnja', foot_nav_ometi:'O meni',
+    foot_fav_h4:'Favoriti struke',
+    foot_legal_aria:'Pravne informacije', foot_legal_cookies:'Postavke kolačića', foot_legal_privacy:'Pravila privatnosti', foot_legal_terms:'Uvjeti korištenja', foot_legal_contact:'Kontakt'
+  },
+  en: {
+    nav_blog:'Blog', nav_usluge:'Services', nav_suradnja:'Work With Me', nav_kontakt:'Contact',
+    nav_cta:'Request a consultation', burger_aria:'Menu',
+    hero_eyebrow:'Svijet Reklame Blog',
+    hero_h1:'Advertising isn\'t <span class="mark"><em>decoration</em><svg viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 Q 55 2, 110 10 T 218 8" stroke="var(--red-deep)" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span>. Advertising is strategy.',
+    hero_lede:'Decades in advertising taught me one thing: nothing matters more — or less — than the message itself. Here I write about campaigns that proved it, and help brands put their own message on the same foundation.',
+    hero_cta_primary:'Request a consultation →', hero_cta_secondary:'Read Svijet Reklame',
+    proofcard_stamp:'VERIFIED',
+    proofcard_quote:'"The question isn\'t whether you can survive without advertising. The question is whether your message will move anyone at all."',
+    about_visual_aria:'A desk with marketing notes and pencils', about_eyebrow:'About',
+    about_p1:'<strong>Svijet Reklame</strong> ("The World of Advertising") is a blog about the latest campaigns and trends in advertising — written from industry experience, linking to every example, with a constant focus on how the advertising message shapes marketing strategy.',
+    about_p2:'Twenty-odd years of working on campaigns and brands distilled into one simple principle: a good ad can be explained in a single sentence, while a bad one needs a hundred slides to defend itself.',
+    about_pull:'"Say yes to your brain" — the principle behind every analysis on this blog, ever since it first ran in the Marketing UP column back in 2002.',
+    usluge_eyebrow:'Services — marketing consulting',
+    usluge_h2:'Marketing consulting for brands that want to say something that actually matters',
+    usluge_desc:'Three ways to work together — from a one-off review to a long-term partnership.',
+    svc1_num:'01 — Consulting', svc1_h3:'Brand & marketing strategy',
+    svc1_p:'An analysis of positioning, messaging and the marketing mix. The output is a concrete plan — not an 80-slide deck.',
+    svc2_num:'02 — Audit', svc2_h3:'Campaign review & audit',
+    svc2_p:'An independent assessment of an existing or planned campaign — message, channel, creative — before the budget goes live.',
+    svc3_num:'03 — Training', svc3_h3:'Talks & workshops',
+    svc3_p:'An in-house talk or workshop for your marketing and sales team — case studies from Svijet Reklame, tailored to your industry.',
+    svc_cta:'Request a quote →',
+    quiz_eyebrow:'Consulting needs quiz', quiz_h3:'Not sure which service you need? Answer 3 quick questions.',
+    quiz_q1_label:'1. Where are you right now with your campaign or strategy?',
+    quiz_q1_consult:'We don\'t have a clear strategy yet', quiz_q1_audit:'The campaign is ready, we need a second opinion', quiz_q1_partner:'We\'re looking for a long-term partner, not a one-off job',
+    quiz_q2_label:'2. What do you need most?',
+    quiz_q2_consult:'A concrete strategic plan', quiz_q2_audit:'A check before launch', quiz_q2_edu:'Training for our team',
+    quiz_q3_label:'3. How do you picture the collaboration?',
+    quiz_q3_audit:'One project, a clear scope', quiz_q3_edu:'A workshop or talk for the team', quiz_q3_partner:'Ongoing, long-term collaboration',
+    quiz_result_eyebrow:'Recommendation', quiz_cta:'Request this service →',
+    quiz_result_consult_title:'Consulting — brand & marketing strategy',
+    quiz_result_consult_desc:'You need a clear strategic foundation before your next move. We start with a positioning analysis and a concrete plan.',
+    quiz_result_audit_title:'Campaign audit',
+    quiz_result_audit_desc:'You have a campaign — you need an independent, experienced second opinion before the budget goes live.',
+    quiz_result_edu_title:'Talk &amp; workshop',
+    quiz_result_edu_desc:'The biggest value for you is training your team, not just delivering a single project.',
+    quiz_result_partner_title:'Guest content / partnership',
+    quiz_result_partner_desc:'You\'re after a long-term, ongoing collaboration, not a one-off engagement.',
+    blog_h2:'Latest from the blog',
+    blog_desc:'Analyses of campaigns and advertising trends, with a focus on what the message does for the strategy.',
+    post1_featured:'● Featured', post1_date:'September 2026', post1_h3:'AI Can Write Like Me. But It Can\'t Decide What\'s Mine',
+    post1_p:'AI can write the sentence. You still have to put your name under it.',
+    post2_date:'September 2026', post2_h3:'AI Has No Character. The Brand Should Have One. Who Will Explain the Difference to It?',
+    post2_p:'AI will know everything about your brand. Except what\'s good for it.',
+    post3_date:'September 2026', post3_h3:'AI Knows Who Looks Like a Brand Manager. It Doesn\'t Know Who Will Know How to Run a Brand',
+    post3_p:'AI can find a candidate who matches the job ad. It can\'t find a brand manager who matches the brand.',
+    archive_2026_7:'AI Can Write 10,000 Taglines. The Boss\'s Driver Now Has a Creative Agency in His Pocket',
+    archive_2026_6:'Are We Already Living in Innovation Theatre, or Has AI Just Raised the Curtain?',
+    archive_2026_5:'AI Knows What the Customer Does. It Doesn\'t Know What Drives Them',
+    archive_2026_4:'The Future of Marketing Isn\'t Managing Promotion. It\'s Managing a System.',
+    archive_2026_3:'AI Has Answers. Does the Brand Manager Have Criteria?',
+    archive_2026_1:'What AI Can Do That a Brand Manager Can\'t — and Vice Versa',
+    archive_2026_2:'Artificial Intelligence Won\'t Replace Marketing. Average Marketing Will.',
+    readmore:'Read more →', blog_all_btn:'All articles →',
+    arhiva_eyebrow:'Archive', arhiva_h2:'Blog archive',
+    arhiva_desc:'Older posts from Svijet Reklame, by year — for those who like to start from the beginning.',
+    archive_all_btn:'Browse the full archive →',
+    nl_eyebrow:'Subscribe', nl_h2:'The best of Svijet Reklame, in your inbox.',
+    nl_p:'One email a month. Campaigns worth analysing, no spam.',
+    nl_email_placeholder:'you@company.com', nl_email_aria:'Email address', nl_submit:'Subscribe',
+    nl_msg_invalid:'Enter a valid email address.', nl_msg_ok:'Thanks! Check your inbox to confirm your subscription.',
+    suradnja_eyebrow:'Work With Me', suradnja_h2:'Let\'s set up a collaboration in four steps',
+    suradnja_desc:'Consulting, guest content, a talk or a partnership — fill in the form and I\'ll reply within 48 hours.',
+    step_tab1:'Concept', step_tab2:'Details', step_tab3:'Budget', step_tab4:'Confirm',
+    step1_eyebrow:'Step 1 of 4', step1_h3:'What kind of collaboration is this?',
+    choice_consult_t:'Consulting', choice_consult_d:'Strategy, positioning, marketing plan',
+    choice_audit_t:'Campaign audit', choice_audit_d:'An independent review before launch',
+    choice_edu_t:'Talk / workshop', choice_edu_d:'Training for your team',
+    choice_partner_t:'Guest content / partnership', choice_partner_d:'A post, a collaboration, advertising on the blog',
+    err1:'Please choose a collaboration type.',
+    step2_eyebrow:'Step 2 of 4', step2_h3:'Who\'s reaching out?',
+    field_name_label:'Full name *', field_company_label:'Company', field_email_label:'Email *', field_phone_label:'Phone (optional)',
+    err_name:'This field is required.', err_email:'Enter a valid email.',
+    step3_eyebrow:'Step 3 of 4', step3_h3:'Rough budget and message',
+    budget_b1:'Up to €1,000', budget_b2:'€1,000–5,000', budget_b3:'€5,000–15,000', budget_b4:'Flexible / by arrangement',
+    field_msg_label:'Brief description *', field_msg_placeholder:'In two or three sentences: what you need and by when.',
+    err_msg:'Please briefly describe the collaboration.',
+    step4_eyebrow:'Step 4 of 4', step4_h3:'Review before sending',
+    review_k_type:'Collaboration type', review_k_name:'Name', review_k_company:'Company', review_k_email:'Email', review_k_budget:'Budget', review_k_message:'Message',
+    review_budget_unset:'Not specified',
+    success_stamp:'RECEI<br>VED',
+    success_heading_tpl:'Thanks, {name}.',
+    success_body_tpl:'Your request has been received. I\'ll get back to you at {email} within 48 hours.',
+    btn_back:'← Back', btn_next:'Next →', btn_submit:'Send request',
+    foot_tagline:'A blog about the world of advertising, and marketing consulting for brands that don\'t want to be decoration.',
+    foot_nav_h4:'Navigation', foot_nav_blog:'Svijet Reklame — blog', foot_nav_arhiva:'Blog archive',
+    foot_nav_usluge:'Services', foot_nav_suradnja:'Work With Me', foot_nav_ometi:'About',
+    foot_fav_h4:'Industry favorites',
+    foot_legal_aria:'Legal', foot_legal_cookies:'Cookie Preferences', foot_legal_privacy:'Privacy Notice', foot_legal_terms:'Terms of Service', foot_legal_contact:'Contact'
+  }
+};
+
+var CURRENT_LANG = 'hr';
+try{
+  var savedLang = localStorage.getItem('bht-lang');
+  if(savedLang === 'hr' || savedLang === 'en') CURRENT_LANG = savedLang;
+}catch(e){}
+
+function applyLang(lang){
+  CURRENT_LANG = lang;
+  var dict = I18N[lang];
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.dataset.i18n;
+    if(dict[key] !== undefined) el.textContent = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+    var key = el.dataset.i18nHtml;
+    if(dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+    var key = el.dataset.i18nPlaceholder;
+    if(dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+    var key = el.dataset.i18nAria;
+    if(dict[key] !== undefined) el.setAttribute('aria-label', dict[key]);
+  });
+
+  document.querySelectorAll('#langSwitch button').forEach(function(b){
+    b.setAttribute('aria-current', b.dataset.lang === lang ? 'true' : 'false');
+  });
+
+  try{ localStorage.setItem('bht-lang', lang); }catch(e){}
+
+  if(window.__rerenderCollabDynamic) window.__rerenderCollabDynamic();
+  if(window.__rerenderQuizResult) window.__rerenderQuizResult();
+
+  // Clear any stale status messages written in the previous language.
+  var nlMsg = document.getElementById('nlMsg');
+  if(nlMsg) nlMsg.textContent = '';
+}
+
+document.querySelectorAll('#langSwitch button').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    if(btn.dataset.lang !== CURRENT_LANG) applyLang(btn.dataset.lang);
+  });
+});
+
+applyLang(CURRENT_LANG);
+
+// Newsletter demo
+document.getElementById('nlForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var email = document.getElementById('nlEmail').value.trim();
+  var msg = document.getElementById('nlMsg');
+  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!re.test(email)){
+    msg.textContent = I18N[CURRENT_LANG].nl_msg_invalid;
+    msg.classList.remove('ok');
+    return;
+  }
+  msg.textContent = I18N[CURRENT_LANG].nl_msg_ok;
+  msg.classList.add('ok');
+  document.getElementById('nlForm').reset();
+});
+
+// Collaboration multi-step form
+(function(){
+  var state = { type:null, name:'', company:'', email:'', phone:'', budget:null, message:'' };
+  var step = 1;
+  var totalSteps = 4;
+
+  var panels = document.querySelectorAll('.step-panel');
+  var tabs = document.querySelectorAll('.step-tab');
+  var btnNext = document.getElementById('btnNext');
+  var btnBack = document.getElementById('btnBack');
+
+  document.querySelectorAll('#typeChoices .choice').forEach(function(el){
+    el.addEventListener('click', function(){
+      document.querySelectorAll('#typeChoices .choice').forEach(function(c){ c.classList.remove('selected'); });
+      el.classList.add('selected');
+      state.type = el.dataset.value;
+      document.getElementById('err1').textContent = '';
+    });
+  });
+
+  document.querySelectorAll('#budgetChoices .budget-pill').forEach(function(el){
+    el.addEventListener('click', function(){
+      document.querySelectorAll('#budgetChoices .budget-pill').forEach(function(c){ c.classList.remove('selected'); });
+      el.classList.add('selected');
+      state.budget = el.dataset.value;
+    });
+  });
+
+  function showStep(n){
+    var dict = I18N[CURRENT_LANG];
+    panels.forEach(function(p){ p.classList.toggle('active', +p.dataset.panel === n); });
+    tabs.forEach(function(t){
+      var ts = +t.dataset.step;
+      t.classList.toggle('active', ts === n);
+      t.classList.toggle('done', ts < n);
+    });
+    btnBack.style.visibility = n === 1 ? 'hidden' : 'visible';
+    btnNext.textContent = n === totalSteps ? dict.btn_submit : dict.btn_next;
+    document.getElementById('stepNav').style.display = (n === totalSteps && document.getElementById('successBox').style.display !== 'none') ? 'none' : 'flex';
+  }
+
+  function validateStep(n){
+    var dict = I18N[CURRENT_LANG];
+    if(n === 1){
+      if(!state.type){ document.getElementById('err1').textContent = dict.err1; return false; }
+      return true;
+    }
+    if(n === 2){
+      var name = document.getElementById('f-name').value.trim();
+      var email = document.getElementById('f-email').value.trim();
+      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      var ok = true;
+      if(!name){ document.getElementById('err-name').textContent = dict.err_name; ok = false; } else { document.getElementById('err-name').textContent=''; }
+      if(!re.test(email)){ document.getElementById('err-email').textContent = dict.err_email; ok = false; } else { document.getElementById('err-email').textContent=''; }
+      if(ok){
+        state.name = name;
+        state.email = email;
+        state.company = document.getElementById('f-company').value.trim();
+        state.phone = document.getElementById('f-phone').value.trim();
+      }
+      return ok;
+    }
+    if(n === 3){
+      var m = document.getElementById('f-msg').value.trim();
+      if(!m){ document.getElementById('err-msg').textContent = dict.err_msg; return false; }
+      document.getElementById('err-msg').textContent = '';
+      state.message = m;
+      buildReview();
+      return true;
+    }
+    return true;
+  }
+
+  function buildReview(){
+    var dict = I18N[CURRENT_LANG];
+    var box = document.getElementById('reviewBox');
+    var typeLabel = state.type ? dict['choice_' + state.type + '_t'] : '—';
+    var budgetLabel = state.budget ? dict['budget_' + state.budget] : dict.review_budget_unset;
+    box.innerHTML = [
+      row(dict.review_k_type, typeLabel),
+      row(dict.review_k_name, state.name),
+      row(dict.review_k_company, state.company || '—'),
+      row(dict.review_k_email, state.email),
+      row(dict.review_k_budget, budgetLabel),
+      row(dict.review_k_message, state.message)
+    ].join('');
+  }
+  function row(k,v){
+    return '<div class="review-row"><span class="k">'+escapeHtml(k)+'</span><span class="v">'+escapeHtml(v)+'</span></div>';
+  }
+  function escapeHtml(s){
+    var d = document.createElement('div'); d.textContent = s; return d.innerHTML;
+  }
+
+  function renderSuccess(){
+    var dict = I18N[CURRENT_LANG];
+    document.getElementById('succHeading').innerHTML = dict.success_heading_tpl.replace('{name}', escapeHtml(state.name));
+    document.getElementById('succBody').innerHTML = dict.success_body_tpl.replace('{email}', '<strong>' + escapeHtml(state.email) + '</strong>');
+  }
+
+  window.__rerenderCollabDynamic = function(){
+    if(state.type || state.message) buildReview();
+    if(document.getElementById('successBox').style.display !== 'none') renderSuccess();
+    showStep(step);
+  };
+
+  btnNext.addEventListener('click', function(){
+    if(step === totalSteps){
+      // submit
+      document.getElementById('reviewStep').style.display = 'none';
+      document.getElementById('successBox').style.display = 'block';
+      renderSuccess();
+      document.getElementById('stepNav').style.display = 'none';
+      return;
+    }
+    if(!validateStep(step)) return;
+    step = Math.min(totalSteps, step + 1);
+    showStep(step);
+  });
+
+  btnBack.addEventListener('click', function(){
+    step = Math.max(1, step - 1);
+    showStep(step);
+  });
+
+  // Called from the consulting quiz: pre-selects a collaboration type and jumps here.
+  window.prefillSuradnja = function(value){
+    var el = document.querySelector('#typeChoices .choice[data-value="'+value+'"]');
+    if(el){ el.click(); }
+    var target = document.getElementById('suradnja');
+    if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+  };
+
+  showStep(step);
+})();
+
+// Consulting-needs quiz
+(function(){
+  var answers = { 1:null, 2:null, 3:null };
+  var lastWinner = null;
+
+  document.querySelectorAll('.quiz-opts').forEach(function(group){
+    var q = group.dataset.q;
+    group.querySelectorAll('.quiz-opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        group.querySelectorAll('.quiz-opt').forEach(function(b){ b.classList.remove('selected'); });
+        btn.classList.add('selected');
+        answers[q] = btn.dataset.v;
+        maybeShowResult();
+      });
+    });
+  });
+
+  function renderResult(winner){
+    var dict = I18N[CURRENT_LANG];
+    document.getElementById('quizResultTitle').innerHTML = dict['quiz_result_' + winner + '_title'];
+    document.getElementById('quizResultDesc').textContent = dict['quiz_result_' + winner + '_desc'];
+    document.getElementById('quizCta').onclick = function(){ window.prefillSuradnja(winner); };
+  }
+
+  function maybeShowResult(){
+    if(!answers[1] || !answers[2] || !answers[3]) return;
+    var counts = {};
+    [answers[1], answers[2], answers[3]].forEach(function(v){ counts[v] = (counts[v] || 0) + 1; });
+    var winner = answers[2];
+    var max = 0;
+    Object.keys(counts).forEach(function(k){ if(counts[k] > max){ max = counts[k]; winner = k; } });
+    lastWinner = winner;
+    renderResult(winner);
+    document.getElementById('quizResult').hidden = false;
+    document.getElementById('quizResult').scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+
+  window.__rerenderQuizResult = function(){
+    if(lastWinner) renderResult(lastWinner);
+  };
+})();
+</script>

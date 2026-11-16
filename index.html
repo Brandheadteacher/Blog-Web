@@ -341,6 +341,7 @@ section{ padding:76px 0; }
   aspect-ratio:4/5; background:var(--paper-raised); border:1px solid var(--line);
   position:relative; overflow:hidden; border-radius:16px;
 }
+.about-visual img{ width:100%; height:100%; object-fit:cover; display:block; }
 .about p{ color:var(--ink-soft); font-size:16px; max-width:58ch; }
 .about p strong{ color:var(--ink); }
 .pull{
@@ -600,18 +601,8 @@ footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-
 
   <section id="o-meni">
     <div class="wrap about">
-      <div class="about-visual" role="img" aria-label="Stol s marketinškim bilješkama i olovkama" data-i18n-aria="about_visual_aria">
-        <svg viewBox="0 0 400 500" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <rect width="400" height="500" fill="var(--paper-raised)"/>
-          <rect x="60" y="70" width="280" height="200" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="2" transform="rotate(-2 200 170)"/>
-          <path d="M100 150 Q 180 110 260 150 T 320 190" stroke="var(--red-deep)" stroke-width="4" fill="none" stroke-linecap="round" transform="rotate(-2 200 170)"/>
-          <text x="100" y="230" font-family="Poppins, sans-serif" font-weight="600" font-style="italic" font-size="26" fill="var(--ink)" transform="rotate(-2 200 170)">Marketing Strategy</text>
-          <circle cx="300" cy="360" r="46" fill="none" stroke="var(--red)" stroke-width="2.5" transform="rotate(8 300 360)"/>
-          <text x="300" y="356" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--red)" text-anchor="middle" transform="rotate(8 300 360)">BRAND</text>
-          <text x="300" y="370" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--red)" text-anchor="middle" transform="rotate(8 300 360)">ACTIVIST</text>
-          <rect x="70" y="400" width="90" height="14" rx="7" fill="var(--red-deep)" opacity="0.6" transform="rotate(-4 115 407)"/>
-          <rect x="170" y="408" width="60" height="14" rx="7" fill="var(--ink-faint)" opacity="0.5" transform="rotate(3 200 415)"/>
-        </svg>
+      <div class="about-visual">
+        <img src="about-collage.jpg" alt="Kolaž stvarnih objava iz rubrike Marketing UP i drugih tiskanih oglasa i članaka Branimira Zoraje" data-i18n-alt="about_visual_alt" width="700" height="700">
       </div>
       <div>
         <p class="eyebrow" data-i18n="about_eyebrow">O meni</p>
@@ -944,7 +935,7 @@ var I18N = {
     hero_cta_primary:'Zatraži konzultacije →', hero_cta_secondary:'Pročitaj Svijet reklame',
     proofcard_stamp:'OVJERENO',
     proofcard_quote:'"Pitanje nije možete li preživjeti bez reklame. Pitanje je hoće li vaša poruka ikoga dirnuti."',
-    about_visual_aria:'Stol s marketinškim bilješkama i olovkama', about_eyebrow:'O meni',
+    about_visual_alt:'Kolaž stvarnih objava iz rubrike Marketing UP i drugih tiskanih oglasa i članaka Branimira Zoraje', about_eyebrow:'O meni',
     about_p1:'<strong>Svijet reklame</strong> je blog o najnovijim kampanjama i trendovima u oglašavanju — pisan iz iskustva u industriji, s linkom na svaki primjer i stalnim naglaskom na to kako oglasna poruka oblikuje marketinšku strategiju.',
     about_p2:'Dvadesetak godina rada na kampanjama i brendovima pretočeno je u jednostavan princip: dobra reklama se može objasniti u jednoj rečenici, a loša se brani stotinama slajdova.',
     about_pull:'"Say yes to your brain" — princip koji vodi svaku analizu na ovom blogu, otkad je prvi put objavljen u rubrici Marketing UP, 2002.',
@@ -1035,7 +1026,7 @@ var I18N = {
     hero_cta_primary:'Request a consultation →', hero_cta_secondary:'Read Svijet Reklame',
     proofcard_stamp:'VERIFIED',
     proofcard_quote:'"The question isn\'t whether you can survive without advertising. The question is whether your message will move anyone at all."',
-    about_visual_aria:'A desk with marketing notes and pencils', about_eyebrow:'About',
+    about_visual_alt:'A collage of real published articles from the Marketing UP column and other print ads and features by Branimir Zoraja', about_eyebrow:'About',
     about_p1:'<strong>Svijet Reklame</strong> ("The World of Advertising") is a blog about the latest campaigns and trends in advertising — written from industry experience, linking to every example, with a constant focus on how the advertising message shapes marketing strategy.',
     about_p2:'Twenty-odd years of working on campaigns and brands distilled into one simple principle: a good ad can be explained in a single sentence, while a bad one needs a hundred slides to defend itself.',
     about_pull:'"Say yes to your brain" — the principle behind every analysis on this blog, ever since it first ran in the Marketing UP column back in 2002.',
@@ -1145,6 +1136,10 @@ function applyLang(lang){
   document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
     var key = el.dataset.i18nAria;
     if(dict[key] !== undefined) el.setAttribute('aria-label', dict[key]);
+  });
+  document.querySelectorAll('[data-i18n-alt]').forEach(function(el){
+    var key = el.dataset.i18nAlt;
+    if(dict[key] !== undefined) el.setAttribute('alt', dict[key]);
   });
 
   document.querySelectorAll('#langSwitch button').forEach(function(b){

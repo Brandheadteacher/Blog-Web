@@ -316,9 +316,12 @@ nav.primary a:hover{ color:var(--ink); }
 }
 .proofcard h3{ font-size:16px; margin-bottom:8px; }
 .proofcard p{ color:var(--ink-soft); font-size:13px; margin:0 0 12px; }
+.proofcard .quote-wheel{
+  overflow:hidden; min-height:4.2em; margin:0 0 12px;
+}
 .proofcard .quote{
   font-family:var(--serif); font-style:italic; font-size:16px; line-height:1.4;
-  color:var(--ink); transition:transform 0.4s ease; min-height:4.2em; transform-origin:center;
+  color:var(--ink); transition:transform 0.4s ease, opacity 0.4s ease; margin:0;
 }
 .proofcard .quote-src{
   margin-top:14px; font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em;
@@ -593,7 +596,7 @@ footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-
       <div class="proofcard">
         <span class="cm1"></span><span class="cm2"></span>
         <span class="stamp" data-i18n-html="proofcard_stamp">OVJERENO</span>
-        <p class="quote" id="heroQuote">"Marketing bez strategije ima jednu veliku prednost: nikad ne morate priznati da ste skrenuli s puta."</p>
+        <div class="quote-wheel"><p class="quote" id="heroQuote">"Marketing bez strategije ima jednu veliku prednost: nikad ne morate priznati da ste skrenuli s puta."</p></div>
         <p class="quote-src">Brandheadteacher</p>
       </div>
     </div>
@@ -1212,10 +1215,16 @@ if(heroQuoteEl){
   var heroQuoteIndex = 0;
   setInterval(function(){
     heroQuoteIndex = (heroQuoteIndex + 1) % heroQuotes.length;
-    heroQuoteEl.style.transform = 'scale(0.85)';
+    heroQuoteEl.style.transform = 'translateY(-100%)';
+    heroQuoteEl.style.opacity = '0';
     setTimeout(function(){
       heroQuoteEl.textContent = '"' + heroQuotes[heroQuoteIndex] + '"';
-      heroQuoteEl.style.transform = 'scale(1)';
+      heroQuoteEl.style.transition = 'none';
+      heroQuoteEl.style.transform = 'translateY(100%)';
+      heroQuoteEl.offsetHeight;
+      heroQuoteEl.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
+      heroQuoteEl.style.transform = 'translateY(0)';
+      heroQuoteEl.style.opacity = '1';
     }, 400);
   }, 10000);
 }

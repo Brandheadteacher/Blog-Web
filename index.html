@@ -318,7 +318,7 @@ nav.primary a:hover{ color:var(--ink); }
 .proofcard p{ color:var(--ink-soft); font-size:13px; margin:0 0 12px; }
 .proofcard .quote{
   font-family:var(--serif); font-style:italic; font-size:16px; line-height:1.4;
-  color:var(--ink);
+  color:var(--ink); transition:opacity 0.4s ease; min-height:4.2em;
 }
 .proofcard .quote-src{
   margin-top:14px; font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em;
@@ -593,8 +593,8 @@ footer h4{ font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-
       <div class="proofcard">
         <span class="cm1"></span><span class="cm2"></span>
         <span class="stamp" data-i18n-html="proofcard_stamp">OVJERENO</span>
-        <p class="quote" data-i18n="proofcard_quote">"Pitanje nije možete li preživjeti bez reklame. Pitanje je hoće li vaša poruka ikoga dirnuti."</p>
-        <p class="quote-src">— Brandheadteacher &amp; Brandactivist</p>
+        <p class="quote" id="heroQuote">"Marketing bez strategije ima jednu veliku prednost: nikad ne morate priznati da ste skrenuli s puta."</p>
+        <p class="quote-src">— Brandheadteacher</p>
       </div>
     </div>
   </section>
@@ -934,7 +934,6 @@ var I18N = {
     hero_lede:'Desetljeća u oglašavanju naučila su me jedno: ništa nije (ne)važnije od oglasne poruke. Ovdje pišem o kampanjama koje su to dokazale — i pomažem brendovima da svoju poruku postave na isti temelj.',
     hero_cta_primary:'Zatraži konzultacije →', hero_cta_secondary:'Pročitaj Svijet reklame',
     proofcard_stamp:'OVJERENO',
-    proofcard_quote:'"Pitanje nije možete li preživjeti bez reklame. Pitanje je hoće li vaša poruka ikoga dirnuti."',
     about_visual_alt:'Kolaž stvarnih objava iz rubrike Marketing UP i drugih tiskanih oglasa i članaka Branimira Zoraje', about_eyebrow:'O meni',
     about_p1:'<strong>Svijet reklame</strong> je blog o najnovijim kampanjama i trendovima u oglašavanju — pisan iz iskustva u industriji, s linkom na svaki primjer i stalnim naglaskom na to kako oglasna poruka oblikuje marketinšku strategiju.',
     about_p2:'Dvadesetak godina rada na kampanjama i brendovima pretočeno je u jednostavan princip: dobra reklama se može objasniti u jednoj rečenici, a loša se brani stotinama slajdova.',
@@ -1025,7 +1024,6 @@ var I18N = {
     hero_lede:'Decades in advertising taught me one thing: nothing matters more — or less — than the message itself. Here I write about campaigns that proved it, and help brands put their own message on the same foundation.',
     hero_cta_primary:'Request a consultation →', hero_cta_secondary:'Read Svijet Reklame',
     proofcard_stamp:'VERIFIED',
-    proofcard_quote:'"The question isn\'t whether you can survive without advertising. The question is whether your message will move anyone at all."',
     about_visual_alt:'A collage of real published articles from the Marketing UP column and other print ads and features by Branimir Zoraja', about_eyebrow:'About',
     about_p1:'<strong>Svijet Reklame</strong> ("The World of Advertising") is a blog about the latest campaigns and trends in advertising — written from industry experience, linking to every example, with a constant focus on how the advertising message shapes marketing strategy.',
     about_p2:'Twenty-odd years of working on campaigns and brands distilled into one simple principle: a good ad can be explained in a single sentence, while a bad one needs a hundred slides to defend itself.',
@@ -1175,6 +1173,52 @@ burgerBtn.addEventListener('click', function(){
 mobileNav.querySelectorAll('a').forEach(function(a){
   a.addEventListener('click', function(){ setMobileNav(false); });
 });
+
+// Hero quote carousel
+var heroQuotes = [
+  'Marketing bez strategije ima jednu veliku prednost: nikad ne morate priznati da ste skrenuli s puta.',
+  'Marketinški plan nije popis svega što možete učiniti. To je odluka što nećete učiniti.',
+  'Identitet brenda nije ono što tvrtka govori o sebi. To je ono što tržište prepoznaje i bez objašnjenja.',
+  'Brend se odgaja kao dijete. Samo što loše odgojenom brendu tržište ne oprašta pubertet.',
+  'Ako se brend odgaja kao dijete, većina naših tvrtki su dom za nezbrinutu djecu.',
+  'Dobar brand menadžer ne upravlja onime što brend jest, nego odlučuje što brend mora postati.',
+  'Najbolji brand menadžeri ne čuvaju brend od promjena. Čuvaju ga od razloga zbog kojih se mora promijeniti prekasno.',
+  'Tržišni lider ne gubi poziciju kad konkurencija postane bolja. Gubi je kad sam prestane biti bolji.',
+  'Najskuplja riječ u marketingu nije ‘novo’. Najskuplja je ‘oduvijek’, kada se njome opravdava da se ništa ne promijeni.',
+  'Tradicija je kapital brenda samo dok ga kupci ne počnu doživljavati kao muzej.',
+  'Rebranding je često najskuplji način da priznate kako ne znate što bi s brendom.',
+  'Rebranding ne počinje kad promijenite logotip. Počinje kad shvatite da kupci više ne vide ono što vi mislite da prodajete.',
+  'Inovacija nije ono što proizvođač prvi napravi. Inovacija je ono zbog čega kupac više ne želi staro.',
+  'Kupac ne mora znati koliko je vaš proizvod sofisticiran. Mora znati zašto je bolji za njega.',
+  'Ambalaža može prodati loš proizvod prvi put. Drugi put mora ga prodati proizvod.',
+  'Ambalaža je posljednji oglas koji kupac vidi i prvi koji može pretvoriti u kupnju.',
+  'Širina asortimana nije dokaz snage brenda. Ponekad je samo dokaz da se nitko nije usudio izabrati.',
+  'Kad je cijena jedina prednost brenda, konkurencija odlučuje koliko će dugo trajati.',
+  'Konkurenciju ne pobjeđujete time što ste glasniji, nego time što kupcu dajete bolji razlog da vas izabere.',
+  'Ako za svoj brend nemate bolji razlog za kupnju, uvijek možete potrošiti više novca objašnjavajući zašto ga nemate.',
+  'Konkurencija vam može oduzeti policu, cijenu i tržišni udjel. Ono što ste zaslužili u svijesti kupaca mora tek naučiti osvojiti.',
+  'Trendove slijede oni koji žele stići konkurenciju. Tržište mijenjaju oni koji znaju kamo ide kupac.',
+  'Oglašavanje bez misli samo je skupo ukrašavanje praznine.',
+  'Dobar dizajn privlači pogled. Dobra ideja mijenja mišljenje. Dobar marketing mijenja izbor.',
+  'Najskuplja reklama nije ona koja puno košta. Najskuplja je ona koja ne mijenja ničije ponašanje.',
+  'U marketingu je gotovo sve već viđeno. Problem je što se premalo toga isplati ponovno vidjeti.',
+  'Potrošači ne kupuju vaše kreativne nagrade. Kupuju razloge da ne kupe konkurenciju.',
+  'Najveća iluzija oglašavanja jest da ono što oduševljava oglašivača mora zanimati i kupca.',
+  'Doseg vam govori koliko vas je ljudi moglo vidjeti. Utjecaj govori koliko ih je imalo razloga slušati.',
+  'Umjetna inteligencija neće uništiti kreativnost. Samo će dokazati koliko smo prosječnosti godinama naplaćivali kao originalnost.'
+];
+var heroQuoteEl = document.getElementById('heroQuote');
+if(heroQuoteEl){
+  var heroQuoteIndex = 0;
+  setInterval(function(){
+    heroQuoteIndex = (heroQuoteIndex + 1) % heroQuotes.length;
+    heroQuoteEl.style.opacity = '0';
+    setTimeout(function(){
+      heroQuoteEl.textContent = '"' + heroQuotes[heroQuoteIndex] + '"';
+      heroQuoteEl.style.opacity = '1';
+    }, 400);
+  }, 10000);
+}
 
 applyLang(CURRENT_LANG);
 

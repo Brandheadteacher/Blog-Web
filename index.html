@@ -1151,6 +1151,7 @@ function applyLang(lang){
 
   if(window.__rerenderCollabDynamic) window.__rerenderCollabDynamic();
   if(window.__rerenderQuizResult) window.__rerenderQuizResult();
+  if(window.__rerenderHeroQuote) window.__rerenderHeroQuote();
 
   // Clear any stale status messages written in the previous language.
   var nlMsg = document.getElementById('nlMsg');
@@ -1178,47 +1179,85 @@ mobileNav.querySelectorAll('a').forEach(function(a){
 });
 
 // Hero quote carousel
-var heroQuotes = [
-  'Marketing bez strategije ima jednu veliku prednost: nikad ne morate priznati da ste skrenuli s puta.',
-  'Marketinški plan nije popis svega što možete učiniti. To je odluka što nećete učiniti.',
-  'Identitet brenda nije ono što tvrtka govori o sebi. To je ono što tržište prepoznaje i bez objašnjenja.',
-  'Brend se odgaja kao dijete. Samo što loše odgojenom brendu tržište ne oprašta pubertet.',
-  'Ako se brend odgaja kao dijete, većina naših tvrtki su dom za nezbrinutu djecu.',
-  'Dobar brand menadžer ne upravlja onime što brend jest, nego odlučuje što brend mora postati.',
-  'Najbolji brand menadžeri ne čuvaju brend od promjena. Čuvaju ga od razloga zbog kojih se mora promijeniti prekasno.',
-  'Tržišni lider ne gubi poziciju kad konkurencija postane bolja. Gubi je kad sam prestane biti bolji.',
-  'Najskuplja riječ u marketingu nije ‘novo’. Najskuplja je ‘oduvijek’, kada se njome opravdava da se ništa ne promijeni.',
-  'Tradicija je kapital brenda samo dok ga kupci ne počnu doživljavati kao muzej.',
-  'Rebranding je često najskuplji način da priznate kako ne znate što bi s brendom.',
-  'Rebranding ne počinje kad promijenite logotip. Počinje kad shvatite da kupci više ne vide ono što vi mislite da prodajete.',
-  'Inovacija nije ono što proizvođač prvi napravi. Inovacija je ono zbog čega kupac više ne želi staro.',
-  'Kupac ne mora znati koliko je vaš proizvod sofisticiran. Mora znati zašto je bolji za njega.',
-  'Ambalaža može prodati loš proizvod prvi put. Drugi put mora ga prodati proizvod.',
-  'Ambalaža je posljednji oglas koji kupac vidi i prvi koji može pretvoriti u kupnju.',
-  'Širina asortimana nije dokaz snage brenda. Ponekad je samo dokaz da se nitko nije usudio izabrati.',
-  'Kad je cijena jedina prednost brenda, konkurencija odlučuje koliko će dugo trajati.',
-  'Konkurenciju ne pobjeđujete time što ste glasniji, nego time što kupcu dajete bolji razlog da vas izabere.',
-  'Ako za svoj brend nemate bolji razlog za kupnju, uvijek možete potrošiti više novca objašnjavajući zašto ga nemate.',
-  'Konkurencija vam može oduzeti policu, cijenu i tržišni udjel. Ono što ste zaslužili u svijesti kupaca mora tek naučiti osvojiti.',
-  'Trendove slijede oni koji žele stići konkurenciju. Tržište mijenjaju oni koji znaju kamo ide kupac.',
-  'Oglašavanje bez misli samo je skupo ukrašavanje praznine.',
-  'Dobar dizajn privlači pogled. Dobra ideja mijenja mišljenje. Dobar marketing mijenja izbor.',
-  'Najskuplja reklama nije ona koja puno košta. Najskuplja je ona koja ne mijenja ničije ponašanje.',
-  'U marketingu je gotovo sve već viđeno. Problem je što se premalo toga isplati ponovno vidjeti.',
-  'Potrošači ne kupuju vaše kreativne nagrade. Kupuju razloge da ne kupe konkurenciju.',
-  'Najveća iluzija oglašavanja jest da ono što oduševljava oglašivača mora zanimati i kupca.',
-  'Doseg vam govori koliko vas je ljudi moglo vidjeti. Utjecaj govori koliko ih je imalo razloga slušati.',
-  'Umjetna inteligencija neće uništiti kreativnost. Samo će dokazati koliko smo prosječnosti godinama naplaćivali kao originalnost.'
-];
+var heroQuotes = {
+  hr: [
+    'Marketing bez strategije ima jednu veliku prednost: nikad ne morate priznati da ste skrenuli s puta.',
+    'Marketinški plan nije popis svega što možete učiniti. To je odluka što nećete učiniti.',
+    'Identitet brenda nije ono što tvrtka govori o sebi. To je ono što tržište prepoznaje i bez objašnjenja.',
+    'Brend se odgaja kao dijete. Samo što loše odgojenom brendu tržište ne oprašta pubertet.',
+    'Ako se brend odgaja kao dijete, većina naših tvrtki su dom za nezbrinutu djecu.',
+    'Dobar brand menadžer ne upravlja onime što brend jest, nego odlučuje što brend mora postati.',
+    'Najbolji brand menadžeri ne čuvaju brend od promjena. Čuvaju ga od razloga zbog kojih se mora promijeniti prekasno.',
+    'Tržišni lider ne gubi poziciju kad konkurencija postane bolja. Gubi je kad sam prestane biti bolji.',
+    'Najskuplja riječ u marketingu nije ‘novo’. Najskuplja je ‘oduvijek’, kada se njome opravdava da se ništa ne promijeni.',
+    'Tradicija je kapital brenda samo dok ga kupci ne počnu doživljavati kao muzej.',
+    'Rebranding je često najskuplji način da priznate kako ne znate što bi s brendom.',
+    'Rebranding ne počinje kad promijenite logotip. Počinje kad shvatite da kupci više ne vide ono što vi mislite da prodajete.',
+    'Inovacija nije ono što proizvođač prvi napravi. Inovacija je ono zbog čega kupac više ne želi staro.',
+    'Kupac ne mora znati koliko je vaš proizvod sofisticiran. Mora znati zašto je bolji za njega.',
+    'Ambalaža može prodati loš proizvod prvi put. Drugi put mora ga prodati proizvod.',
+    'Ambalaža je posljednji oglas koji kupac vidi i prvi koji može pretvoriti u kupnju.',
+    'Širina asortimana nije dokaz snage brenda. Ponekad je samo dokaz da se nitko nije usudio izabrati.',
+    'Kad je cijena jedina prednost brenda, konkurencija odlučuje koliko će dugo trajati.',
+    'Konkurenciju ne pobjeđujete time što ste glasniji, nego time što kupcu dajete bolji razlog da vas izabere.',
+    'Ako za svoj brend nemate bolji razlog za kupnju, uvijek možete potrošiti više novca objašnjavajući zašto ga nemate.',
+    'Konkurencija vam može oduzeti policu, cijenu i tržišni udjel. Ono što ste zaslužili u svijesti kupaca mora tek naučiti osvojiti.',
+    'Trendove slijede oni koji žele stići konkurenciju. Tržište mijenjaju oni koji znaju kamo ide kupac.',
+    'Oglašavanje bez misli samo je skupo ukrašavanje praznine.',
+    'Dobar dizajn privlači pogled. Dobra ideja mijenja mišljenje. Dobar marketing mijenja izbor.',
+    'Najskuplja reklama nije ona koja puno košta. Najskuplja je ona koja ne mijenja ničije ponašanje.',
+    'U marketingu je gotovo sve već viđeno. Problem je što se premalo toga isplati ponovno vidjeti.',
+    'Potrošači ne kupuju vaše kreativne nagrade. Kupuju razloge da ne kupe konkurenciju.',
+    'Najveća iluzija oglašavanja jest da ono što oduševljava oglašivača mora zanimati i kupca.',
+    'Doseg vam govori koliko vas je ljudi moglo vidjeti. Utjecaj govori koliko ih je imalo razloga slušati.',
+    'Umjetna inteligencija neće uništiti kreativnost. Samo će dokazati koliko smo prosječnosti godinama naplaćivali kao originalnost.'
+  ],
+  en: [
+    'Marketing without strategy has one big advantage: you never have to admit you lost your way.',
+    'A marketing plan isn\'t a list of everything you could do. It\'s a decision about what you won\'t.',
+    'Brand identity isn\'t what a company says about itself. It\'s what the market recognises without being told.',
+    'A brand is raised like a child. Except the market never forgives a badly raised brand its puberty.',
+    'If a brand is raised like a child, most of our companies are orphanages.',
+    'A good brand manager doesn\'t manage what the brand is. They decide what it must become.',
+    'The best brand managers don\'t protect a brand from change. They protect it from the reasons it has to change too late.',
+    'A market leader doesn\'t lose its position when the competition gets better. It loses it when it stops getting better itself.',
+    'The most expensive word in marketing isn\'t ‘new’. It\'s ‘always’, when it\'s used to justify never changing.',
+    'Tradition is brand equity only until customers start seeing it as a museum.',
+    'Rebranding is often the most expensive way to admit you don\'t know what to do with your brand.',
+    'Rebranding doesn\'t start when you change the logo. It starts when you realise customers no longer see what you think you\'re selling.',
+    'Innovation isn\'t what a manufacturer does first. It\'s what makes the customer stop wanting the old thing.',
+    'The customer doesn\'t need to know how sophisticated your product is. They need to know why it\'s better for them.',
+    'Packaging can sell a bad product once. The second time, the product has to sell itself.',
+    'Packaging is the last ad the customer sees, and the first one that can turn into a purchase.',
+    'A wide range isn\'t proof of a brand\'s strength. Sometimes it\'s just proof that no one dared to choose.',
+    'When price is a brand\'s only advantage, the competition decides how long that lasts.',
+    'You don\'t beat the competition by being louder, but by giving the customer a better reason to choose you.',
+    'If your brand has no better reason to buy, you can always spend more money explaining why it doesn\'t.',
+    'Competitors can take your shelf space, your price and your market share. What you\'ve earned in customers\' minds, they still have to learn how to win.',
+    'Trends are followed by those trying to catch up with the competition. Markets are changed by those who know where the customer is going.',
+    'Advertising without thought is just expensive decoration of emptiness.',
+    'Good design catches the eye. A good idea changes minds. Good marketing changes choices.',
+    'The most expensive ad isn\'t the one that costs the most. It\'s the one that changes no one\'s behaviour.',
+    'In marketing, almost everything has already been seen. The problem is too little of it is worth seeing again.',
+    'Consumers don\'t buy your creative awards. They buy reasons not to buy the competition.',
+    'Advertising\'s biggest illusion is that whatever excites the advertiser must interest the customer too.',
+    'Reach tells you how many people could have seen you. Impact tells you how many had a reason to listen.',
+    'Artificial intelligence won\'t destroy creativity. It will simply prove how much mediocrity we\'ve been charging for as originality, for years.'
+  ]
+};
 var heroQuoteEl = document.getElementById('heroQuote');
 if(heroQuoteEl){
   var heroQuoteIndex = 0;
+  var renderHeroQuote = function(){
+    heroQuoteEl.textContent = '"' + heroQuotes[CURRENT_LANG][heroQuoteIndex] + '"';
+  };
+  window.__rerenderHeroQuote = renderHeroQuote;
   setInterval(function(){
-    heroQuoteIndex = (heroQuoteIndex + 1) % heroQuotes.length;
+    heroQuoteIndex = (heroQuoteIndex + 1) % heroQuotes[CURRENT_LANG].length;
     heroQuoteEl.style.transform = 'translateY(-100%)';
     heroQuoteEl.style.opacity = '0';
     setTimeout(function(){
-      heroQuoteEl.textContent = '"' + heroQuotes[heroQuoteIndex] + '"';
+      renderHeroQuote();
       heroQuoteEl.style.transition = 'none';
       heroQuoteEl.style.transform = 'translateY(100%)';
       heroQuoteEl.offsetHeight;
